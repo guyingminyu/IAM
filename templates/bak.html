@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body class="layui-layout-body">
+<!--新增变量弹出框-->
+    <form id="project-env-add" class="layui-form" action="" style="width: 100%;height: 80%">
+        <div class="layui-form-item">
+            <label class="layui-form-label">变量名称</label>
+            <div class="layui-input-block">
+                <input id="project-env-add-name" name="project-env-add-name"
+                        lay-verify="project-env-add-name"
+                       class="layui-input" style="width: 90%">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">变量内容</label>
+            <div class="layui-input-block">
+                <input type="text" id="project-env-add-value" name="project-env-add-value"
+                       lay-verify="project-env-add-value"
+                       class="layui-input" style="width: 90%">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">变量描述</label>
+                <div class="layui-input-block">
+                    <textarea  type="text" id="project-env-add-desc"
+                           name="project-env-add-desc" lay-verify="project-env-add-desc"
+                           class="layui-input" style="width: 90%;min-height: 150px"></textarea>
+            </div>
+        </div>
+    </form>
+
+<!-- 新增接口 -->
+<div class="layui-card-body">
+    <form class="layui-form layui-form-pane" action="/add_project_api" style="width: 960px">
+        <div class="layui-form-item">
+            <label class="layui-form-label">接口名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" style="width: 400px"  lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入标题" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">接口地址</label>
+            <div class="layui-input-block" >
+                <input type="text" name="path" style="width: 400px"  lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入请求地址" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <label class="layui-form-label">协议</label>
+                <select name="method" lay-verify="" style="height:38 ;width: 150px;display: inline-block;">
+                    <option value="http">HTTP</option>
+                    <option value="https">HTTPS</option>
+                </select>
+                <label class="layui-form-label">请求方式</label>
+                <select name="method" lay-verify="">
+                    <option value="get">GET</option>
+                    <option value="post">POST</option>
+                    <option value="put">PUT</option>
+                    <option value="delete">DELETE</option>
+                </select>
+            </div>
+        </div>
+        <blockquote class="layui-elem-quote">请求头
+            <a href="javascript:;" class="right add-field" data-num="0">
+                <i class="layui-icon">&#xe608;</i>
+            </a>
+        </blockquote>
+        <table class="layui-table" data-field="headers">
+            <colgroup>
+                <col width="50%">
+                <col>
+                <col width="10">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>标签</th>
+                    <th>内容</th>
+                    <th></th>
+                </tr>
+                <tr>
+                <td>
+                    <input type="text" name="key" placeholder="New Key" class="layui-input">
+                </td>
+                <td>
+                    <input type="text" name="value" placeholder="Value" class="layui-input">
+                </td>
+                <td>
+                    <a href="javascript:;" class="delete">
+                        <i class="layui-icon">&#x1006;</i>
+                    </a>
+                </td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <blockquote class="layui-elem-quote">请求参数
+            <a href="javascript:;" class="right add-field" data-num="0">
+                <i class="layui-icon">&#xe608;</i>
+            </a>
+        </blockquote>
+        <table class="layui-table" data-field="params">
+            <colgroup>
+                <col width="33.333%">
+                <col width="33.333%">
+                <col>
+                <col width="10">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+                <tr>
+                <td>
+                    <input type="text" name="name" placeholder="Name" class="layui-input">
+                </td>
+                <td>
+                    <input type="text" name="value" placeholder="Value" class="layui-input">
+                </td>
+                <td>
+                    <input type="text" name="description" placeholder="Description" class="layui-input">
+                </td>
+                <td>
+                    <a href="javascript:;" class="delete">
+                        <i class="layui-icon">&#x1006;</i>
+                    </a>
+                </td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script id="addfield" type="text/html">
+    <tr>
+        <td>
+            <input type="text" name="{{d.field}}[{{d.num}}][key]" placeholder="New Key" class="layui-input">
+        </td>
+        <td>
+            <input type="text" name="{{d.field}}[{{d.num}}][value]" placeholder="Value" class="layui-input">
+        </td>
+        <td>
+            <input type="text" name="{{d.field}}[{{d.num}}][description]" placeholder="Description" class="layui-input">
+        </td>
+        <td>
+            <a href="javascript:;" class="delete">
+                <i class="layui-icon">&#x1006;</i>
+            </a>
+        </td>
+    </tr>
+</script>
+<script type="text/javascript">
+    layui.use(['layer', 'form', 'laytpl'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var laytpl = layui.laytpl;
+
+        $('.add-field').click(function (event) {
+            var self = $(this);
+            var data = {
+                "field": self.closest('blockquote').nextAll('table:visible').first().data('field'),
+                "num": self.data('num')
+            }
+            laytpl($('#addfield').html()).render(data, function (html) {
+                self.closest('blockquote').nextAll('table:visible').first().find('tbody').append(
+                    html);
+                self.data('num', parseInt(data.num) + 1);
+            });
+            return false;
+        });
+        $('.layui-table').on('click', '.delete', function (event) {
+            event.preventDefault();
+            $(this).closest('tr').remove();
+            return false;
+        });
+        form.on('radio(table-radio)', function (data) {
+            var obj = $(data.elem).closest('.layui-form-item');
+            $('.request-data').hide();
+            $('#' + data.value).show();
+            if (data.value == 'raw') {
+                $('#model_header').show();
+            } else {
+                $('#model_header').hide();
+            }
+        });
+    });
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>小葫芦接口管理平台</title>
+    <link href="/static/layui/css/layui.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <style type="text/css">
+    #tb1 tr td{
+        text-overflow: ellipsis; /* for IE */
+        -moz-text-overflow: ellipsis; /* for Firefox,mozilla */
+        overflow: hidden;
+        white-space: nowrap;
+{#        border: 1px solid;#}
+        text-align: left
+    }
+    img{
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .layui-form-select dl { max-height:200px; }
+    </style>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+		<!-- 头部 -->
+		<div class="layui-header">
+			<div class="layui-logo"><a href="/index/" style="color: white">
+                <img class="layui-nav-img" src="/static/images/xiaohulu.jpg"></img>
+                XHL接口管理平台</a>
+            </div>
+			<ul class="layui-nav layui-layout-left">
+		      <li class="layui-nav-item" style="font-weight: bold;"><a href="#" id="switchNav" style="font-size: large"><i class="layui-icon">&#xe668;</i> {{ title }}</a></li>
+		    </ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item">
+					<a href="javascript:;">
+						<img id="userHead" src="/static/images/IMG_5683.JPG" class="layui-nav-img">{{ user }}<span id="userNickName" class="layui-nav-more"></span>
+					</a>
+					<dl class="layui-nav-child">
+{#						<dd>#}
+{#							<a href="javascript:;"><i class="layui-icon">&#xe612;</i>&emsp;个人信息</a>#}
+{#						</dd>#}
+{#						<dd>#}
+{#							<a href="javascript:;"><i class="layui-icon">&#xe631;</i>&emsp;修改密码</a>#}
+{#						</dd>#}
+						<dd>
+							<a href="/logout/"><i class="layui-icon layui-icon-return"></i>退出登录</a>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<!-- 侧边栏 -->
+		<div class="layui-side layui-bg-black">
+			<div class="layui-side-scroll">
+              <div title="菜单缩放" class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
+				<ul class="layui-nav layui-nav-tree" id="index-nav" lay-filter="index-nav" style="margin-top: 0px;">
+                    {% for project in projects %}
+                    <li class="layui-nav-item" id="project{{ project.id }}">
+                            <a class="javascript:;" href="javascript:;">{{ project.name }}</a>
+                        <dl class="layui-nav-child">
+                            <dd class="env">
+                                <a href="/project_env/{{ project.id }}" onclick="">环境变量</a>
+                            </dd>
+                            <dd class="api">
+                                <a href="/project_api/{{ project.id }}" onclick="">接口管理</a>
+                            </dd>
+                            <dd class="case">
+                                <a href="/project_case/{{ project.id }}">用例管理</a>
+                            </dd>
+                            <dd class="">
+                                <a href="/demo/project_task">自动化测试</a>
+                            </dd>
+                            <dd class="">
+                                <a href="/demo/admin.html">自动化测试报告</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    {% endfor %}
+				</ul>
+			</div>
+		</div>
+		<!-- 主体部分 -->
+		<div class="layui-body" id="main-content" style="padding: 15px;">
+            {% block content %}
+                <div id="performance monitoring" class="">
+                    <h3>监控服务器：
+                    <div class="layui-input-inline layui-form" style="width: 180px">
+                    <select lay-verify="required" lay-filter="serverip" class="layui-form-select" lay-search  id="serverip">
+                        <option value="0">192.168.120.132</option>
+                        <option value="1">192.168.120.136</option>
+                        <option value="2">192.168.120.131</option>
+                        <option value="2">192.168.120.130</option>
+                    </select>
+                    </div></h3>
+                </div>
+                <br>
+                <iframe src="http://192.168.120.132:19999/" width="100%" height="100%" frameborder="0">
+                    <a href="http://192.168.120.132:19999/">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+                </iframe>
+            {% endblock %}
+		</div>
+		<!-- 底部 -->
+		<div class="layui-footer">
+			Copyright © 2018 XiaoHuLu API Manager
+		</div>
+		<!-- 手机屏幕遮罩层 -->
+		<div class="site-mobile-shade"></div>
+	</div>
+
+    <script type="text/javascript">
+	$(document).ready(function () {
+	    $("dd a").click(function () {
+{#            alert($(this).html());#}
+            $("#switchNav").text($(this).html());
+        });
+    });
+
+	layui.use(['jquery','layer', 'form', 'element'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            element = layui.element,
+            form = layui.form;
+
+        form.on('select(serverip)',function (data) {
+            var ip = this.innerText;
+            var url = "http://"+ip+":19999/";
+            $('iframe').attr('src',url);
+        })
+
+    });
+    </script>
+
+	<!-- 侧导航渲染模板 -->
+{#	<script id="sideNav" type="text/html">#}
+{#		{{#  layui.each(d, function(index, item){ }}#}
+{#		<li class="layui-nav-item">#}
+{#			<a class="" href="javascript:openNavItem();"><i class="layui-icon">{{ item.permissionIcon }}</i>&emsp;<span>{{ item.permissionName }}</span></a>#}
+{#			<dl class="layui-nav-child">#}
+{#				{{#  layui.each(item.subMenus, function(index, subItem){ }}#}
+{#				<dd>#}
+{#					<a href="#!{{ subItem.permissionValue }}">{{ subItem.permissionName }}</a>#}
+{#				</dd>#}
+{#				{{#  }); }}#}
+{#			</dl>#}
+{#		</li>#}
+{#		{{#  }); }}#}
+{#	</script>#}
+	<!-- 修改密码弹窗 -->
+{#	<script type="text/html" id="pswModel">#}
+{#	<form id="pswForm" class="layui-form model-form" action="" method="put">#}
+{#		<div class="layui-form-item">#}
+{#			<label class="layui-form-label">旧密码</label>#}
+{# 			<div class="layui-input-block">#}
+{#				<input name="oldPsw" placeholder="请输入旧密码" type="password" class="layui-input" maxlength="12" lay-verify="required|pass" required />#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="layui-form-item">#}
+{#			<label class="layui-form-label">新密码</label>#}
+{# 			<div class="layui-input-block">#}
+{#				<input name="newPsw" placeholder="请输入新密码" type="password" class="layui-input" maxlength="12" lay-verify="required|pass" required />#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="layui-form-item">#}
+{#			<label class="layui-form-label">确认密码</label>#}
+{# 			<div class="layui-input-block">#}
+{#				<input name="newPsw2" placeholder="请再次输入新密码" type="password" class="layui-input" maxlength="12" lay-verify="required|psw2" required />#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="layui-form-item model-form-footer">#}
+{#			<button class="layui-btn layui-btn-primary" type="button" id="pswCancel">取消</button>#}
+{#			<button class="layui-btn" lay-filter="pswSubmit" lay-submit>修改</button>#}
+{#		</div>#}
+{#	</form>#}
+{#	</script>#}
+</body>
+</html>

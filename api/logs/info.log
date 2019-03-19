@@ -1,0 +1,277 @@
+2019-01-31 14:54:42,585 - django.request - WARNING - Not Found: /search_project_cases
+2019-01-31 14:54:45,472 - django.request - WARNING - Not Found: /search_project_cases
+2019-01-31 14:58:45,188 - django.request - WARNING - Not Found: /get_project_case
+2019-01-31 14:58:46,491 - django.request - WARNING - Not Found: /get_project_case
+2019-01-31 14:58:46,944 - django.request - WARNING - Not Found: /get_project_case
+2019-01-31 14:59:05,843 - django.request - WARNING - Not Found: /demo/project_task
+2019-02-11 15:59:30,167 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-11 16:06:16,185 - django.request - WARNING - Not Found: /demo/project_task
+2019-02-11 16:06:39,189 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 16:06:41,210 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 16:06:42,401 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 16:06:45,707 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 16:06:46,754 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 16:06:47,346 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 16:06:47,538 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 17:46:58,938 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 18:37:26,867 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-11 18:57:34,342 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 18:58:34,064 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 19:11:42,448 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 19:11:46,768 - django.request - WARNING - Not Found: /search_project_cases
+2019-02-11 19:12:58,706 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-11 19:13:13,450 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:00:06,779 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:00:18,087 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:00:34,034 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:33:44,883 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:46:03,857 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:48:24,593 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:48:35,735 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:49:24,144 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:49:42,358 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 11:55:12,726 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 13:37:44,251 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 14:05:18,213 - django.request - WARNING - Not Found: /favicon.ico
+2019-02-12 16:39:31,508 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2019-02-12 16:39:31,626 - apscheduler.scheduler - INFO - Added job "APS.get_api_case_coverage" to job store "default"
+2019-02-12 16:39:31,626 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:39:31,627 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:39:41,677 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:39:41 CST)" (scheduled at 2019-02-12 16:39:41.507906+08:00)
+2019-02-12 16:39:41,736 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,761 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,771 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,792 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,817 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,822 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,827 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,862 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,892 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,902 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,917 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,917 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,922 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:41,947 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:39:51 CST)" executed successfully
+2019-02-12 16:39:51,825 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:40:01 CST)" (scheduled at 2019-02-12 16:39:51.507906+08:00)
+2019-02-12 16:39:51,958 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:51,963 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:51,968 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:51,968 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:51,968 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:51,969 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:51,984 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,004 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,024 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,039 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,064 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,079 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,094 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:39:52,124 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:40:01 CST)" executed successfully
+2019-02-12 16:40:01,818 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:40:11 CST)" (scheduled at 2019-02-12 16:40:01.507906+08:00)
+2019-02-12 16:40:02,033 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,058 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,078 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,088 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,093 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,108 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,133 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,153 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,173 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,193 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,203 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,204 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,204 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:02,224 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:40:11 CST)" executed successfully
+2019-02-12 16:40:47,404 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:40:47,405 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:40:47,467 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:40:51 CST)" was missed by 0:00:05.959146
+2019-02-12 16:40:51,780 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:41:01 CST)" (scheduled at 2019-02-12 16:40:51.507906+08:00)
+2019-02-12 16:40:51,868 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:51,893 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:51,939 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:51,974 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:51,989 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,004 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,014 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,029 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,034 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,039 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,059 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,074 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,094 - tools.log - INFO - 'dict' object has no attribute 'api_path'
+2019-02-12 16:40:52,119 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:41:01 CST)" executed successfully
+2019-02-12 16:42:11,915 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:42:11,916 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:42:11,993 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:41:01 CST)" (scheduled at 2019-02-12 16:42:11.507906+08:00)
+2019-02-12 16:42:12,293 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:42:12,416 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:12,518 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:12,600 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:12,694 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:12,785 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:12,901 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:12,999 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:13,082 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:13,184 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:13,269 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:13,362 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:13,455 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:42:13,471 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:42:21 CST)" executed successfully
+2019-02-12 16:44:53,581 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:44:53,582 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:44:53,693 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:45:01 CST)" was missed by 0:00:02.185913
+2019-02-12 16:45:01,876 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:45:01 CST)" (scheduled at 2019-02-12 16:45:01.507906+08:00)
+2019-02-12 16:45:02,252 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,375 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,478 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,544 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,648 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,748 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,830 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:02,896 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:03,009 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:03,118 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:03,227 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:03,326 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:03,433 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:03,458 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:45:11 CST)" executed successfully
+2019-02-12 16:45:30,609 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:45:30,610 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:45:30,746 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:45:31 CST)" was missed by 0:00:09.238618
+2019-02-12 16:45:31,930 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:45:31 CST)" (scheduled at 2019-02-12 16:45:31.507906+08:00)
+2019-02-12 16:45:32,226 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:32,333 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:32,431 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:32,550 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:45:32,648 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:32,713 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:32,835 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:32,943 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:33,036 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:33,123 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:33,227 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:33,326 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:33,420 - tools.log - INFO - ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+2019-02-12 16:45:33,440 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:45:41 CST)" executed successfully
+2019-02-12 16:49:20,256 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:49:20,257 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:49:20,325 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:49:21 CST)" was missed by 0:00:08.817271
+2019-02-12 16:49:21,777 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:49:31 CST)" (scheduled at 2019-02-12 16:49:21.507906+08:00)
+2019-02-12 16:49:22,242 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:22,369 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:22,515 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:22,658 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:22,803 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:22,914 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,081 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,205 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,308 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,428 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,581 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,736 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,865 - tools.log - INFO - Expecting value: line 2 column 1 (char 1)
+2019-02-12 16:49:23,892 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:49:31 CST)" executed successfully
+2019-02-12 16:49:47,799 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:49:47,800 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:49:47,902 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:49:51 CST)" was missed by 0:00:06.394273
+2019-02-12 16:49:51,830 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:49:51 CST)" (scheduled at 2019-02-12 16:49:51.507906+08:00)
+2019-02-12 16:49:51,925 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:51,955 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:51,976 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:51,987 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,012 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,047 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,053 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,068 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,073 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,089 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,104 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,129 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,149 - tools.log - INFO - request() got an unexpected keyword argument 'param'
+2019-02-12 16:49:52,184 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:50:01 CST)" executed successfully
+2019-02-12 16:50:54,741 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:50:54,742 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:50:54,878 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:01 CST)" was missed by 0:00:03.370277
+2019-02-12 16:51:01,899 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:01 CST)" (scheduled at 2019-02-12 16:51:01.507906+08:00)
+2019-02-12 16:51:02,506 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/test1' at line 1")
+2019-02-12 16:51:02,873 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/test2' at line 1")
+2019-02-12 16:51:03,283 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/aaa/aaab' at line 1")
+2019-02-12 16:51:03,657 - tools.log - INFO - (1054, "Unknown column 'fsdafdsafsad' in 'where clause'")
+2019-02-12 16:51:04,044 - tools.log - INFO - (1054, "Unknown column 'api' in 'where clause'")
+2019-02-12 16:51:04,381 - tools.log - INFO - (1054, "Unknown column 'safdfasdf' in 'where clause'")
+2019-02-12 16:51:04,736 - tools.log - INFO - (1054, "Unknown column 'sagdasdg' in 'where clause'")
+2019-02-12 16:51:05,122 - tools.log - INFO - (1054, "Unknown column 'fasdf' in 'where clause'")
+2019-02-12 16:51:05,467 - tools.log - INFO - (1054, "Unknown column 'sdgsadgasdg' in 'where clause'")
+2019-02-12 16:51:05,833 - tools.log - INFO - (1054, "Unknown column 'sdafsdaf' in 'where clause'")
+2019-02-12 16:51:06,227 - tools.log - INFO - (1054, "Unknown column 'cvsdasdfsaf' in 'where clause'")
+2019-02-12 16:51:06,566 - tools.log - INFO - (1054, "Unknown column 'zxvccZ' in 'where clause'")
+2019-02-12 16:51:06,898 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/user/mobileLogin' at line 1")
+2019-02-12 16:51:06,923 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:11 CST)" executed successfully
+2019-02-12 16:51:11,930 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:21 CST)" (scheduled at 2019-02-12 16:51:11.507906+08:00)
+2019-02-12 16:51:12,424 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/test1' at line 1")
+2019-02-12 16:51:12,802 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/test2' at line 1")
+2019-02-12 16:51:13,189 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/aaa/aaab' at line 1")
+2019-02-12 16:51:13,553 - tools.log - INFO - (1054, "Unknown column 'fsdafdsafsad' in 'where clause'")
+2019-02-12 16:51:13,930 - tools.log - INFO - (1054, "Unknown column 'api' in 'where clause'")
+2019-02-12 16:51:14,292 - tools.log - INFO - (1054, "Unknown column 'safdfasdf' in 'where clause'")
+2019-02-12 16:51:14,680 - tools.log - INFO - (1054, "Unknown column 'sagdasdg' in 'where clause'")
+2019-02-12 16:51:15,015 - tools.log - INFO - (1054, "Unknown column 'fasdf' in 'where clause'")
+2019-02-12 16:51:15,366 - tools.log - INFO - (1054, "Unknown column 'sdgsadgasdg' in 'where clause'")
+2019-02-12 16:51:15,747 - tools.log - INFO - (1054, "Unknown column 'sdafsdaf' in 'where clause'")
+2019-02-12 16:51:16,125 - tools.log - INFO - (1054, "Unknown column 'cvsdasdfsaf' in 'where clause'")
+2019-02-12 16:51:16,484 - tools.log - INFO - (1054, "Unknown column 'zxvccZ' in 'where clause'")
+2019-02-12 16:51:16,841 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/user/mobileLogin' at line 1")
+2019-02-12 16:51:16,847 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:21 CST)" executed successfully
+2019-02-12 16:51:21,906 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:21 CST)" (scheduled at 2019-02-12 16:51:21.507906+08:00)
+2019-02-12 16:51:22,433 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/test1' at line 1")
+2019-02-12 16:51:22,787 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/test2' at line 1")
+2019-02-12 16:51:23,117 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/aaa/aaab' at line 1")
+2019-02-12 16:51:23,473 - tools.log - INFO - (1054, "Unknown column 'fsdafdsafsad' in 'where clause'")
+2019-02-12 16:51:23,841 - tools.log - INFO - (1054, "Unknown column 'api' in 'where clause'")
+2019-02-12 16:51:24,233 - tools.log - INFO - (1054, "Unknown column 'safdfasdf' in 'where clause'")
+2019-02-12 16:51:24,642 - tools.log - INFO - (1054, "Unknown column 'sagdasdg' in 'where clause'")
+2019-02-12 16:51:25,024 - tools.log - INFO - (1054, "Unknown column 'fasdf' in 'where clause'")
+2019-02-12 16:51:25,411 - tools.log - INFO - (1054, "Unknown column 'sdgsadgasdg' in 'where clause'")
+2019-02-12 16:51:25,781 - tools.log - INFO - (1054, "Unknown column 'sdafsdaf' in 'where clause'")
+2019-02-12 16:51:26,110 - tools.log - INFO - (1054, "Unknown column 'cvsdasdfsaf' in 'where clause'")
+2019-02-12 16:51:26,500 - tools.log - INFO - (1054, "Unknown column 'zxvccZ' in 'where clause'")
+2019-02-12 16:51:26,881 - tools.log - INFO - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/api/user/mobileLogin' at line 1")
+2019-02-12 16:51:26,906 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:51:31 CST)" executed successfully
+2019-02-12 16:53:22,746 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 16:53:22,747 - tools.log - ERROR - 任务开始！！！
+2019-02-12 16:53:22,819 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:53:31 CST)" was missed by 0:00:01.312064
+2019-02-12 16:53:31,894 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:53:41 CST)" (scheduled at 2019-02-12 16:53:31.507906+08:00)
+2019-02-12 16:53:37,533 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:53:41 CST)" executed successfully
+2019-02-12 17:00:03,106 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 17:00:03,107 - tools.log - ERROR - 任务开始！！！
+2019-02-12 17:00:03,233 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 16:53:41 CST)" was missed by 0:00:01.725910
+2019-02-12 17:00:11,827 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:00:11 CST)" (scheduled at 2019-02-12 17:00:11.507906+08:00)
+2019-02-12 17:00:14,022 - tools.log - INFO - 'dict' object has no attribute 'if_cn'
+2019-02-12 17:00:17,250 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:00:21 CST)" executed successfully
+2019-02-12 17:00:21,810 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:00:31 CST)" (scheduled at 2019-02-12 17:00:21.507906+08:00)
+2019-02-12 17:00:23,922 - tools.log - INFO - 'dict' object has no attribute 'if_cn'
+2019-02-12 17:00:27,078 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:00:31 CST)" executed successfully
+2019-02-12 17:01:33,286 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 17:01:33,288 - tools.log - ERROR - 任务开始！！！
+2019-02-12 17:01:33,374 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:00:31 CST)" was missed by 0:00:01.866356
+2019-02-12 17:01:41,799 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:01:51 CST)" (scheduled at 2019-02-12 17:01:41.507906+08:00)
+2019-02-12 17:01:47,083 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 17:01:51 CST)" executed successfully
+2019-02-12 19:03:33,493 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 19:03:33,494 - tools.log - INFO - 任务开始！！！
+2019-02-12 19:03:33,660 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 19:03:41 CST)" was missed by 0:00:02.152914
+2019-02-12 19:03:41,859 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 19:03:41 CST)" (scheduled at 2019-02-12 19:03:41.507906+08:00)
+2019-02-12 19:03:55,847 - apscheduler.scheduler - INFO - Scheduler started
+2019-02-12 19:03:55,849 - tools.log - INFO - 任务开始！！！
+2019-02-12 19:03:55,939 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 19:04:01 CST)" was missed by 0:00:04.431744
+2019-02-12 19:04:01,794 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 19:04:01 CST)" (scheduled at 2019-02-12 19:04:01.507906+08:00)
+2019-02-12 19:04:06,204 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-02-12 19:04:11 CST)" executed successfully
+2019-02-21 14:33:03,647 - django.request - WARNING - Not Found: /get_project_case
+2019-02-21 14:33:17,012 - django.request - WARNING - Not Found: /get_project_case
+2019-02-21 14:33:19,285 - django.request - WARNING - Not Found: /get_project_case
+2019-02-28 19:22:44,286 - django.request - WARNING - Not Found: /demo/project_task
+2019-03-01 16:29:00,386 - django.request - WARNING - Not Found: /demo/project_task
+2019-03-04 17:12:48,923 - django.request - WARNING - Not Found: /get_project_case
+2019-03-04 17:12:50,434 - django.request - WARNING - Not Found: /get_project_case
+2019-03-04 17:14:52,057 - django.request - WARNING - Not Found: /get_project_case
+2019-03-05 11:23:53,535 - django.request - WARNING - Not Found: /get_project_case
+2019-03-05 11:23:56,030 - django.request - WARNING - Not Found: /get_project_case
