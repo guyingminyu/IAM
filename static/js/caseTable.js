@@ -521,6 +521,11 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
 
     //监听工具条，全局
     var caseTools = {
+        changeStatus: function(){ //获取选中数据
+            var checkStatus = table.checkStatus('caseTable')
+            ,data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
+        },
         caseAdd: function () {//新增用例
             layer.open({
                 title: '新增用例',
