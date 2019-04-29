@@ -65,10 +65,11 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
     form.on('switch(on)', function(obj){
         var data = obj.elem.parentNode.parentNode.parentNode;
         var id = data.cells[2].firstChild.innerText;
+        var ids = [id];
         var status = obj.elem.checked?1:0;
         $.post(
             '/set_case_status/',
-            {id:id,
+            {id:JSON.stringify(ids),
             csrfmiddlewaretoken:csrftoken,
             case_status:status}
         )
@@ -479,7 +480,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                         '</div>'+
                         '</div>'+
                         '</form>',//设置弹窗的容器
-                        btn: ['运行','取消'],//点击确定的时候，会关闭弹窗
+                        btn: ['运行','取消'],
                         yes: function (index, layero) {
                             var url = $("#project-case-add-protocol option:selected").val()+'://'+$("#project-case-add-host").val()+'/'+$("#project-case-add-path").val().replace(/^\//,"");
                             var dh = {};
@@ -521,10 +522,41 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
 
     //监听工具条，全局
     var caseTools = {
-        changeStatus: function(){ //获取选中数据
+        changeStatusOn: function(){ //获取选中数据
             var checkStatus = table.checkStatus('caseTable')
-            ,data = checkStatus.data;
-            layer.alert(JSON.stringify(data));
+                ,data = checkStatus.data
+                ,ids = [];
+            for(var i=0;i<data.length;i++){
+                ids.push(data[i].id);
+            }
+            $.post(
+                '/set_case_status/',
+                {id:JSON.stringify(ids),
+                csrfmiddlewaretoken:csrftoken,
+                case_status:1},
+                function(res){
+                    caseTable.reload();
+                }
+
+        )
+        },
+        changeStatusOff: function(){ //获取选中数据
+            var checkStatus = table.checkStatus('caseTable')
+                ,data = checkStatus.data
+                ,ids = [];
+            for(var i=0;i<data.length;i++){
+                ids.push(data[i].id);
+            }
+            $.post(
+                '/set_case_status/',
+                {id:JSON.stringify(ids),
+                csrfmiddlewaretoken:csrftoken,
+                case_status:0},
+                function(res){
+                    caseTable.reload();
+                }
+
+        )
         },
         caseAdd: function () {//新增用例
             layer.open({

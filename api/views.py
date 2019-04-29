@@ -1,4 +1,5 @@
 import time
+import json
 
 # Create your views here.
 from django.conf import settings
@@ -701,9 +702,9 @@ def add_project_case(request):
 def set_case_status(request):
     if request.method == 'POST':
         try:
-            case_id = request.POST.get('id')
+            case_ids = json.loads(request.POST.get('id'))
             case_status = request.POST.get('case_status')
-            Case.objects.filter(id=case_id).update(case_status=case_status)
+            Case.objects.filter(id__in=case_ids).update(case_status=case_status)
             resultdict = {
                 'code': 100,
                 'msg': 'success',

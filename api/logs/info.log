@@ -276,3 +276,15 @@
 2019-03-05 11:23:53,535 - django.request - WARNING - Not Found: /get_project_case
 2019-03-05 11:23:56,030 - django.request - WARNING - Not Found: /get_project_case
 2019-03-20 18:10:01,702 - django.request - WARNING - Not Found: /templates/403.html
+2019-03-21 16:40:55,530 - tools.log - ERROR - invalid literal for int() with base 10: '["1"]'
+2019-03-21 16:41:27,373 - tools.log - ERROR - invalid literal for int() with base 10: '["1"]'
+2019-03-21 16:43:57,925 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 16:44:00,918 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 16:45:26,917 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 16:46:47,511 - tools.log - ERROR - 'int' object is not iterable
+2019-03-21 16:48:13,198 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 17:01:41,008 - tools.log - ERROR - module 'django.core.serializers.json' has no attribute 'loads'
+2019-03-21 17:12:31,212 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
+2019-03-21 17:22:26,309 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
+2019-04-28 13:23:15,595 - django.request - WARNING - Not Found: /login1
+2019-04-29 15:16:38,074 - django.request - WARNING - Not Found: /demo/project_task

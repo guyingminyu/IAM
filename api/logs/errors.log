@@ -9,3 +9,13 @@
 2019-02-12 16:53:22,747 - tools.log - ERROR - 任务开始！！！
 2019-02-12 17:00:03,107 - tools.log - ERROR - 任务开始！！！
 2019-02-12 17:01:33,288 - tools.log - ERROR - 任务开始！！！
+2019-03-21 16:40:55,530 - tools.log - ERROR - invalid literal for int() with base 10: '["1"]'
+2019-03-21 16:41:27,373 - tools.log - ERROR - invalid literal for int() with base 10: '["1"]'
+2019-03-21 16:43:57,925 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 16:44:00,918 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 16:45:26,917 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 16:46:47,511 - tools.log - ERROR - 'int' object is not iterable
+2019-03-21 16:48:13,198 - tools.log - ERROR - invalid literal for int() with base 10: '['
+2019-03-21 17:01:41,008 - tools.log - ERROR - module 'django.core.serializers.json' has no attribute 'loads'
+2019-03-21 17:12:31,212 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
+2019-03-21 17:22:26,309 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
