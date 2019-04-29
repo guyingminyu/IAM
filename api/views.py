@@ -734,3 +734,34 @@ def case_detail(request,pid,cid):
             'case_detail':case_detail
         }
         return render(request, 'case_detail.html', data)
+
+@login_required
+def get_case_apis(request):
+    if request.method == 'GET':
+        page = request.GET.get('page', '1')
+        rows = request.GET.get('limit', '10')
+        pid = request.GET.get('pid', 0)
+        cid = request.GET.get('cid',0)
+        case_apis = CaseApi.objects.filter(case_id=cid)
+        i = (int(page) - 1) * int(rows)
+        j = (int(page) - 1) * int(rows) + int(rows)
+        total = case_apis.count()
+        case_apis = case_apis[i:j]
+        resultdict = {}
+        data = []
+        for ca in case_apis:
+            de = {}
+            api_info = Api.objects.filter(id=ca.api_id).values('api_name','api_path','api_method').first()
+            de['id'] = ca.id
+            de['api_name'] = api_info['api_name']
+            de['api_path'] = api_info['api_path']
+            de['api_method'] = api_info['api_method']
+            de['sort'] = ca.sort
+            de['case_api_update_time'] = ca.case_update_time.strftime("%Y-%m-%d %H:%M:%S")
+            data.append(de)
+        resultdict['code'] = 0
+        resultdict['count'] = total
+        resultdict['msg'] = 'success'
+        resultdict['data'] = data
+        return JsonResponse(resultdict, safe=False)
+
