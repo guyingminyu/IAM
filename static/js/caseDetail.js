@@ -53,14 +53,13 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
         url: '/get_case_apis',//数据获取url
         id:'caseDetailTable',
         cols: [[//设置列标签、标题、宽度、是否排序等
-            {type:'numbers'},
+            {field: 'sort', title: '执行顺序',width:100,sort: true},
             {type: 'checkbox'},
             {field: 'id', title: 'ID', width: 100, sort: true},
             {field: 'api_name', title: '接口名称', width: 260,},
-            {field: 'api_path',title:'接口url',width:300},
-            {field: 'sort', title: '执行顺序',},
+            {field: 'api_path',title:'接口url',},
             {field: 'case_api_update_time', title: '更新日期',width: 200,},
-            {fixed: 'right', title:'操作', width: 200, toolbar: '#barcase'},//设置每行的工具栏以及其容器
+            {fixed: 'right', title:'操作', width: 250, toolbar: '#barcaseDetail'},//设置每行的工具栏以及其容器
         ]],
     });
     })

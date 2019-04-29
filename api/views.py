@@ -757,7 +757,7 @@ def get_case_apis(request):
             de['api_path'] = api_info['api_path']
             de['api_method'] = api_info['api_method']
             de['sort'] = ca.sort
-            de['case_api_update_time'] = ca.case_update_time.strftime("%Y-%m-%d %H:%M:%S")
+            de['case_api_update_time'] = ca.ca_update_time.strftime("%Y-%m-%d %H:%M:%S")
             data.append(de)
         resultdict['code'] = 0
         resultdict['count'] = total

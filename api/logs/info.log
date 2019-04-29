@@ -288,3 +288,18 @@
 2019-03-21 17:22:26,309 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
 2019-04-28 13:23:15,595 - django.request - WARNING - Not Found: /login1
 2019-04-29 15:16:38,074 - django.request - WARNING - Not Found: /demo/project_task
+2019-04-29 20:26:20,604 - django.request - ERROR - Internal Server Error: /get_case_apis/
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 760, in get_case_apis
+    de['case_api_update_time'] = ca.case_update_time.strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'CaseApi' object has no attribute 'case_update_time'
+2019-04-29 20:36:36,102 - django.request - WARNING - Not Found: /case_apis/1/1
+2019-04-29 20:37:22,856 - django.security.csrf - WARNING - Forbidden (CSRF token missing or incorrect.): /get_case_apis/

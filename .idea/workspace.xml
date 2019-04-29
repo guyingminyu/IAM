@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f665255-ab5c-4400-9bc2-34b8b9fcf5d2" name="Default" comment="22222">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/caseDetail.js" />
+    <list default="true" id="3f665255-ab5c-4400-9bc2-34b8b9fcf5d2" name="Default" comment="33333">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAM/urls.py" afterPath="$PROJECT_DIR$/IAM/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/logs/errors.log" afterPath="$PROJECT_DIR$/api/logs/errors.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/logs/info.log" afterPath="$PROJECT_DIR$/api/logs/info.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/caseDetail.js" afterPath="$PROJECT_DIR$/static/js/caseDetail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/case_detail.html" afterPath="$PROJECT_DIR$/templates/case_detail.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,8 +85,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="757" column="53" lean-forward="true" selection-start-line="757" selection-start-column="53" selection-end-line="757" selection-end-column="53" />
+            <state relative-caret-position="394">
+              <caret line="759" column="46" lean-forward="false" selection-start-line="759" selection-start-column="46" selection-end-line="759" selection-end-column="46" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#521#570#0" expanded="false" />
@@ -209,11 +211,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="case_detail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="case_detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/case_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="-196">
+              <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -222,7 +224,7 @@
       <file leaf-file-name="caseTable.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/caseTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
+            <state relative-caret-position="1012">
               <caret line="747" column="0" lean-forward="false" selection-start-line="747" selection-start-column="0" selection-end-line="747" selection-end-column="2" />
               <folding>
                 <marker date="1553252698623" expanded="true" signature="4308:4316" ph="..." />
@@ -239,11 +241,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="caseDetail.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="caseDetail.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/caseDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="58" column="60" lean-forward="true" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
+            <state relative-caret-position="392">
+              <caret line="61" column="77" lean-forward="false" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
               </folding>
@@ -311,9 +313,9 @@
       <find>response</find>
       <find>project-case-tool</find>
       <find>reload</find>
-      <find>-case-</find>
       <find>case_detail</find>
       <find>&quot;</find>
+      <find>-case-</find>
     </findStrings>
     <replaceStrings>
       <replace>envTable</replace>
@@ -326,8 +328,8 @@
       <replace>case</replace>
       <replace>objects.filter(type=1)</replace>
       <replace>print('\1')</replace>
-      <replace>-caseDetail-</replace>
       <replace>'</replace>
+      <replace>-caseDetail-</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -380,10 +382,10 @@
         <option value="$PROJECT_DIR$/templates/project_case.html" />
         <option value="$PROJECT_DIR$/static/js/caseTable.js" />
         <option value="$PROJECT_DIR$/IAM/settings.py" />
-        <option value="$PROJECT_DIR$/templates/case_detail.html" />
         <option value="$PROJECT_DIR$/IAM/urls.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/static/js/caseDetail.js" />
+        <option value="$PROJECT_DIR$/templates/case_detail.html" />
       </list>
     </option>
   </component>
@@ -1983,7 +1985,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556533867007</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="33333">
+      <created>1556540650850</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556540650850</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2052,7 +2061,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="111111" />
     <MESSAGE value="22222" />
-    <option name="LAST_COMMIT_MESSAGE" value="22222" />
+    <MESSAGE value="33333" />
+    <option name="LAST_COMMIT_MESSAGE" value="33333" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2400,14 +2410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/case_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -2426,8 +2428,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="757" column="53" lean-forward="true" selection-start-line="757" selection-start-column="53" selection-end-line="757" selection-end-column="53" />
+        <state relative-caret-position="394">
+          <caret line="759" column="46" lean-forward="false" selection-start-line="759" selection-start-column="46" selection-end-line="759" selection-end-column="46" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#521#570#0" expanded="false" />
@@ -2543,7 +2545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/caseTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
+        <state relative-caret-position="1012">
           <caret line="747" column="0" lean-forward="false" selection-start-line="747" selection-start-column="0" selection-end-line="747" selection-end-column="2" />
           <folding>
             <marker date="1553252698623" expanded="true" signature="4308:4316" ph="..." />
@@ -2561,11 +2563,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/caseDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="58" column="60" lean-forward="true" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
+        <state relative-caret-position="392">
+          <caret line="61" column="77" lean-forward="false" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/case_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-196">
+          <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
