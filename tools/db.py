@@ -97,6 +97,7 @@ class MysqlTools():
         self.cursor.execute(sql)
         self.connection.commit()
 
+
 class RedisTools():
     def __init__(self):
         self.rpool = redis.ConnectionPool(host='113.107.166.5', port=16379, db=0)
