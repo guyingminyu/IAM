@@ -117,8 +117,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                     }
                     layer.open({
                         title: '接口详情',
-                        area: ['1100px', '800px'],
-                        content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1050px">'+
+                        area: ['1150px', '850px'],
+                        content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1100px">'+
                         '<div class="layui-form-item">'+
                         '<label class="layui-form-label">接口名称</label>'+
                         '<div class="layui-input-block">'+
@@ -292,8 +292,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                     }
                     layer.open({
                         title: '编辑接口',
-                        area: ['1100px', '800px'],
-                        content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1050px">'+
+                        area: ['1150px', '850px'],
+                        content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1100px">'+
                         '<div class="layui-form-item">'+
                         '<label class="layui-form-label">接口名称</label>'+
                         '<div class="layui-input-block">'+
@@ -532,8 +532,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                     }
                     layer.open({
                         title: '测试接口',
-                        area: ['1100px', '800px'],
-                        content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1050px">'+
+                        area: ['1150px', '850px'],
+                        content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1100px">'+
                         '<div class="layui-form-item">'+
                         '<label class="layui-form-label">服务器域名</label>'+
                         '<div class="layui-input-block">'+
@@ -676,8 +676,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
         apiAdd: function () {//新增接口
             layer.open({
                 title: '新增接口',
-                area: ['1100px', '800px'],
-                content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1050px">'+
+                area: ['1150px', '850px'],
+                content: '<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1100px">'+
                     '<div class="layui-form-item">'+
                     '<label class="layui-form-label">接口名称</label>'+
                     '<div class="layui-input-block">'+
@@ -776,7 +776,10 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                     '<input type="text" name="param_default" placeholder="Default" class="layui-input">'+
                     '</td>'+
                     '<td>'+
-                    '<input type="text" name="param_type" placeholder="Type" class="layui-input">'+
+                    '<select id="project-api-add-param_type" name="param_type" >'+
+                    '<option value="string">string</option>'+
+                    '<option value="int">int</option>'+
+                    '</select>'+
                     '</td>'+
                     '<td>'+
                     '<input type="checkbox" name="param_must" title="" lay-skin="primary" value="1" checked>'+
@@ -798,7 +801,10 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                     '<input type="text" name="param_default" placeholder="Default" class="layui-input">'+
                     '</td>'+
                     '<td>'+
-                    '<input type="text" name="param_type" placeholder="Type" class="layui-input">'+
+                    '<select id="project-api-add-param_type" name="param_type" >'+
+                    '<option value="string">string</option>'+
+                    '<option value="int">int</option>'+
+                    '</select>'+
                     '</td>'+
                     '<td>'+
                     '<input type="checkbox" name="param_must" title="" lay-skin="primary" value="1" checked>'+
