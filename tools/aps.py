@@ -76,7 +76,7 @@ class APS():
 
     @classmethod
     def add_acc_tasks(cls,id):
-        cls.scheduler.add_job(cls.get_api_case_coverage, 'interval', seconds=10,id=id)
+        cls.scheduler.add_job(cls.get_api_case_coverage, 'interval', seconds=3600,id=id)
 
     @classmethod
     def start_aps(cls):
@@ -91,7 +91,7 @@ class APS():
 
 
 if __name__=='__main__':
-    # APS.add_acc_tasks(str(time.time()))
+    APS.add_acc_tasks(str(time.time()))
     APS.start_aps()
     while True:
         pass

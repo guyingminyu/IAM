@@ -3,8 +3,10 @@
     <!--工具栏(全局)-->
     <div class="caseDetailTools">
         <div id="project-caseDetail-tool" class="layui-inline">
+            <a href="/project_case/{{ pid }}" class="layui-btn layui-btn-primary"><i class="layui-icon layui-icon-return"></i>
+                <span style="font-size: 17px">返回</span></a>
             <button class="layui-btn" data-type="choiceApi" >选择已有接口</button>
-            <button class="layui-btn" data-type="caseApiAdd" >添加新接口</button>
+{#            <button class="layui-btn" data-type="caseApiAdd" >添加新接口</button>#}
         </div>
     </div>
 
@@ -23,8 +25,7 @@
     <script type="text/javascript" src="/static/js/caseDetail.js"></script>
     <script id="addfield" type="text/html">
         <tr>
-        nm
-             <td>
+            <td>
                 <input type="text" name="header_key" placeholder="Key" class="layui-input">
             </td>
             <td>

@@ -61,9 +61,16 @@ urlpatterns = [
     re_path(r'auto_aps1/', views.auto_aps1),
     re_path(r'set_case_status',views.set_case_status),
     re_path(r'get_case_api_list',views.get_case_api_list),
-    re_path(r'add_project_case',views.add_project_case),
+    re_path(r'add_project_case$',views.add_project_case),
+    re_path(r'edit_project_case$',views.edit_project_case),
+    re_path(r'get_project_case$',views.get_project_case),
     re_path(r'case_detail/(?P<pid>\d+)/(?P<cid>\d+)$',views.case_detail),
     re_path(r'get_case_apis/',views.get_case_apis),
+    re_path(r'del_project_case$',views.del_project_case),
+    re_path(r'add_project_case_api$',views.add_project_case_api),
+    re_path(r'del_project_case_api$',views.del_project_case_api),
+    re_path(r'up_case_api$',views.up_case_api),
+    re_path(r'down_case_api$',views.down_case_api),
 
     urls.url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static')

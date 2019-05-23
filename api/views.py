@@ -669,6 +669,18 @@ def get_case_api_list(request):
             return JsonResponse(resultdict, safe=False)
 
 @login_required
+def get_project_case(request):
+    if request.method == 'GET':
+        cid = request.GET.get('id',0)
+        case = Case.objects.filter(id=cid).values().first()
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': case
+        }
+        return JsonResponse(resultdict,safe=False)
+
+@login_required
 def add_project_case(request):
     if request.method == 'POST':
         try:
@@ -721,6 +733,54 @@ def set_case_status(request):
             return JsonResponse(resultdict, safe=False)
 
 @login_required
+def edit_project_case(request):
+    if request.method == 'POST':
+        try:
+            case_data = request.POST.get('pdata')
+            d_case_data = eval(case_data)
+            case_name = d_case_data['project-case-add-name']
+            case_desc = d_case_data['project-case-add-desc']
+            api_id = d_case_data['case-api']
+            case_id = request.POST.get('case_id',0)
+            Case.objects.filter(id=case_id).update(case_name=case_name, case_desc=case_desc,
+                                       api_id=api_id, case_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
+            resultdict = {
+                'code': 0,
+                'msg': 'success',
+                'data': []
+            }
+            return JsonResponse(resultdict, safe=False)
+        except Exception as e:
+            logger.error(e)
+            resultdict = {
+                'code': 2,
+                'msg': 'error',
+                'data': []
+            }
+            return JsonResponse(resultdict, safe=False)
+
+@login_required
+def del_project_case(request):
+    try:
+        cid = request.POST.get("id",0)
+        Case.objects.get(id=cid).delete()
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        print(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+
+@login_required
 def case_detail(request,pid,cid):
     if request.method == 'GET':
         username = request.session.get('user', '')
@@ -730,6 +790,7 @@ def case_detail(request,pid,cid):
         data = {
             'user': username,
             'projects': projects,
+            'pid':pid,
             'title': project_name['name'],
             'case_detail':case_detail
         }
@@ -742,7 +803,7 @@ def get_case_apis(request):
         rows = request.GET.get('limit', '10')
         pid = request.GET.get('pid', 0)
         cid = request.GET.get('cid',0)
-        case_apis = CaseApi.objects.filter(case_id=cid)
+        case_apis = CaseApi.objects.filter(case_id=cid).order_by('sort')
         i = (int(page) - 1) * int(rows)
         j = (int(page) - 1) * int(rows) + int(rows)
         total = case_apis.count()
@@ -765,3 +826,94 @@ def get_case_apis(request):
         resultdict['data'] = data
         return JsonResponse(resultdict, safe=False)
 
+@login_required
+def add_project_case_api(request):
+    if request.method == 'POST':
+        try:
+            case_data = request.POST.get('pdata')
+            d_case_data = eval(case_data)
+            api_id = d_case_data['case-api']
+            case_id = request.POST.get('case_id',0)
+            max_sort = CaseApi.objects.filter(case_id=case_id).order_by("-sort").values("sort").first()
+            case_api = CaseApi.objects.create(api_id=api_id,case_id=case_id,sort=max_sort['sort']+1,
+                                              ca_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
+            case_api.save()
+            resultdict = {
+                'code': 0,
+                'msg': 'success',
+                'data': {'case_api_id':case_api.id}
+            }
+            return JsonResponse(resultdict, safe=False)
+        except Exception as e:
+            logger.error(e)
+            resultdict = {
+                'code': 2,
+                'msg': 'error',
+                'data': []
+            }
+            return JsonResponse(resultdict, safe=False)
+
+@login_required
+def del_project_case_api(request):
+    try:
+        caid = request.POST.get("id",0)
+        CaseApi.objects.get(id=caid).delete()
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+def up_case_api(request):
+    try:
+        caid = request.POST.get("id",0)
+        ca = CaseApi.objects.filter(id=caid).values('sort','case_id').first()
+        if ca['sort']>1:
+            CaseApi.objects.filter(case_id=ca['case_id'],sort=ca['sort']-1).update(sort=ca['sort'])
+            CaseApi.objects.filter(id=caid).update(sort=ca['sort']-1)
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+def down_case_api(request):
+    try:
+        caid = request.POST.get("id",0)
+        ca = CaseApi.objects.filter(id=caid).values('sort','case_id').first()
+        CaseApi.objects.filter(case_id=ca['case_id'],sort=ca['sort']+1).update(sort=ca['sort'])
+        CaseApi.objects.filter(id=caid).update(sort=ca['sort']+1)
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)

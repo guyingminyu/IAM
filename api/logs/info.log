@@ -303,3 +303,167 @@ Traceback (most recent call last):
 AttributeError: 'CaseApi' object has no attribute 'case_update_time'
 2019-04-29 20:36:36,102 - django.request - WARNING - Not Found: /case_apis/1/1
 2019-04-29 20:37:22,856 - django.security.csrf - WARNING - Forbidden (CSRF token missing or incorrect.): /get_case_apis/
+2019-05-14 15:33:12,854 - django.request - ERROR - Internal Server Error: /get_project_apis
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 379, in get_project_apis
+    de['api_update_time'] = api.api_update_time.strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'NoneType' object has no attribute 'strftime'
+2019-05-14 18:23:57,833 - apscheduler.scheduler - INFO - Scheduler started
+2019-05-14 18:23:57,834 - tools.log - INFO - 任务开始！！！
+2019-05-14 18:23:58,012 - apscheduler.jobstores.default - ERROR - Unable to restore job "1549960771.4634013" -- removing it
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\apscheduler\util.py", line 289, in ref_to_obj
+    obj = getattr(obj, name)
+AttributeError: module '__main__' has no attribute 'APS'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\apscheduler\jobstores\sqlalchemy.py", line 141, in _get_jobs
+    jobs.append(self._reconstitute_job(row.job_state))
+  File "D:\Program Files\python\lib\site-packages\apscheduler\jobstores\sqlalchemy.py", line 128, in _reconstitute_job
+    job.__setstate__(job_state)
+  File "D:\Program Files\python\lib\site-packages\apscheduler\job.py", line 268, in __setstate__
+    self.func = ref_to_obj(self.func_ref)
+  File "D:\Program Files\python\lib\site-packages\apscheduler\util.py", line 292, in ref_to_obj
+    raise LookupError('Error resolving reference %s: error looking up object' % ref)
+LookupError: Error resolving reference __main__:APS.get_api_case_coverage: error looking up object
+2019-05-14 18:24:02,836 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2019-05-14 18:24:02,842 - tools.log - INFO - 任务结束！！！
+2019-05-14 18:26:28,412 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2019-05-14 18:26:28,569 - apscheduler.scheduler - INFO - Added job "APS.get_api_case_coverage" to job store "default"
+2019-05-14 18:26:28,570 - apscheduler.scheduler - INFO - Scheduler started
+2019-05-14 18:26:28,571 - tools.log - INFO - 任务开始！！！
+2019-05-14 18:26:38,530 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:26:38 CST)" (scheduled at 2019-05-14 18:26:38.412867+08:00)
+2019-05-14 18:26:48,617 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:26:48 CST)" (scheduled at 2019-05-14 18:26:48.412867+08:00)
+2019-05-14 18:26:58,693 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:08 CST)" (scheduled at 2019-05-14 18:26:58.412867+08:00)
+2019-05-14 18:27:08,612 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:08 CST)" (scheduled at 2019-05-14 18:27:08.412867+08:00)
+2019-05-14 18:27:18,720 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:18 CST)" (scheduled at 2019-05-14 18:27:18.412867+08:00)
+2019-05-14 18:27:28,736 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:38 CST)" (scheduled at 2019-05-14 18:27:28.412867+08:00)
+2019-05-14 18:27:38,834 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:38 CST)" (scheduled at 2019-05-14 18:27:38.412867+08:00)
+2019-05-14 18:27:48,703 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:48 CST)" (scheduled at 2019-05-14 18:27:48.412867+08:00)
+2019-05-14 18:38:04,275 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2019-05-14 18:38:04,420 - apscheduler.scheduler - INFO - Added job "APS.get_api_case_coverage" to job store "default"
+2019-05-14 18:38:04,420 - apscheduler.scheduler - INFO - Scheduler started
+2019-05-14 18:38:04,421 - tools.log - INFO - 任务开始！！！
+2019-05-14 18:38:04,462 - apscheduler.executors.default - WARNING - Run time of job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:27:58 CST)" was missed by 0:00:06.049387
+2019-05-14 18:38:08,693 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:38:08 CST)" (scheduled at 2019-05-14 18:38:08.412867+08:00)
+2019-05-14 18:38:18,680 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:38:28 CST)" (scheduled at 2019-05-14 18:38:18.412867+08:00)
+2019-05-14 18:38:28,782 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:38:28 CST)" (scheduled at 2019-05-14 18:38:28.412867+08:00)
+2019-05-14 18:38:38,711 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:38:48 CST)" (scheduled at 2019-05-14 18:38:38.412867+08:00)
+2019-05-14 18:38:48,735 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[0:00:10], next run at: 2019-05-14 18:38:48 CST)" (scheduled at 2019-05-14 18:38:48.412867+08:00)
+2019-05-14 18:39:24,808 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2019-05-14 18:39:24,872 - apscheduler.scheduler - INFO - Added job "APS.get_api_case_coverage" to job store "default"
+2019-05-14 18:39:24,873 - apscheduler.scheduler - INFO - Scheduler started
+2019-05-14 18:39:24,874 - tools.log - INFO - 任务开始！！！
+2019-05-14 19:39:25,008 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 20:39:24 CST)" (scheduled at 2019-05-14 19:39:24.808957+08:00)
+2019-05-14 19:42:18,748 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 20:39:24 CST)" executed successfully
+2019-05-14 20:39:25,049 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 21:39:24 CST)" (scheduled at 2019-05-14 20:39:24.808957+08:00)
+2019-05-14 20:42:19,782 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 21:39:24 CST)" executed successfully
+2019-05-14 21:39:25,094 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 22:39:24 CST)" (scheduled at 2019-05-14 21:39:24.808957+08:00)
+2019-05-14 21:42:20,435 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 22:39:24 CST)" executed successfully
+2019-05-14 22:39:25,172 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 23:39:24 CST)" (scheduled at 2019-05-14 22:39:24.808957+08:00)
+2019-05-14 22:42:20,277 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 23:39:24 CST)" executed successfully
+2019-05-14 23:39:25,149 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-14 23:39:24 CST)" (scheduled at 2019-05-14 23:39:24.808957+08:00)
+2019-05-14 23:42:21,184 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 00:39:24 CST)" executed successfully
+2019-05-15 00:39:25,135 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 00:39:24 CST)" (scheduled at 2019-05-15 00:39:24.808957+08:00)
+2019-05-15 00:42:20,962 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 01:39:24 CST)" executed successfully
+2019-05-15 01:39:25,084 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 02:39:24 CST)" (scheduled at 2019-05-15 01:39:24.808957+08:00)
+2019-05-15 01:42:20,983 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 02:39:24 CST)" executed successfully
+2019-05-15 02:39:25,033 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 02:39:24 CST)" (scheduled at 2019-05-15 02:39:24.808957+08:00)
+2019-05-15 02:42:20,450 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 03:39:24 CST)" executed successfully
+2019-05-15 03:39:25,126 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 03:39:24 CST)" (scheduled at 2019-05-15 03:39:24.808957+08:00)
+2019-05-15 03:42:21,503 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 04:39:24 CST)" executed successfully
+2019-05-15 04:39:25,130 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 04:39:24 CST)" (scheduled at 2019-05-15 04:39:24.808957+08:00)
+2019-05-15 04:42:22,430 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 05:39:24 CST)" executed successfully
+2019-05-15 05:39:25,077 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 06:39:24 CST)" (scheduled at 2019-05-15 05:39:24.808957+08:00)
+2019-05-15 05:42:20,809 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 06:39:24 CST)" executed successfully
+2019-05-15 06:39:25,000 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 07:39:24 CST)" (scheduled at 2019-05-15 06:39:24.808957+08:00)
+2019-05-15 06:42:21,334 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 07:39:24 CST)" executed successfully
+2019-05-15 07:39:25,040 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 08:39:24 CST)" (scheduled at 2019-05-15 07:39:24.808957+08:00)
+2019-05-15 07:42:19,492 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 08:39:24 CST)" executed successfully
+2019-05-15 08:39:25,023 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 09:39:24 CST)" (scheduled at 2019-05-15 08:39:24.808957+08:00)
+2019-05-15 08:42:20,503 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 09:39:24 CST)" executed successfully
+2019-05-15 09:39:25,089 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 10:39:24 CST)" (scheduled at 2019-05-15 09:39:24.808957+08:00)
+2019-05-15 09:42:31,304 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 10:39:24 CST)" executed successfully
+2019-05-15 10:39:25,035 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 11:39:24 CST)" (scheduled at 2019-05-15 10:39:24.808957+08:00)
+2019-05-15 10:42:45,901 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 11:39:24 CST)" executed successfully
+2019-05-15 11:39:25,102 - apscheduler.executors.default - INFO - Running job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 12:39:24 CST)" (scheduled at 2019-05-15 11:39:24.808957+08:00)
+2019-05-15 11:42:28,524 - apscheduler.executors.default - INFO - Job "APS.get_api_case_coverage (trigger: interval[1:00:00], next run at: 2019-05-15 12:39:24 CST)" executed successfully
+2019-05-21 11:06:21,792 - django.request - WARNING - Not Found: /project_case/
+2019-05-21 11:07:09,600 - django.request - WARNING - Not Found: /project_case/
+2019-05-21 11:07:13,248 - django.request - WARNING - Not Found: /project_case/
+2019-05-21 11:08:02,613 - django.request - WARNING - Not Found: /project_case/
+2019-05-21 11:10:34,442 - django.request - WARNING - Not Found: /demo/admin.html
+2019-05-21 11:10:37,517 - django.request - WARNING - Not Found: /demo/project_task
+2019-05-21 11:20:08,197 - django.request - WARNING - Not Found: /get_project_case
+2019-05-21 11:20:09,695 - django.request - WARNING - Not Found: /get_project_case
+2019-05-21 11:20:11,236 - django.request - WARNING - Not Found: /get_project_case
+2019-05-21 11:20:21,934 - django.request - WARNING - Not Found: /del_project_case
+2019-05-21 11:50:00,599 - tools.log - ERROR - list indices must be integers or slices, not str
+2019-05-21 11:51:22,850 - tools.log - ERROR - list indices must be integers or slices, not str
+2019-05-21 12:03:31,682 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 12:03:56,473 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 12:06:48,656 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 13:07:36,240 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 13:54:20,068 - django.request - ERROR - Internal Server Error: /get_project_case
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 681, in get_project_case
+    return JsonResponse(resultdict,safe=False)
+  File "D:\Program Files\python\lib\site-packages\django\http\response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "D:\Program Files\python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "D:\Program Files\python\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Program Files\python\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Program Files\python\lib\site-packages\django\core\serializers\json.py", line 104, in default
+    return super().default(o)
+  File "D:\Program Files\python\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Case' is not JSON serializable
+2019-05-21 14:23:27,421 - django.request - WARNING - Not Found: /edit_project_case
+2019-05-22 13:55:31,575 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 13:57:16,233 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 13:59:11,810 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 14:00:28,993 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 14:02:22,385 - tools.log - ERROR - 'int' object has no attribute 'save'
+2019-05-22 14:03:08,032 - tools.log - ERROR - 'int' object has no attribute 'id'
+2019-05-22 14:29:18,375 - django.request - WARNING - Not Found: /demo/project_task
+2019-05-22 20:43:07,629 - tools.log - ERROR - 'project-case-add-name'
+2019-05-22 20:45:52,913 - tools.log - ERROR - 'project-case-add-name'
+2019-05-22 20:48:39,666 - django.request - ERROR - Internal Server Error: /add_project_case_api
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\utils\deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "D:\Program Files\python\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "D:\Program Files\python\lib\site-packages\django\middleware\common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/add_project_case_api/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2019-05-22 20:52:34,001 - tools.log - ERROR - unsupported operand type(s) for +: 'dict' and 'int'
+2019-05-22 20:53:26,954 - tools.log - ERROR - 'dict' object has no attribute 'sort'
+2019-05-22 20:59:20,850 - django.request - WARNING - Not Found: /demo/project_task
+2019-05-23 14:25:48,212 - tools.log - ERROR - 
+2019-05-23 14:28:52,720 - tools.log - ERROR - 
+2019-05-23 14:31:17,298 - tools.log - ERROR - 
+2019-05-23 14:31:40,822 - tools.log - ERROR - eval() arg 1 must be a string, bytes or code object

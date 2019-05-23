@@ -414,7 +414,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                                     dp['param_name'] = $("input[name='param_name']")[i].value;
                                     dp['param_desc'] = $("input[name='param_desc']")[i].value;
                                     dp['param_default'] = $("input[name='param_default']")[i].value;
-                                    dp['param_type'] = $("input[name='param_type']")[i].value;
+                                    dp['param_type'] = $("select[name='param_type']")[i].value;
                                     dp['param_must'] = $("input[name='param_must']")[i].checked?1:0;
                                     values["params"].push(dp);
                                 }
@@ -854,7 +854,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                             dp['param_name'] = $("input[name='param_name']")[i].value;
                             dp['param_desc'] = $("input[name='param_desc']")[i].value;
                             dp['param_default'] = $("input[name='param_default']")[i].value;
-                            dp['param_type'] = $("input[name='param_type']")[i].value;
+                            dp['param_type'] = $("select[name='param_type']")[i].value;
                             dp['param_must'] = $("input[name='param_must']")[i].checked?1:0;
                             values["params"].push(dp);
                         }

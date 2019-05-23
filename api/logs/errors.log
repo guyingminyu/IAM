@@ -32,3 +32,90 @@ Traceback (most recent call last):
   File "D:\Program Files\IAM\api\views.py", line 760, in get_case_apis
     de['case_api_update_time'] = ca.case_update_time.strftime("%Y-%m-%d %H:%M:%S")
 AttributeError: 'CaseApi' object has no attribute 'case_update_time'
+2019-05-14 15:33:12,854 - django.request - ERROR - Internal Server Error: /get_project_apis
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 379, in get_project_apis
+    de['api_update_time'] = api.api_update_time.strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'NoneType' object has no attribute 'strftime'
+2019-05-14 18:23:58,012 - apscheduler.jobstores.default - ERROR - Unable to restore job "1549960771.4634013" -- removing it
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\apscheduler\util.py", line 289, in ref_to_obj
+    obj = getattr(obj, name)
+AttributeError: module '__main__' has no attribute 'APS'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\apscheduler\jobstores\sqlalchemy.py", line 141, in _get_jobs
+    jobs.append(self._reconstitute_job(row.job_state))
+  File "D:\Program Files\python\lib\site-packages\apscheduler\jobstores\sqlalchemy.py", line 128, in _reconstitute_job
+    job.__setstate__(job_state)
+  File "D:\Program Files\python\lib\site-packages\apscheduler\job.py", line 268, in __setstate__
+    self.func = ref_to_obj(self.func_ref)
+  File "D:\Program Files\python\lib\site-packages\apscheduler\util.py", line 292, in ref_to_obj
+    raise LookupError('Error resolving reference %s: error looking up object' % ref)
+LookupError: Error resolving reference __main__:APS.get_api_case_coverage: error looking up object
+2019-05-21 11:50:00,599 - tools.log - ERROR - list indices must be integers or slices, not str
+2019-05-21 11:51:22,850 - tools.log - ERROR - list indices must be integers or slices, not str
+2019-05-21 12:03:31,682 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 12:03:56,473 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 12:06:48,656 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 13:07:36,240 - tools.log - ERROR - 'project-case-add-name'
+2019-05-21 13:54:20,068 - django.request - ERROR - Internal Server Error: /get_project_case
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 681, in get_project_case
+    return JsonResponse(resultdict,safe=False)
+  File "D:\Program Files\python\lib\site-packages\django\http\response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "D:\Program Files\python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "D:\Program Files\python\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Program Files\python\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Program Files\python\lib\site-packages\django\core\serializers\json.py", line 104, in default
+    return super().default(o)
+  File "D:\Program Files\python\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Case' is not JSON serializable
+2019-05-22 13:55:31,575 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 13:57:16,233 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 13:59:11,810 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 14:00:28,993 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-05-22 14:02:22,385 - tools.log - ERROR - 'int' object has no attribute 'save'
+2019-05-22 14:03:08,032 - tools.log - ERROR - 'int' object has no attribute 'id'
+2019-05-22 20:43:07,629 - tools.log - ERROR - 'project-case-add-name'
+2019-05-22 20:45:52,913 - tools.log - ERROR - 'project-case-add-name'
+2019-05-22 20:48:39,666 - django.request - ERROR - Internal Server Error: /add_project_case_api
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\utils\deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "D:\Program Files\python\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "D:\Program Files\python\lib\site-packages\django\middleware\common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/add_project_case_api/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2019-05-22 20:52:34,001 - tools.log - ERROR - unsupported operand type(s) for +: 'dict' and 'int'
+2019-05-22 20:53:26,954 - tools.log - ERROR - 'dict' object has no attribute 'sort'
+2019-05-23 14:25:48,212 - tools.log - ERROR - 
+2019-05-23 14:28:52,720 - tools.log - ERROR - 
+2019-05-23 14:31:17,298 - tools.log - ERROR - 
+2019-05-23 14:31:40,822 - tools.log - ERROR - eval() arg 1 must be a string, bytes or code object
