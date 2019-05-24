@@ -76,6 +76,7 @@ class CaseApi(models.Model):
     case = models.ForeignKey('Case',on_delete=models.CASCADE)
     api = models.ForeignKey('Api',on_delete=models.CASCADE)
     api_params = models.CharField(max_length=1000,default='')
+    api_headers = models.CharField(max_length=1000,default='')
     sort = models.IntegerField(null=False,blank=False,default=1)
     ca_create_time = models.DateTimeField(null=True, blank=True, default=timezone.now)
     ca_update_time = models.DateTimeField(null=True, blank=True)
