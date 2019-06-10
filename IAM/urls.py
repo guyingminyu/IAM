@@ -71,6 +71,7 @@ urlpatterns = [
     re_path(r'del_project_case_api$',views.del_project_case_api),
     re_path(r'up_case_api$',views.up_case_api),
     re_path(r'down_case_api$',views.down_case_api),
+    re_path(r'get_case_api_detail$',views.get_case_api_detail),
 
     urls.url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static')

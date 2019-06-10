@@ -119,3 +119,175 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2019-05-23 14:28:52,720 - tools.log - ERROR - 
 2019-05-23 14:31:17,298 - tools.log - ERROR - 
 2019-05-23 14:31:40,822 - tools.log - ERROR - eval() arg 1 must be a string, bytes or code object
+2019-06-05 12:59:25,383 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 932, in get_case_api_detail
+    case_api_info['api_headers'] = case_api['api_headers']
+TypeError: 'QuerySet' object does not support item assignment
+2019-06-05 13:01:42,053 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 933, in get_case_api_detail
+    case_api_info['api_headers'] = case_api['api_headers']
+TypeError: 'QuerySet' object does not support item assignment
+2019-06-05 13:03:23,063 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 932, in get_case_api_detail
+    print(case_api.api_headers)
+AttributeError: 'dict' object has no attribute 'api_headers'
+2019-06-05 13:03:49,216 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 933, in get_case_api_detail
+    case_api_info['api_headers'] = case_api['api_headers']
+TypeError: 'QuerySet' object does not support item assignment
+2019-06-05 13:04:36,479 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 933, in get_case_api_detail
+    case_api_info['api_headers'] = case_api['api_headers']
+TypeError: 'QuerySet' object does not support item assignment
+2019-06-05 13:05:25,685 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 943, in get_case_api_detail
+    return JsonResponse(resultdict, safe=False)
+  File "D:\Program Files\python\lib\site-packages\django\http\response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "D:\Program Files\python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "D:\Program Files\python\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Program Files\python\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Program Files\python\lib\site-packages\django\core\serializers\json.py", line 104, in default
+    return super().default(o)
+  File "D:\Program Files\python\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+2019-06-05 13:06:46,750 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 943, in get_case_api_detail
+    return JsonResponse(resultdict, safe=False)
+  File "D:\Program Files\python\lib\site-packages\django\http\response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "D:\Program Files\python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "D:\Program Files\python\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Program Files\python\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Program Files\python\lib\site-packages\django\core\serializers\json.py", line 104, in default
+    return super().default(o)
+  File "D:\Program Files\python\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+2019-06-05 13:07:28,868 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 943, in get_case_api_detail
+    return JsonResponse(resultdict, safe=False)
+  File "D:\Program Files\python\lib\site-packages\django\http\response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "D:\Program Files\python\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "D:\Program Files\python\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Program Files\python\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Program Files\python\lib\site-packages\django\core\serializers\json.py", line 104, in default
+    return super().default(o)
+  File "D:\Program Files\python\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+2019-06-05 13:09:16,694 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 935, in get_case_api_detail
+    data['pre_steps'] = eval(pre_steps)
+TypeError: eval() arg 1 must be a string, bytes or code object
+2019-06-06 19:32:24,558 - tools.log - ERROR - 'project-case-add-name'

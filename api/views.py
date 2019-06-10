@@ -5,6 +5,7 @@ import json
 from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -370,12 +371,12 @@ def get_project_apis(request):
                 de['ratio'] = '0/0'
             else:
                 api_case_count = Case.objects.filter(api_id=api.id).count()
-                if api_case_count/api.api_case_coverage ==1:
+                if api_case_count/api.api_case_coverage >=1:
                     de['isAll'] = 1
                     de['ratio'] = '%d/%d'%(api_case_count,api.api_case_coverage)
                 else:
                     de['isAll'] = 0
-                    de['ratio'] = '%d/%d' % (api_case_count, api.api_case_coverage)
+                    de['ratio'] = '%d/%d'%(api_case_count,api.api_case_coverage)
             de['api_update_time'] = api.api_update_time.strftime("%Y-%m-%d %H:%M:%S")
             data.append(de)
         resultdict['code'] = 0
@@ -693,7 +694,14 @@ def add_project_case(request):
             case = Case.objects.create(case_name=case_name,case_desc=case_desc,case_status=1,project_id=project_id,
                                        api_id=api_id,case_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
             case.save()
-            case_api = CaseApi.objects.create(api_id=api_id,case_id=case.id,ca_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
+            headers = ApiHeaders.objects.filter(api_id=api_id).values("head_name", "head_value")
+            params = ApiParameters.objects.filter(api_id=api_id).values("param_name", "param_desc", "param_default",
+                                                                        "param_type", "param_must")
+            api_headers = list(headers)
+            api_params = list(params)
+            case_api = CaseApi.objects.create(api_id=api_id,case_id=case.id,
+                                              api_params=api_params, api_headers=api_headers,
+                                              ca_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
             case_api.save()
             resultdict = {
                 'code':100,
@@ -833,9 +841,15 @@ def add_project_case_api(request):
             case_data = request.POST.get('pdata')
             d_case_data = eval(case_data)
             api_id = d_case_data['case-api']
+            headers = ApiHeaders.objects.filter(api_id=api_id).values("head_name", "head_value")
+            params = ApiParameters.objects.filter(api_id=api_id).values("param_name", "param_desc", "param_default",
+                                                                     "param_type", "param_must")
+            api_headers = list(headers)
+            api_params = list(params)
             case_id = request.POST.get('case_id',0)
             max_sort = CaseApi.objects.filter(case_id=case_id).order_by("-sort").values("sort").first()
             case_api = CaseApi.objects.create(api_id=api_id,case_id=case_id,sort=max_sort['sort']+1,
+                                              api_params=api_params,api_headers=api_headers,
                                               ca_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
             case_api.save()
             resultdict = {
@@ -917,3 +931,27 @@ def down_case_api(request):
             'data': []
         }
         return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['GET'])
+def get_case_api_detail(request):
+    caid = request.GET.get('id', 0)
+    case_api = CaseApi.objects.filter(id=caid).values().first()
+    api_info = Api.objects.filter(id=case_api['api_id']).values('api_name','api_path','api_protocol','api_method').first()
+    pre_steps = Step.objects.filter(CaseApi_id=caid,step_type=1).order_by('step_sort').values()
+    post_steps = Step.objects.filter(CaseApi_id=caid,step_type=2).order_by('step_sort').values()
+    data = {}
+    case_api_info = api_info
+    case_api_info['api_headers'] = eval(case_api['api_headers'])
+    case_api_info['api_params'] = eval(case_api['api_params'])
+    case_api_info['host'] = case_api['host']
+    data['case_api_info']= case_api_info
+    data['pre_steps'] = list(pre_steps)
+    data['post_steps'] = list(post_steps)
+    # print(data)
+    resultdict = {
+        'code': 0,
+        'msg': 'success',
+        'data': data
+    }
+    return JsonResponse(resultdict, safe=False)

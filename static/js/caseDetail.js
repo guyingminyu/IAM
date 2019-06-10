@@ -195,11 +195,11 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
             $('.add-field').click(function (event) {
                 var self = $(this);
                 var data = {
-                    "field": self.closest('blockquote').nextAll('table:visible').first().data('field'),
+                    "field": self.nextAll('table:visible').first().data('field'),
                     "num": self.data('num')
                 }
                 laytpl($('#addfield').html()).render(data, function (html) {
-                    self.closest('blockquote').nextAll('table:visible').first().find('tbody').append(
+                    self.nextAll('table:visible').first().find('tbody').append(
                         html);
                     self.data('num', parseInt(data.num) + 1);
                 });
@@ -208,11 +208,11 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
             $('.add-param-field').click(function (event) {
                 var self = $(this);
                 var data = {
-                    "field": self.closest('blockquote').nextAll('table:visible').first().data('field'),
+                    "field": self.nextAll('table:visible').first().data('field'),
                     "num": self.data('num')
                 }
                 laytpl($('#addparamfield').html()).render(data, function (html) {
-                    self.closest('blockquote').nextAll('table:visible').first().find('tbody').append(
+                    self.nextAll('table:visible').first().find('tbody').append(
                         html);
                     self.data('num', parseInt(data.num) + 1);
                 });
@@ -280,42 +280,264 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                 }
             )
         }else if (obj.event === 'edit') {
-            var api_id = 0;
+            var res;
             $.get(//根据id获取服务器中的数据
-                '/get_project_case',
+                '/get_case_api_detail',
                 {id: data.id,
                 csrfmiddlewaretoken:csrftoken},
-                function (data1) {
-                    api_id = data1.data.api_id;
+                function (res) {
+                    var tmp1 = '';
+                    var data = res.data;
+                    if(data.case_api_info.api_headers.length >=1){
+                        $.each(data.case_api_info.api_headers, function (k, v) {
+                            tmp1 += '<tr>' +
+                                '<td>' +
+                                '<input type="text" name="header_key" placeholder="Key" class="layui-input" value="' + v['head_name'] + '">' +
+                                '</td><td>' +
+                                '<input type="text" name="header_value" placeholder="Value" class="layui-input" value="' + v['head_value'] + '">' +
+                                '</td><td><a href="javascript:;" class="delete">' +
+                                '<i class="layui-icon" >&#x1006;</i></a></td></tr>';
+                        });
+                    }
+                    var tmp2 ='';
+                    if(data.case_api_info.api_params.length >=1){
+                        $.each(data.case_api_info.api_params,function (k,v) {
+                            tmp2 += '<tr>'+
+                                    '<td>'+
+                                    '<input type="text" name="param_name" placeholder="Name" class="layui-input" value="' + v['param_name'] + '">'+
+                                    '</td>'+
+                                    '<td>'+
+                                    '<input type="text" name="param_desc" placeholder="Desc" class="layui-input" value="' + v['param_desc'] + '">'+
+                                    '</td>'+
+                                    '<td>'+
+                                    '<input type="text" name="param_default" placeholder="Default" class="layui-input" value="' + v['param_default'] + '">'+
+                                    '</td>'+
+                                    '<td>'+
+                                    // '<input type="text" name="param_type" placeholder="Type" class="layui-input" value="' + v['param_type'] + '">'+
+                                    '<select id="project-api-add-param_type" name="param_type" >';
+                                    var a=['int','string'];
+                                    $.each(a,function (k1, v1) {
+                                        tmp2 +='<option value="'+v1+'" '+(v['param_type']==v1?"selected":"") +'>'+v1+'</option>';
+                                    });
+                                    tmp2 +=
+                                    '</select>'+
+                                    '</td>'+
+                                    '<td>'+
+                                    '<input type="checkbox" name="param_must" title="" lay-skin="primary" '+ (v["param_must"]===1?"checked":"") +'>'+
+                                    '</td>'+
+                                    '<td>'+
+                                    '<a href="javascript:;" class="delete">'+
+                                    '<i class="layui-icon">&#x1006;</i>'+
+                                    '</a>'+
+                                    '</td>'+
+                                    '</tr>'
+                        })
+                    }
+                    var tmp3 ='';
+                    if(data.pre_steps.length >=1){
+                        $.each(data.pre_steps,function (k,v) {
+                            tmp3 += '<tr><td><input type="text" name="pre_type" placeholder="Type" class="layui-input" value="SQL">'+
+                                '</td><td><input type="text" name="pre_content" placeholder="Content" class="layui-input" value="'+v["content"]+'">'+
+                                '</td><td><input type="text" name="pre_variable" placeholder="Variable" class="layui-input" value="'+v["variable"]+'">'+
+                                '</td><td><input type="text" name="pre_sort" placeholder="Sort" class="layui-input" value="'+v["step_sort"]+'">'+
+                                '</td><td><a href="javascript:;" class="delete"><i class="layui-icon">&#x1006;</i></a></td></tr>'
+                        })
+                    }
                     layer.open({
-                        title: '编辑用例接口',
-                        area: ['700px', '450px'],
-                        content:'<form id="project-case-edit" class="layui-form" action="" style="width: 100%;height: 80%">'+
-                        '<div class="layui-form-item">'+
-                        '<label class="layui-form-label">用例名称</label>'+
-                        '<div class="layui-input-block">'+
-                        '<input id="project-case-add-name" name="project-case-add-name"'+
-                        'lay-verify="project-case-add-name" value="'+data1.data.case_name+'"'+
-                        'class="layui-input" style="width: 90%">'+
-                        '</div>'+
-                        '</div>'+
-                        '<div class="layui-form-item">'+
-                        '<label class="layui-form-label">关联接口</label>'+
-                        '<div class="layui-input-block" style="width: 75%;" >'+
-                        '<select name="case-api" id="api-list" lay-verify="required" lay-search="" >'+
-                        '<option value="">直接选择或搜索选择</option></select>'+
-                        '</div>'+
-                        '</div>'+
-                        '<div class="layui-form-item layui-form-text">'+
-                        '<label class="layui-form-label">用例描述</label>'+
-                        '<div class="layui-input-block">'+
-                        '<textarea  type="text" id="project-case-add-desc"'+
-                        'name="project-case-add-desc" lay-verify="project-case-add-desc"'+
-                        'class="layui-input" style="width: 90%;min-height: 200px">'+
-                        data1.data.case_desc+'</textarea>'+
-                        '</div>'+
-                        '</div>'+
-                        '</form>',
+                        title: '编辑用例',
+                        area: ['1200px', '850px'],
+                        content:'<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1150px">'+
+                                '<div class="layui-form-item">'+
+                                '<label class="layui-form-label">接口名称</label>'+
+                                '<div class="layui-input-block">'+
+                                '<input type="text" id="project-api-add-name" name="api_name" style="width: 1040px" ' +
+                        'lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入接口名称" ' +
+                        'class="layui-input" value='+data.case_api_info.api_name+'>'+
+                                '</div>'+
+                                '<label class="layui-form-label">域名ip</label>'+
+                                '<div class="layui-input-block">'+
+                                '<input type="text" id="project-api-add-host" name="host" style="width: 1040px" ' +
+                        'lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入服务器域名或ip" ' +
+                        'class="layui-input" value='+data.case_api_info.host+'>'+
+                                '</div>'+
+                                '<label class="layui-form-label">接口地址</label>'+
+                                '<div class="layui-input-block" >'+
+                                '<input type="text" id="project-api-add-path" name="path" style="width: 1040px" ' +
+                        'lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入接口地址" ' +
+                        'class="layui-input" value='+data.case_api_info.api_path+'>'+
+                                '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                '<label class="layui-form-label">协议</label>'+
+                                '<div class="layui-input-inline">'+
+                                '<select id="project-api-add-protocol" name="protocol" >'+
+                                '<option value="http">HTTP</option>'+
+                                '<option value="https">HTTPS</option>'+
+                                '</select>'+
+                                '</div>'+
+                                '<label class="layui-form-label">请求方式</label>'+
+                                '<div class="layui-input-inline">'+
+                                '<select id="project-api-add-method" name="method">'+
+                                '<option value="get">GET</option>'+
+                                '<option value="post">POST</option>'+
+                                '<option value="put">PUT</option>'+
+                                '<option value="delete">DELETE</option>'+
+                                '</select>'+
+                                '</div>'+
+                                '</div>'+
+                                '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1px;">'+
+                                '<legend style="font-size:15px;font-weight: 300;">请求信息</legend>'+
+                                '</fieldset>'+
+                                '<div class="layui-tab layui-tab-card">'+
+                                '<ul class="layui-tab-title">'+
+                                '<li class="layui-this">请求头</li>'+
+                                '<li>请求参数</li>'+
+                                '<li>前置处理</li>'+
+                                '</ul>'+
+                                '<div class="layui-tab-content" style="height: 100%;">'+
+                                '<div class="layui-tab-item layui-show">'+
+                                '<a href="javascript:;" class="left add-field" data-num="0">'+
+                                '<i class="layui-icon" style="font-size: 20px; font-weight: bold;color: #009688;">&#xe608;</i>'+
+                                '<span class="layui-inline" style="height: 27px;font-size: 14px">新增请求头</span>'+
+                                '</a>'+
+                                '<table class="layui-table" data-field="headers">'+
+                                '<colgroup>'+
+                                '<col width="35%">'+
+                                '<col>'+
+                                '<col width="10">'+
+                                '</colgroup>'+
+                                '<thead>'+
+                                '<tr>'+
+                                '<th>标签</th>'+
+                                '<th>内容</th>'+
+                                '<th></th>'+
+                                '</tr>'+
+                                '</thead>'+
+                                '<tbody>'+
+                                tmp1+
+                                '</tbody>'+
+                                '</table>'+
+                                '</div>'+
+                                '<div class="layui-tab-item">'+
+                                '<a href="javascript:;" class="right add-param-field" data-num="0">'+
+                                '<i class="layui-icon" style="font-size: 20px; font-weight: bold;color: #009688;">&#xe608;</i>'+
+                                '<span class="layui-inline" style="height: 27px;font-size: 14px">新增请求参数</span>'+
+                                '</a>'+
+                                '<table class="layui-table" data-field="params" name="params">'+
+                                '<colgroup>'+
+                                '<col width="15%">'+
+                                '<col width="35%">'+
+                                '<col width="30%">'+
+                                '<col width="10%">'+
+                                '<col>'+
+                                '<col width="10">'+
+                                '</colgroup>'+
+                                '<thead>'+
+                                '<tr>'+
+                                '<th>参数名</th>'+
+                                '<th>描述</th>'+
+                                '<th>默认值</th>'+
+                                '<th>类型</th>'+
+                                '<th>必填</th>'+
+                                '<th></th>'+
+                                '</tr>'+
+                                '</thead>'+
+                                '<tbody>'+
+                                tmp2+
+                                '</tbody>'+
+                                '</table></div>'+
+                                '<div class="layui-tab-item">'+
+                                '<a href="javascript:;" class="right add-pre-field" data-num="0">'+
+                                '<i class="layui-icon" style="font-size: 20px; font-weight: bold;color: #009688;">&#xe608;</i>'+
+                                '<span class="layui-inline" style="height: 27px;font-size: 14px">新增sql</span>'+
+                                '</a>'+
+                                '<table class="layui-table" data-field="pres" name="pres">'+
+                                '<colgroup>'+
+                                '<col width="15%">'+
+                                '<col width="46%">'+
+                                '<col width="25%">'+
+                                '<col width="7%">'+
+                                '<col width="6">'+
+                                '</colgroup>'+
+                                '<thead>'+
+                                '<tr>'+
+                                '<th>前置类型</th>'+
+                                '<th>内容(sql语句)</th>'+
+                                '<th>变量(赋值变量逗号分割)</th>'+
+                                '<th>排序</th>'+
+                                '<th>操作</th>'+
+                                '</tr>'+
+                                '</thead>'+
+                                '<tbody>'+
+                                tmp3+
+                                '</tbody>'+
+                                '</table>'+
+                                '</div>'+
+                                '</div>'+
+                                '</div>'+
+                                '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">'+
+                                '<legend style="font-size:15px;font-weight: 300;">响应信息</legend>'+
+                                '</fieldset>               '+
+                                '<div class="layui-tab layui-tab-card">'+
+                                '<ul class="layui-tab-title">'+
+                                '<li class="layui-this">后置处理</li>'+
+                                '<li>断言</li>'+
+                                '</ul>'+
+                                '<div class="layui-tab-content" style="height: 100%;">'+
+                                '<div class="layui-tab-item layui-show">'+
+                                '<a href="javascript:;" class="right add-post-field" data-num="0">'+
+                                '<i class="layui-icon" style="font-size: 20px; font-weight: bold;color: #009688;">&#xe608;</i>'+
+                                '<span class="layui-inline" style="height: 27px;font-size: 14px">正则提取</span>'+
+                                '</a>'+
+                                '<table class="layui-table" data-field="post" name="post">'+
+                                '<colgroup>'+
+                                '<col width="15%">'+
+                                '<col width="15%">'+
+                                '<col width="40%">'+
+                                '<col width="24%">'+
+                                '<col width="6">'+
+                                '</colgroup>'+
+                                '<thead>'+
+                                '<tr>'+
+                                '<th>后置类型</th>'+
+                                '<th>提取对象</th>'+
+                                '<th>语句(正则表达式)</th>'+
+                                '<th>变量(赋值变量名)</th>'+
+                                '<th>操作</th>'+
+                                '</tr>'+
+                                '</thead>'+
+                                '<tbody>'+
+                                '<tr>'+
+                                '<td>'+
+                                '<input type="text" name="post_type" placeholder="Type" class="layui-input">'+
+                                '</td>'+
+                                '<td>'+
+                                '<input type="text" name="post_object" placeholder="Object" class="layui-input">'+
+                                '</td>'+
+                                '<td>'+
+                                '<input type="text" name="post_expression" placeholder="Expression" class="layui-input">'+
+                                '</td>'+
+                                '<td>'+
+                                '<input type="text" name="post_variable" placeholder="Variable" class="layui-input">'+
+                                '</td>'+
+                                '<td>'+
+                                '<a href="javascript:;" class="delete">'+
+                                '<i class="layui-icon">&#x1006;</i>'+
+                                '</a>'+
+                                '</td>'+
+                                '</tr>'+
+                                '</tbody>'+
+                                '</table>'+
+                                '</div>'+
+                                '<div class="layui-tab-item">'+
+                                '响应内容断言（支持正则）'+
+                                '<br><br>'+
+                                '<input type="text" name="assertion" class="layui-input">'+
+                                '<br>'+
+                                '</div>'+
+                                '</div>'+
+                                '</div>'+
+                                '</form>',
                         btn: ['确定', '取消'],//一个是确定修改，一个是取消
                         yes: function (index, layero) {
                             var data = $("#project-case-edit").serializeArray(),
@@ -342,22 +564,51 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                             layer.close(index)
                         }
                     });
-                    $.get('/get_case_api_list',
-                    {
-                    pid:pid,
-                    csrfmiddlewaretoken:csrftoken,
-                    },
-                    function(data2){
-                        if(data2.count>=1){
-                            $.each(data2.data,function(k,v){
-                            $("#api-list").append("<option value='" + v.id + "' style='font-weight: bold;'>" + v.api_path + "</option>");
-                            })
-                        }
-                        $("#api-list option[value='"+api_id+"']").prop("selected",true);
-                        form.render('select');
-                    return false;
+                $('.add-field').click(function (event) {
+                    var self = $(this);
+                    var data = {
+                        "field": self.nextAll('table:visible').first().data('field'),
+                        "num": self.data('num')
+                    }
+                    laytpl($('#addfield').html()).render(data, function (html) {
+                        self.nextAll('table:visible').first().find('tbody').append(
+                            html);
+                        self.data('num', parseInt(data.num) + 1);
                     });
-                    form.render()
+                    return false;
+                });
+                $('.add-param-field').click(function (event) {
+                    var self = $(this);
+                    var data = {
+                        "field": self.nextAll('table:visible').first().data('field'),
+                        "num": self.data('num')
+                    }
+                    laytpl($('#addparamfield').html()).render(data, function (html) {
+                        self.nextAll('table:visible').first().find('tbody').append(
+                            html);
+                        self.data('num', parseInt(data.num) + 1);
+                    });
+                    form.render();
+                    return false;
+                });
+                $('.layui-table').on('click', '.delete', function (event) {
+                    event.preventDefault();
+                    $(this).closest('tr').remove();
+                    return false;
+                });
+                form.on('radio(table-radio)', function (data) {
+                    var obj = $(data.elem).closest('.layui-form-item');
+                    $('.request-data').hide();
+                    $('#' + data.value).show();
+                    if (data.value == 'raw') {
+                        $('#model_header').show();
+                    } else {
+                        $('#model_header').hide();
+                    }
+                });
+                $("#project-api-add-protocol option[value='"+data.case_api_info.api_protocol+"']").prop("selected",true);//根据值让option选中
+                $("#project-api-add-method option[value='"+data.case_api_info.api_method+"']").prop("selected",true);
+                form.render();
                 })
         }
     })

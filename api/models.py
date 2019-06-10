@@ -75,6 +75,7 @@ class TaskCase(models.Model):
 class CaseApi(models.Model):
     case = models.ForeignKey('Case',on_delete=models.CASCADE)
     api = models.ForeignKey('Api',on_delete=models.CASCADE)
+    host = models.CharField(max_length=255,default='')
     api_params = models.CharField(max_length=1000,default='')
     api_headers = models.CharField(max_length=1000,default='')
     sort = models.IntegerField(null=False,blank=False,default=1)
