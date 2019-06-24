@@ -39,7 +39,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
 
     //渲染表格
     var apiTable = table.render({//渲染table
-        method: 'get',//数据传输方式为post
+        method: 'get',//数据传输方式为get
         height: '475',//高度
         cellMinWidth: 80,//单元格最小宽度为80
         page: true,//开启分页

@@ -11,6 +11,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.db import transaction
 
 from api.models import *
 from tools.aps import APS
@@ -938,16 +939,20 @@ def get_case_api_detail(request):
     caid = request.GET.get('id', 0)
     case_api = CaseApi.objects.filter(id=caid).values().first()
     api_info = Api.objects.filter(id=case_api['api_id']).values('api_name','api_path','api_protocol','api_method').first()
-    pre_steps = Step.objects.filter(CaseApi_id=caid,step_type=1).order_by('step_sort').values()
-    post_steps = Step.objects.filter(CaseApi_id=caid,step_type=2).order_by('step_sort').values()
+    pre_steps = Step.objects.filter(CaseApi_id=caid,step_type='SQL').order_by('step_sort').values()
+    post_steps = Step.objects.filter(CaseApi_id=caid,step_type='REGEXP').order_by('step_sort').values()
+    assertion = Step.objects.filter(CaseApi_id=caid,step_type='Assertion').values().first()
     data = {}
     case_api_info = api_info
     case_api_info['api_headers'] = eval(case_api['api_headers'])
     case_api_info['api_params'] = eval(case_api['api_params'])
     case_api_info['host'] = case_api['host']
+    case_api_info['id'] = caid
     data['case_api_info']= case_api_info
     data['pre_steps'] = list(pre_steps)
+    # print(data['pre_steps'])
     data['post_steps'] = list(post_steps)
+    data['assertion'] = assertion['step_content']
     # print(data)
     resultdict = {
         'code': 0,
@@ -955,3 +960,53 @@ def get_case_api_detail(request):
         'data': data
     }
     return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def edit_case_api(request):
+    caid = request.POST.get('case_api_id', 0)
+    pdata = request.POST.get('pdata','')
+    d_api_data = eval(pdata)
+    params = d_api_data['params']
+    headers = d_api_data['headers']
+    pres = d_api_data['pres']
+    posts = d_api_data['posts']
+    host = d_api_data['host']
+    assertion = d_api_data['assertion']
+    try:
+        with transaction.atomic():
+            CaseApi.objects.filter(id=caid).update(api_params=params,api_headers=headers,host=host,
+                                                   ca_update_time=time.strftime('%Y-%m-%d %H:%M:%S'))
+            if Step.objects.filter(CaseApi_id=caid):
+                Step.objects.filter(CaseApi_id=caid).delete()
+            steps = []
+            for pre in pres:
+                step_type = pre.pop('pre_type')
+                step_sort = pre.pop('pre_sort')
+                step_content =pre
+                steps.append(Step(step_type=step_type,step_content=step_content,step_sort=step_sort,
+                                  step_create_time=time.strftime('%Y-%m-%d %H:%M:%S'),CaseApi_id=caid))
+            for post in posts:
+                step_type = post.pop('post_type')
+                step_sort = 100
+                step_content = post
+                steps.append(Step(step_type=step_type,step_content=step_content,step_sort=step_sort,
+                                  step_create_time=time.strftime('%Y-%m-%d %H:%M:%S'),CaseApi_id=caid))
+            if assertion != '':
+                steps.append(Step(step_type='Assertion',step_content=assertion,step_sort=101,
+                                      step_create_time=time.strftime('%Y-%m-%d %H:%M:%S'),CaseApi_id=caid))
+            Step.objects.bulk_create(steps)
+            resultdict = {
+                'code': 0,
+                'msg': 'success',
+                'data': []
+            }
+            return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)

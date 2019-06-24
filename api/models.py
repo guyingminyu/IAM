@@ -13,7 +13,7 @@ class Project(models.Model):
 class Env(models.Model):
     project = models.ForeignKey('Project',on_delete=models.CASCADE)
     env_name = models.CharField(max_length=32)
-    env_value = models.CharField(max_length=100)
+    env_value = models.CharField(max_length=1000)
     env_desc = models.CharField(max_length=1000,default='')
 
 class Api(models.Model):
@@ -52,7 +52,7 @@ class Case(models.Model):
 
 class Step(models.Model):
     CaseApi = models.ForeignKey('CaseApi',on_delete=models.CASCADE)
-    step_type = models.IntegerField('类型1、2、3、4、5、6、7',null=False,blank=False)
+    step_type = models.CharField('类型',null=False,blank=False,max_length=100)
     step_sort = models.IntegerField(null=False,blank=False,default=100)
     step_content = models.CharField(null=False,blank=False,max_length=1000)
     step_create_time = models.DateTimeField(null=True, blank=True, default=timezone.now)

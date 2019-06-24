@@ -336,33 +336,72 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                     var tmp3 ='';
                     if(data.pre_steps.length >=1){
                         $.each(data.pre_steps,function (k,v) {
-                            tmp3 += '<tr><td><input type="text" name="pre_type" placeholder="Type" class="layui-input" value="SQL">'+
-                                '</td><td><input type="text" name="pre_content" placeholder="Content" class="layui-input" value="'+v["content"]+'">'+
-                                '</td><td><input type="text" name="pre_variable" placeholder="Variable" class="layui-input" value="'+v["variable"]+'">'+
-                                '</td><td><input type="text" name="pre_sort" placeholder="Sort" class="layui-input" value="'+v["step_sort"]+'">'+
-                                '</td><td><a href="javascript:;" class="delete"><i class="layui-icon">&#x1006;</i></a></td></tr>'
+                            if(v['step_type']=='SQL') {
+                                var step_content = eval("("+v['step_content']+")");
+                                tmp3 += '<tr><td><input type="text" name="pre_type" placeholder="Type" class="layui-input" value="SQL">' +
+                                    '<td><input type="text" name="pre_sqlenv" placeholder="SqlEnv" class="layui-input" value="' + step_content['pre_sqlenv'] + '"></td>' +
+                                    '</td><td><input type="text" name="pre_content" placeholder="Content" class="layui-input" value="' + step_content["pre_content"].replace(/\"/g,"&quot;") + '">' +
+                                    '</td><td><input type="text" name="pre_variable" placeholder="Variable" class="layui-input" value="' + step_content["pre_variable"] + '">' +
+                                    '</td><td><input type="text" name="pre_sort" placeholder="Sort" class="layui-input" value="' + v["step_sort"] + '">' +
+                                    '</td><td><a href="javascript:;" class="delete"><i class="layui-icon">&#x1006;</i></a></td></tr>'
+                            }
+                        })
+                    }
+                    var tmp4 ='';
+                    if(data.post_steps.length >=1){
+                        $.each(data.post_steps,function (k,v) {
+                            tmp4 += '<tr>'+
+                                '<td>'+
+                                '<input type="text" name="post_type" placeholder="Type" class="layui-input" value="REGEXP">'+
+                                '</td>'+
+                                '<td>'+
+                                    '<select id="case-api-add-post-object" name="post_object" >';
+                                    var a={
+                                        'Body':'响应内容',
+                                        'URL':'URL',
+                                        'ResHeader':'响应头',
+                                        'ReqHeader':'请求头'
+                                    };
+                                    $.each(a,function (k1, v1) {
+                                        tmp4 +='<option value="'+k1+'" '+(v['post_object']==k1?"selected":"") +'>'+v1+'</option>';
+                                    });
+                                    tmp4 +=
+                                    '</select>'+
+                                '</td>'+
+                                '<td>'+
+                                '<input type="text" name="post_expression" placeholder="Expression" class="layui-input">'+
+                                '</td>'+
+                                '<td>'+
+                                '<input type="text" name="post_variable" placeholder="Variable" class="layui-input">'+
+                                '</td>'+
+                                '<td>'+
+                                '<a href="javascript:;" class="delete">'+
+                                '<i class="layui-icon">&#x1006;</i>'+
+                                '</a>'+
+                                '</td>'+
+                                '</tr>'
                         })
                     }
                     layer.open({
                         title: '编辑用例',
                         area: ['1200px', '850px'],
-                        content:'<form class="layui-form layui-form-pane" id="project-api-add" action="/add_project_api" style="width: 1150px">'+
+                        content:'<form class="layui-form layui-form-pane" id="cas-api-edit" action="/edit_case_api" style="width: 1150px">'+
                                 '<div class="layui-form-item">'+
                                 '<label class="layui-form-label">接口名称</label>'+
                                 '<div class="layui-input-block">'+
-                                '<input type="text" id="project-api-add-name" name="api_name" style="width: 1040px" ' +
+                                '<input type="text" id="case-api-edit-name" name="api_name" style="width: 1040px" ' +
                         'lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入接口名称" ' +
                         'class="layui-input" value='+data.case_api_info.api_name+'>'+
                                 '</div>'+
                                 '<label class="layui-form-label">域名ip</label>'+
                                 '<div class="layui-input-block">'+
-                                '<input type="text" id="project-api-add-host" name="host" style="width: 1040px" ' +
+                                '<input type="text" id="case-api-edit-host" name="host" style="width: 1040px" ' +
                         'lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入服务器域名或ip" ' +
                         'class="layui-input" value='+data.case_api_info.host+'>'+
                                 '</div>'+
                                 '<label class="layui-form-label">接口地址</label>'+
                                 '<div class="layui-input-block" >'+
-                                '<input type="text" id="project-api-add-path" name="path" style="width: 1040px" ' +
+                                '<input type="text" id="case-api-edit-path" name="path" style="width: 1040px" ' +
                         'lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入接口地址" ' +
                         'class="layui-input" value='+data.case_api_info.api_path+'>'+
                                 '</div>'+
@@ -370,14 +409,14 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                                 '<div class="layui-form-item">'+
                                 '<label class="layui-form-label">协议</label>'+
                                 '<div class="layui-input-inline">'+
-                                '<select id="project-api-add-protocol" name="protocol" >'+
+                                '<select id="case-api-edit-protocol" name="protocol" >'+
                                 '<option value="http">HTTP</option>'+
                                 '<option value="https">HTTPS</option>'+
                                 '</select>'+
                                 '</div>'+
                                 '<label class="layui-form-label">请求方式</label>'+
                                 '<div class="layui-input-inline">'+
-                                '<select id="project-api-add-method" name="method">'+
+                                '<select id="case-api-edit-method" name="method">'+
                                 '<option value="get">GET</option>'+
                                 '<option value="post">POST</option>'+
                                 '<option value="put">PUT</option>'+
@@ -453,15 +492,17 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                                 '</a>'+
                                 '<table class="layui-table" data-field="pres" name="pres">'+
                                 '<colgroup>'+
-                                '<col width="15%">'+
-                                '<col width="46%">'+
-                                '<col width="25%">'+
+                                '<col width="8%">'+
+                                '<col width="10%">'+
+                                '<col width="45%">'+
+                                '<col width="22%">'+
                                 '<col width="7%">'+
                                 '<col width="6">'+
                                 '</colgroup>'+
                                 '<thead>'+
                                 '<tr>'+
-                                '<th>前置类型</th>'+
+                                '<th>类型</th>'+
+                                '<th>sql配置</th>'+
                                 '<th>内容(sql语句)</th>'+
                                 '<th>变量(赋值变量逗号分割)</th>'+
                                 '<th>排序</th>'+
@@ -507,32 +548,14 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                                 '</tr>'+
                                 '</thead>'+
                                 '<tbody>'+
-                                '<tr>'+
-                                '<td>'+
-                                '<input type="text" name="post_type" placeholder="Type" class="layui-input">'+
-                                '</td>'+
-                                '<td>'+
-                                '<input type="text" name="post_object" placeholder="Object" class="layui-input">'+
-                                '</td>'+
-                                '<td>'+
-                                '<input type="text" name="post_expression" placeholder="Expression" class="layui-input">'+
-                                '</td>'+
-                                '<td>'+
-                                '<input type="text" name="post_variable" placeholder="Variable" class="layui-input">'+
-                                '</td>'+
-                                '<td>'+
-                                '<a href="javascript:;" class="delete">'+
-                                '<i class="layui-icon">&#x1006;</i>'+
-                                '</a>'+
-                                '</td>'+
-                                '</tr>'+
+                                tmp4+
                                 '</tbody>'+
                                 '</table>'+
                                 '</div>'+
                                 '<div class="layui-tab-item">'+
                                 '响应内容断言（支持正则）'+
                                 '<br><br>'+
-                                '<input type="text" name="assertion" class="layui-input">'+
+                                '<input type="text" name="assertion" class="layui-input" value="'+data.assertion+'">'+
                                 '<br>'+
                                 '</div>'+
                                 '</div>'+
@@ -540,23 +563,68 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                                 '</form>',
                         btn: ['确定', '取消'],//一个是确定修改，一个是取消
                         yes: function (index, layero) {
-                            var data = $("#project-case-edit").serializeArray(),
-                                values = {};
-                            $.each(data,function (k,v) {
-                                values[v.name] = v.value;
-                            })
+                            var values = {};
+                            $(function (){
+                                var params = $("#cas-api-edit").serializeArray();//序列化表单，转化成一个json结构对象
+                                var x;
+                                values["headers"] = [];
+                                values["params"] = [];
+                                values["pres"] = [];
+                                values["posts"] = [];
+                                var a = ["header_key","header_value","param_name","param_desc","param_default",
+                                    "param_type","param_must","pre_type","pre_sqlenv","pre_content","pre_variable",
+                                    "pre_sort","post_type","post_object","post_expression","post_variable"];
+                                for(x in params){
+                                    var j = $.inArray(params[x].name,a);
+                                    if(j==-1){
+                                        values[params[x].name] = params[x].value;
+                                    }
+                                }
+                                for(var n = 0;n < $("input[name='header_key']").length;n++){
+                                    var dh = {};
+                                    dh['header_key'] = $("input[name='header_key']")[n].value;
+                                    dh['header_value'] = $("input[name='header_value']")[n].value;
+                                    values["headers"].push(dh);
+                                }
+                                for(var i=0;i<$("input[name='param_name']").length;i++){
+                                    var dp = {};
+                                    dp['param_name'] = $("input[name='param_name']")[i].value;
+                                    dp['param_desc'] = $("input[name='param_desc']")[i].value;
+                                    dp['param_default'] = $("input[name='param_default']")[i].value;
+                                    dp['param_type'] = $("select[name='param_type']")[i].value;
+                                    dp['param_must'] = $("input[name='param_must']")[i].checked?1:0;
+                                    values["params"].push(dp);
+                                }
+                                for(var i=0;i<$("input[name='pre_type']").length;i++){
+                                    var dp = {};
+                                    dp['pre_type'] = $("input[name='pre_type']")[i].value;
+                                    dp['pre_sqlenv'] = $("input[name='pre_sqlenv']")[i].value;
+                                    dp['pre_content'] = $("input[name='pre_content']")[i].value;
+                                    dp['pre_variable'] = $("input[name='pre_variable']")[i].value;
+                                    dp['pre_sort'] = $("input[name='pre_sort']")[i].value;
+                                    values["pres"].push(dp);
+                                }
+                                for(var i=0;i<$("input[name='post_type']").length;i++){
+                                    var dp = {};
+                                    dp['post_type'] = $("input[name='post_type']")[i].value;
+                                    dp['post_object'] = $("select[name='post_object']")[i].value;
+                                    dp['post_expression'] = $("input[name='post_expression']")[i].value;
+                                    dp['post_variable'] = $("input[name='post_variable']")[i].value;
+                                    values["posts"].push(dp);
+                                }
+                            });
                             //确定修改的时候需要吧各个值传到服务器当中
                             $.post(
-                                '/edit_project_case',
+                                '/edit_case_api',
                                 {
                                     pdata:JSON.stringify(values), //对象转字符串
-                                    case_id:obj.data.id,
+                                    case_api_id:data.case_api_info.id,
                                     csrfmiddlewaretoken:csrftoken,
                                 },
                                 function (data) {//修改成功后需要关闭弹窗并且重载表格
                                     layer.close(index)
                                     layer.msg('修改成功！', {icon: 1})
-                                    caseTable.reload()
+                                    caseDetailTable.reload()
                                 }
                             )
                         },
@@ -591,6 +659,34 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                     form.render();
                     return false;
                 });
+                $('.add-pre-field').click(function (event) {
+                    var self = $(this);
+                    var data = {
+                        "field": self.nextAll('table:visible').first().data('field'),
+                        "num": self.data('num')
+                    }
+                    laytpl($('#addprefield').html()).render(data, function (html) {
+                        self.nextAll('table:visible').first().find('tbody').append(
+                            html);
+                        self.data('num', parseInt(data.num) + 1);
+                    });
+                    form.render();
+                    return false;
+                });
+                $('.add-post-field').click(function (event) {
+                    var self = $(this);
+                    var data = {
+                        "field": self.nextAll('table:visible').first().data('field'),
+                        "num": self.data('num')
+                    }
+                    laytpl($('#addpostfield').html()).render(data, function (html) {
+                        self.nextAll('table:visible').first().find('tbody').append(
+                            html);
+                        self.data('num', parseInt(data.num) + 1);
+                    });
+                    form.render();
+                    return false;
+                });
                 $('.layui-table').on('click', '.delete', function (event) {
                     event.preventDefault();
                     $(this).closest('tr').remove();
@@ -606,8 +702,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                         $('#model_header').hide();
                     }
                 });
-                $("#project-api-add-protocol option[value='"+data.case_api_info.api_protocol+"']").prop("selected",true);//根据值让option选中
-                $("#project-api-add-method option[value='"+data.case_api_info.api_method+"']").prop("selected",true);
+                $("#case-api-edit-protocol option[value='"+data.case_api_info.api_protocol+"']").prop("selected",true);//根据值让option选中
+                $("#case-api-edit-method option[value='"+data.case_api_info.api_method+"']").prop("selected",true);
                 form.render();
                 })
         }

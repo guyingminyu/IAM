@@ -643,3 +643,219 @@ TypeError: eval() arg 1 must be a string, bytes or code object
 2019-06-10 13:16:58,191 - django.request - WARNING - Method Not Allowed (POST): /get_case_api_detail
 2019-06-10 13:17:01,887 - django.request - WARNING - Method Not Allowed (POST): /get_case_api_detail
 2019-06-10 13:23:36,960 - django.request - WARNING - Method Not Allowed (POST): /get_case_api_detail
+2019-06-17 14:07:48,352 - tools.log - ERROR - 'project-case-add-name'
+2019-06-17 16:08:11,128 - django.request - WARNING - Not Found: /edit_case_api
+2019-06-17 16:16:41,186 - django.request - WARNING - Not Found: /edit_case_api
+2019-06-18 19:43:32,272 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-06-18 19:54:55,492 - tools.log - ERROR - Cannot assign "0": "Step.CaseApi" must be a "CaseApi" instance.
+2019-06-18 19:59:31,754 - tools.log - ERROR - CaseApi matching query does not exist.
+2019-06-18 20:01:34,606 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-06-19 10:06:39,984 - tools.log - ERROR - The database backend does not accept 0 as a value for AutoField.
+2019-06-19 10:30:12,531 - tools.log - ERROR - invalid literal for int() with base 10: 'SQL'
+2019-06-19 11:50:05,925 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 954, in get_case_api_detail
+    data['assertion'] = assertion.step_content
+AttributeError: 'QuerySet' object has no attribute 'step_content'
+2019-06-19 11:51:01,468 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 954, in get_case_api_detail
+    data['assertion'] = assertion['step_content']
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 278, in __getitem__
+    raise TypeError
+TypeError
+2019-06-19 11:55:06,982 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = eval(pre_steps)
+TypeError: eval() arg 1 must be a string, bytes or code object
+2019-06-19 11:55:41,734 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = json.loads(pre_steps)
+  File "D:\Program Files\python\lib\json\__init__.py", line 348, in loads
+    'not {!r}'.format(s.__class__.__name__))
+TypeError: the JSON object must be str, bytes or bytearray, not 'QuerySet'
+2019-06-19 11:58:03,522 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 944, in get_case_api_detail
+    assertion = Step.objects.filter(CaseApi_id=caid,step_type='Assertion').values().first().all()
+AttributeError: 'dict' object has no attribute 'all'
+2019-06-19 11:58:20,688 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = json.loads(pre_steps)
+  File "D:\Program Files\python\lib\json\__init__.py", line 348, in loads
+    'not {!r}'.format(s.__class__.__name__))
+TypeError: the JSON object must be str, bytes or bytearray, not 'QuerySet'
+2019-06-19 12:00:03,670 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = json.loads(list(pre_steps))
+  File "D:\Program Files\python\lib\json\__init__.py", line 348, in loads
+    'not {!r}'.format(s.__class__.__name__))
+TypeError: the JSON object must be str, bytes or bytearray, not 'list'
+2019-06-19 12:00:20,486 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = json.dumps(list(pre_steps))
+  File "D:\Program Files\python\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\Program Files\python\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Program Files\python\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Program Files\python\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'datetime' is not JSON serializable
+2019-06-19 12:00:34,142 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = json.loads(list(pre_steps))
+  File "D:\Program Files\python\lib\json\__init__.py", line 348, in loads
+    'not {!r}'.format(s.__class__.__name__))
+TypeError: the JSON object must be str, bytes or bytearray, not 'list'
+2019-06-19 12:00:43,299 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = eval(list(pre_steps))
+TypeError: eval() arg 1 must be a string, bytes or code object
+2019-06-19 14:32:33,172 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = json.loads(str(pre_steps))
+  File "D:\Program Files\python\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "D:\Program Files\python\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\Program Files\python\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2019-06-19 14:34:35,810 - django.request - ERROR - Internal Server Error: /get_case_api_detail
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 952, in get_case_api_detail
+    data['pre_steps'] = eval(str(pre_steps))
+  File "<string>", line 1
+    <QuerySet [{'id': 1, 'CaseApi_id': 19, 'step_type': 'SQL', 'step_sort': 1, 'step_content': '{\'pre_sqlenv\': \'${qapmfmysql}\', \'pre_content\': \'select username from user where mobile="15921720233"\', \'pre_variable\': \'username\'}', 'step_create_time': datetime.datetime(2019, 6, 19, 11, 31, 37), 'step_update_time': None}]>
+    ^
+SyntaxError: invalid syntax

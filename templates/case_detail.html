@@ -3,10 +3,11 @@
     <!--工具栏(全局)-->
     <div class="caseDetailTools">
         <div id="project-caseDetail-tool" class="layui-inline">
-            <a href="/project_case/{{ pid }}" class="layui-btn layui-btn-primary"><i class="layui-icon layui-icon-return"></i>
+            <a href="/project_case/{{ pid }}" class="layui-btn layui-btn-primary"><i
+                    class="layui-icon layui-icon-return"></i>
                 <span style="font-size: 17px">返回</span></a>
-            <button class="layui-btn" data-type="choiceApi" >选择已有接口</button>
-{#            <button class="layui-btn" data-type="caseApiAdd" >添加新接口</button>#}
+            <button class="layui-btn" data-type="choiceApi">选择已有接口</button>
+            {#            <button class="layui-btn" data-type="caseApiAdd" >添加新接口</button>#}
         </div>
     </div>
 
@@ -50,14 +51,17 @@
                 <input type="text" name="param_default" placeholder="Default" class="layui-input">
             </td>
             <td>
-                <input type="text" name="param_type" placeholder="Type" class="layui-input">
+                <select id="project-api-add-param_type" name="param_type">
+                    <option value="string">string</option>
+                    <option value="int">int</option>
+                </select>
             </td>
             <td>
                 <input type="checkbox" name="param_must" title="" lay-skin="primary" checked>
             </td>
             <td>
                 <a href="javascript:;" class="delete">
-                <i class="layui-icon">&#x1006;</i>
+                    <i class="layui-icon">&#x1006;</i>
                 </a>
             </td>
         </tr>
@@ -65,7 +69,10 @@
     <script id="addprefield" type="text/html">
         <tr>
             <td>
-                <input type="text" name="pre_type" placeholder="Type" class="layui-input">
+                <input type="text" name="pre_type" placeholder="Type" class="layui-input" value="SQL">
+            </td>
+            <td>
+                <input type="text" name="pre_sqlenv" placeholder="SqlEnv" class="layui-input">
             </td>
             <td>
                 <input type="text" name="pre_content" placeholder="Content" class="layui-input">
@@ -75,6 +82,32 @@
             </td>
             <td>
                 <input type="text" name="pre_sort" placeholder="Sort" class="layui-input">
+            </td>
+            <td>
+                <a href="javascript:;" class="delete">
+                    <i class="layui-icon">&#x1006;</i>
+                </a>
+            </td>
+        </tr>
+    </script>
+    <script id="addpostfield" type="text/html">
+        <tr>
+            <td>
+                <input type="text" name="post_type" placeholder="Type" class="layui-input" value="REGEXP">
+            </td>
+            <td>
+                <select id="case-api-add-post-object" name="post_object">
+                    <option value="Body">响应内容</option>
+                    <option value="URL">URL</option>
+                    <option value="ResHeader">响应头</option>
+                    <option value="ReqHeader">请求头</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" name="post_expression" placeholder="Expression" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="post_variable" placeholder="Variable" class="layui-input">
             </td>
             <td>
                 <a href="javascript:;" class="delete">
