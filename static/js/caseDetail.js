@@ -391,19 +391,19 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                                 '<div class="layui-input-block">'+
                                 '<input type="text" id="case-api-edit-name" name="api_name" style="width: 1040px" ' +
                         'lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入接口名称" ' +
-                        'class="layui-input" value='+data.case_api_info.api_name+'>'+
+                        'class="layui-input" value="'+data.case_api_info.api_name+'">'+
                                 '</div>'+
                                 '<label class="layui-form-label">域名ip</label>'+
                                 '<div class="layui-input-block">'+
                                 '<input type="text" id="case-api-edit-host" name="host" style="width: 1040px" ' +
                         'lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入服务器域名或ip" ' +
-                        'class="layui-input" value='+data.case_api_info.host+'>'+
+                        'class="layui-input" value="'+data.case_api_info.host+'">'+
                                 '</div>'+
                                 '<label class="layui-form-label">接口地址</label>'+
                                 '<div class="layui-input-block" >'+
                                 '<input type="text" id="case-api-edit-path" name="path" style="width: 1040px" ' +
                         'lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入接口地址" ' +
-                        'class="layui-input" value='+data.case_api_info.api_path+'>'+
+                        'class="layui-input" value="'+data.case_api_info.api_path+'">'+
                                 '</div>'+
                                 '</div>'+
                                 '<div class="layui-form-item">'+

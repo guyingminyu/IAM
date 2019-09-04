@@ -78,9 +78,9 @@
                             <dd class="case">
                                 <a href="/project_case/{{ project.id }}">用例管理</a>
                             </dd>
-{#                            <dd class="">#}
-{#                                <a href="/demo/project_task">自动化测试</a>#}
-{#                            </dd>#}
+                            <dd class="task">
+                                <a href="/project_task/{{ project.id }}">自动化测试</a>
+                            </dd>
 {#                            <dd class="">#}
 {#                                <a href="/demo/admin.html">自动化测试报告</a>#}
 {#                            </dd>#}
@@ -97,16 +97,16 @@
                     <h3>监控服务器：
                     <div class="layui-input-inline layui-form" style="width: 180px">
                     <select lay-verify="required" lay-filter="serverip" class="layui-form-select" lay-search  id="serverip">
-                        <option value="0">192.168.120.132</option>
-                        <option value="1">192.168.120.136</option>
+                        <option value="0">192.168.120.136</option>
+                        <option value="1">192.168.120.132</option>
                         <option value="2">192.168.120.131</option>
                         <option value="2">192.168.120.130</option>
                     </select>
                     </div></h3>
                 </div>
                 <br>
-                <iframe src="http://192.168.120.132:19999/" width="100%" height="100%" frameborder="0">
-                    <a href="http://192.168.120.132:19999/">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+                <iframe src="http://192.168.120.136:19999/" width="100%" height="100%" frameborder="0">
+                    <a href="http://192.168.120.136:19999/">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
                 </iframe>
             {% endblock %}
 		</div>

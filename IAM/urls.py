@@ -52,7 +52,7 @@ urlpatterns = [
     re_path(r'edit_project_api',views.edit_project_api,name='edit_project_api'),
     re_path(r'del_project_api',views.del_project_api,name='del_project_api'),
     re_path(r'testhtml/(?P<data>.*)$',views.testhtml),
-    re_path(r'^testjson/(?P<data>.*)$',views.testjson),
+    re_path(r'^testjson$',views.testjson),
     re_path(r'send',views.send),
     re_path(r'project_case/(?P<pid>\d+)',views.project_case,name='project_case'),
     re_path(r'get_project_cases',views.get_project_cases,name='get_project_cases'),
@@ -73,6 +73,9 @@ urlpatterns = [
     re_path(r'down_case_api$',views.down_case_api),
     re_path(r'get_case_api_detail$',views.get_case_api_detail),
     re_path(r'edit_case_api$',views.edit_case_api),
+    re_path(r'^project_task/(?P<pid>\d+)',views.project_task),
+    re_path(r'get_project_tasks$',views.get_project_tasks),
+    re_path(r'search_project_tasks$', views.search_project_tasks),
 
     urls.url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static')

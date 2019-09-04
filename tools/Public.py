@@ -4,8 +4,7 @@ import json,csv
 import codecs
 import pymysql
 import logging
-import sys;
-reload(sys);
+import sys
 sys.setdefaultencoding('utf8')
 
 

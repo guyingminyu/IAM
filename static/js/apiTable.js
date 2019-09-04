@@ -123,12 +123,12 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                         '<label class="layui-form-label">接口名称</label>'+
                         '<div class="layui-input-block">'+
                         '<input type="text" id="project-api-add-name" name="api_name" style="width: 940px" lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入接口名称" class="layui-input"' +
-                        'value='+data.api_name+'>'+
+                        'value="'+data.api_name+'">'+
                         '</div>'+
                         '<label class="layui-form-label">接口地址</label>'+
                         '<div class="layui-input-block" >'+
                         '<input type="text" id="project-api-add-path" name="path" style="width: 940px" lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入接口地址" class="layui-input"' +
-                        'value='+data.api_path+'>'+
+                        'value="'+data.api_path+'">'+
                         '</div>'+
                         '</div>'+
                         '<div class="layui-form-item">'+
@@ -298,12 +298,12 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                         '<label class="layui-form-label">接口名称</label>'+
                         '<div class="layui-input-block">'+
                         '<input type="text" id="project-api-add-name" name="api_name" style="width: 940px" lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入接口名称" class="layui-input"' +
-                        'value='+data.api_name+'>'+
+                        'value="'+data.api_name+'">'+
                         '</div>'+
                         '<label class="layui-form-label">接口地址</label>'+
                         '<div class="layui-input-block" >'+
                         '<input type="text" id="project-api-add-path" name="path" style="width: 940px" lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入接口地址" class="layui-input"' +
-                        'value='+data.api_path+'>'+
+                        'value="'+data.api_path+'">'+
                         '</div>'+
                         '</div>'+
                         '<div class="layui-form-item">'+
@@ -542,12 +542,12 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
                         '<label class="layui-form-label">接口名称</label>'+
                         '<div class="layui-input-block">'+
                         '<input type="text" id="project-api-add-name" name="api_name" style="width: 940px" lay-verify="required" lay-verify="name" autocomplete="off" placeholder="请输入接口名称" class="layui-input"' +
-                        'value='+data.api_name+'>'+
+                        'value="'+data.api_name+'">'+
                         '</div>'+
                         '<label class="layui-form-label">接口地址</label>'+
                         '<div class="layui-input-block" >'+
                         '<input type="text" id="project-api-add-path" name="path" style="width: 940px" lay-verify="required" lay-verify="path" autocomplete="off" placeholder="请输入接口地址" class="layui-input"' +
-                        'value='+data.api_path+'>'+
+                        'value="'+data.api_path+'">'+
                         '</div>'+
                         '</div>'+
                         '<div class="layui-form-item">'+

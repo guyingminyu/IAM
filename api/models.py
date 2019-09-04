@@ -64,9 +64,25 @@ class Task(models.Model):
     task_desc = models.CharField(max_length=1000,default='')
     task_status = models.IntegerField(default=1)
     task_timer = models.CharField(max_length=1000,default='')
-    env_id = models.IntegerField('环境变量ID')
     task_create_time = models.DateTimeField(null=True, blank=True, default=timezone.now)
     task_update_time = models.DateTimeField(null=True, blank=True)
+
+class TaskLog(models.Model):
+    task_id = models.IntegerField(default=0)
+    task_no = models.IntegerField(default=0)
+    task_result = models.IntegerField(default=1)
+    duration = models.IntegerField(default=0)
+    create_time = models.DateTimeField(null=True, blank=True, default=timezone.now)
+
+class TaskReportLog(models.Model):
+    task_log = models.ForeignKey('TaskLog', on_delete=models.CASCADE)
+    case = models.IntegerField(default=0)
+    request = models.TextField()
+    assertion = models.CharField(max_length=1000,default='')
+    response = models.TextField()
+    status = models.IntegerField(default=1)
+    duration = models.IntegerField(default=0)
+    create_time = models.DateTimeField(null=True, blank=True, default=timezone.now)
 
 class TaskCase(models.Model):
     task = models.ForeignKey('Task',on_delete=models.CASCADE)
