@@ -35,7 +35,7 @@ class RunTaskThread(threading.Thread):
                                                   create_time=time.strftime('%Y-%m-%d %H:%M:%S'))
             task_log.save()
             tclist = self.task_case_list()
-            print(tclist)
+            # print(tclist)
             for tc in tclist:
                 try:
                     log_info = "="*20+" thread=%s,task=%s,case=%s "%(self.getName(),self.task_id,tc['case_name'])+"="*20
@@ -90,6 +90,11 @@ class RunTaskThread(threading.Thread):
                     self.logger.info("case_status:%s"%acstatus)
                 except Exception as e:
                     # print(e)
+                    TaskReportLog.objects.create(case=tc.get('id'),
+                                                 response=str(e),
+                                                 status=3,
+                                                 create_time=time.strftime('%Y-%m-%d %H:%M:%S'),
+                                                 task_log_id=task_log.id)
                     self.logger.error(e)
                     continue
             task_log_status = 1

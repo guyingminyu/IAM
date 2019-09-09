@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f665255-ab5c-4400-9bc2-34b8b9fcf5d2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/task_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/task_report_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/task_run.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/auto_login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/report-Detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/tResult.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/Public.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/reportView.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/taskView.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAM/urls.py" afterPath="$PROJECT_DIR$/IAM/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/logs/info.log" afterPath="$PROJECT_DIR$/api/logs/info.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/models.py" afterPath="$PROJECT_DIR$/api/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/views.py" afterPath="$PROJECT_DIR$/api/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/apiTable.js" afterPath="$PROJECT_DIR$/static/js/apiTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/caseDetail.js" afterPath="$PROJECT_DIR$/static/js/caseDetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/caseTable.js" afterPath="$PROJECT_DIR$/static/js/caseTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/envTable.js" afterPath="$PROJECT_DIR$/static/js/envTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/taskTable.js" afterPath="$PROJECT_DIR$/static/js/taskTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/project_api.html" afterPath="$PROJECT_DIR$/templates/project_api.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/project_case.html" afterPath="$PROJECT_DIR$/templates/project_case.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/project_task.html" afterPath="$PROJECT_DIR$/templates/project_task.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/Public.py" afterPath="$PROJECT_DIR$/tools/Public.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/task_run.py" afterPath="$PROJECT_DIR$/tools/task_run.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,11 +40,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="1462" column="30" lean-forward="false" selection-start-line="1462" selection-start-column="4" selection-end-line="1462" selection-end-column="30" />
+            <state relative-caret-position="1159">
+              <caret line="1470" column="29" lean-forward="false" selection-start-line="1470" selection-start-column="29" selection-end-line="1470" selection-end-column="29" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#736#913#0" expanded="false" />
@@ -117,11 +106,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report-Detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/report-Detail.html">
+      <file leaf-file-name="task_run.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/task_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1346">
-              <caret line="142" column="14" lean-forward="false" selection-start-line="142" selection-start-column="14" selection-end-line="142" selection-end-column="14" />
+            <state relative-caret-position="-408">
+              <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
+              <folding>
+                <element signature="e#24#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/aps.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="503">
+              <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+              <folding>
+                <marker date="1557829779488" expanded="true" signature="1731:1770" ph="select api_p... api_api" />
+                <marker date="1557829779488" expanded="true" signature="2462:2525" ph="update api_a... " />
+                <marker date="1557829779488" expanded="true" signature="2695:2757" ph="update api_a... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bak.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/bak.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_demo.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/report/test_demo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="375" column="1" lean-forward="true" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -137,39 +162,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3948">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-              <folding>
-                <element signature="e#263#286#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="task_add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/task_add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="301" column="41" lean-forward="false" selection-start-line="301" selection-start-column="41" selection-end-line="301" selection-end-column="41" />
-              <folding>
-                <marker date="1567950033521" expanded="false" signature="2824:2837" ph="..." />
-                <marker date="1567950033521" expanded="false" signature="3083:3096" ph="..." />
-                <marker date="1567950033521" expanded="false" signature="3343:3356" ph="..." />
-                <marker date="1567950033521" expanded="false" signature="3601:3614" ph="..." />
-                <marker date="1567950033521" expanded="false" signature="3861:3874" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="taskTable.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/taskTable.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="839">
-              <caret line="142" column="28" lean-forward="true" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
+              <caret line="142" column="28" lean-forward="false" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
               <folding>
                 <marker date="1567947471396" expanded="true" signature="1259:1267" ph="..." />
                 <marker date="1567947471396" expanded="true" signature="6725:6748" ph="..." />
@@ -202,7 +199,7 @@
         <entry file="file://$PROJECT_DIR$/static/js/envTable.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
-              <caret line="113" column="18" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="113" selection-end-column="18" />
+              <caret line="113" column="18" lean-forward="false" selection-start-line="67" selection-start-column="19" selection-end-line="113" selection-end-column="18" />
               <folding>
                 <marker date="1567947223742" expanded="true" signature="1515:1523" ph="..." />
                 <marker date="1567947223742" expanded="true" signature="3388:3411" ph="..." />
@@ -226,7 +223,7 @@
         <entry file="file://$PROJECT_DIR$/templates/task_report_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1972">
-              <caret line="386" column="59" lean-forward="true" selection-start-line="386" selection-start-column="59" selection-end-line="386" selection-end-column="59" />
+              <caret line="386" column="59" lean-forward="false" selection-start-line="386" selection-start-column="59" selection-end-line="386" selection-end-column="59" />
               <folding>
                 <element signature="e#2547#2570#0#HTML" expanded="true" />
                 <element signature="e#2833#2879#0#HTML" expanded="true" />
@@ -239,16 +236,6 @@
                 <element signature="e#4519#4541#0#HTML" expanded="true" />
                 <element signature="e#4780#4801#0#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tResult.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/tResult.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1372">
-              <caret line="212" column="18" lean-forward="true" selection-start-line="212" selection-start-column="18" selection-end-line="212" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -342,7 +329,6 @@
         <option value="$PROJECT_DIR$/api/migrations/0002_auto_20181009_1904.py" />
         <option value="$PROJECT_DIR$/api/migrations/0003_case_step_task_taskcase.py" />
         <option value="$PROJECT_DIR$/api/migrations/0002_auto_20181219_1507.py" />
-        <option value="$PROJECT_DIR$/templates/auto_login.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/testf.html" />
         <option value="$PROJECT_DIR$/api/tests.py" />
@@ -356,13 +342,11 @@
         <option value="$PROJECT_DIR$/tools/db.py" />
         <option value="$PROJECT_DIR$/tools/aps.py" />
         <option value="$PROJECT_DIR$/templates/case_detail.html" />
-        <option value="$PROJECT_DIR$/tools/taskView.py" />
         <option value="$PROJECT_DIR$/tools/logconfig.json" />
         <option value="$PROJECT_DIR$/api/logs/errors.log" />
         <option value="$PROJECT_DIR$/tools/Public.py" />
         <option value="$PROJECT_DIR$/api/models.py" />
         <option value="$PROJECT_DIR$/api/logs/info.log" />
-        <option value="$PROJECT_DIR$/tools/task_run.py" />
         <option value="$PROJECT_DIR$/templates/project_api.html" />
         <option value="$PROJECT_DIR$/templates/project_case.html" />
         <option value="$PROJECT_DIR$/templates/project_task.html" />
@@ -377,6 +361,10 @@
         <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/IAM/urls.py" />
         <option value="$PROJECT_DIR$/templates/task_report_detail.html" />
+        <option value="$PROJECT_DIR$/tools/task_run.py" />
+        <option value="$PROJECT_DIR$/tools/taskView.py" />
+        <option value="$PROJECT_DIR$/tools/reportView.py" />
+        <option value="$PROJECT_DIR$/templates/auto_login.html" />
       </list>
     </option>
   </component>
@@ -1513,7 +1501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567595941311</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="201909091009">
+      <created>1567995005346</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567995005346</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1593,7 +1588,8 @@
     <MESSAGE value="201906101900" />
     <MESSAGE value="201906241916" />
     <MESSAGE value="201909041918" />
-    <option name="LAST_COMMIT_MESSAGE" value="201909041918" />
+    <MESSAGE value="201909091009" />
+    <option name="LAST_COMMIT_MESSAGE" value="201909091009" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1616,20 +1612,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/bak.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auto_login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../python/Lib/site-packages/django/db/models/fields/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23925">
@@ -1715,19 +1697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/aps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1316">
-          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-            <marker date="1557829779488" expanded="true" signature="1731:1770" ph="select api_p... api_api" />
-            <marker date="1557829779488" expanded="true" signature="2462:2525" ph="update api_a... " />
-            <marker date="1557829779488" expanded="true" signature="2695:2757" ph="update api_a... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/case_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -1755,34 +1724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="55" column="78" lean-forward="false" selection-start-line="55" selection-start-column="78" selection-end-line="55" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/Public.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1764">
-          <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-          <folding>
-            <element signature="e#24#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/taskView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4592">
-          <caret line="173" column="39" lean-forward="true" selection-start-line="173" selection-start-column="39" selection-end-line="173" selection-end-column="39" />
-          <folding>
-            <element signature="e#25#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/report/test_demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="378" column="19" lean-forward="true" selection-start-line="378" selection-start-column="19" selection-end-line="378" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1829,30 +1770,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/reportView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/logs/info.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="377">
           <caret line="2150" column="0" lean-forward="false" selection-start-line="2150" selection-start-column="0" selection-end-line="2150" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/task_run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="94" column="31" lean-forward="true" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2011,7 +1932,7 @@
     <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3948">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
           <folding>
             <element signature="e#263#286#0#HTML" expanded="true" />
           </folding>
@@ -2021,7 +1942,7 @@
     <entry file="file://$PROJECT_DIR$/static/js/taskTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="839">
-          <caret line="142" column="28" lean-forward="true" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
+          <caret line="142" column="28" lean-forward="false" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
           <folding>
             <marker date="1567947471396" expanded="true" signature="1259:1267" ph="..." />
             <marker date="1567947471396" expanded="true" signature="6725:6748" ph="..." />
@@ -2050,7 +1971,7 @@
     <entry file="file://$PROJECT_DIR$/static/js/envTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
-          <caret line="113" column="18" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="113" selection-end-column="18" />
+          <caret line="113" column="18" lean-forward="false" selection-start-line="67" selection-start-column="19" selection-end-line="113" selection-end-column="18" />
           <folding>
             <marker date="1567947223742" expanded="true" signature="1515:1523" ph="..." />
             <marker date="1567947223742" expanded="true" signature="3388:3411" ph="..." />
@@ -2080,7 +2001,7 @@
     <entry file="file://$PROJECT_DIR$/templates/task_report_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1972">
-          <caret line="386" column="59" lean-forward="true" selection-start-line="386" selection-start-column="59" selection-end-line="386" selection-end-column="59" />
+          <caret line="386" column="59" lean-forward="false" selection-start-line="386" selection-start-column="59" selection-end-line="386" selection-end-column="59" />
           <folding>
             <element signature="e#2547#2570#0#HTML" expanded="true" />
             <element signature="e#2833#2879#0#HTML" expanded="true" />
@@ -2098,8 +2019,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="1462" column="30" lean-forward="false" selection-start-line="1462" selection-start-column="4" selection-end-line="1462" selection-end-column="30" />
+        <state relative-caret-position="1159">
+          <caret line="1470" column="29" lean-forward="false" selection-start-line="1470" selection-start-column="29" selection-end-line="1470" selection-end-column="29" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#736#913#0" expanded="false" />
@@ -2157,6 +2078,76 @@
             <element signature="e#33984#34416#0" expanded="false" />
             <element signature="e#41561#42117#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/task_run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/taskView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="173" column="39" lean-forward="false" selection-start-line="173" selection-start-column="39" selection-end-line="173" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/reportView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/Public.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/aps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding>
+            <marker date="1557829779488" expanded="true" signature="1731:1770" ph="select api_p... api_api" />
+            <marker date="1557829779488" expanded="true" signature="2462:2525" ph="update api_a... " />
+            <marker date="1557829779488" expanded="true" signature="2695:2757" ph="update api_a... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bak.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auto_login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1117">
+          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/report/test_demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="375" column="1" lean-forward="true" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
