@@ -17,19 +17,28 @@
 
     <!--工具栏(每行)-->
     <script type="text/html" id="bartask">
-        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" title="查看任务执行记录表" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" title="添加用例" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="test">测试</a>
-    </script>
-    <script type="text/html" id="progress-bar">
-        <div class="layui-progress layui-progress-big" style="top:17%" lay-showpercent="true">
-            <div class="layui-progress-bar {% verbatim %}{{ d.isAll==1?'layui-bg-blue':'layui-bg-red' }}{% endverbatim %}"  lay-percent="{% verbatim %}{{ d.ratio }}{% endverbatim %}"></div>
-        </div>
+        <a class="layui-btn layui-btn-normal layui-btn-xs" title="立即执行任务"
+           lay-event="test" {% verbatim %}{{d.task_status==1?"":"style='display:none'"}}{% endverbatim %}>执行</a>
     </script>
 
     <script type="text/html" id="switchstauts">
         <input type="checkbox" name="on" lay-skin="switch" lay-event="status" value="{% verbatim  %}{{d.task_status}}{% endverbatim %}" lay-text="启用|停用" lay-filter="on" {% verbatim %}{{d.task_status==1?"checked":""}}{% endverbatim %}>
+    </script>
+
+    <script type="text/html" id="lastresultstatus">
+{#    <div class="layui-progress layui-progress-big" style="top:17%" lay-showpercent="true">#}
+{#        <p class="layui-progress-bar {% verbatim %}{{ d.last_task_result==1?'layui-bg-blue':'layui-bg-red' }}{% endverbatim %}"#}
+{#             lay-event="lastresultstatus" >#}
+{#            {% verbatim  %}{{ d.last_task_result==1?'成功':'失败' }}{% endverbatim %}#}
+{#        </p>#}
+{#    </div>#}
+    <span class="layui-badge {% verbatim %}{{ d.last_task_result==1?'layui-bg-blue':d.last_task_result==2?'layui-bg-red':'layui-bg-gray' }}{% endverbatim %}"
+    style="align-self: center">
+        {% verbatim  %}{{ d.last_task_result==1?'成功':d.last_task_result==2?'失败':'未执行' }}{% endverbatim %}
+    </span>
     </script>
 
     <script type="text/javascript" src="/static/js/taskTable.js"></script>

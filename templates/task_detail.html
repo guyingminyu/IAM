@@ -1,0 +1,204 @@
+{% extends 'index.html' %}
+{% block content %}
+    <!--工具栏(全局)-->
+     <div class="taskDetailTools">
+        <a href="/project_task/{{ pid }}/" class="layui-btn layui-btn-primary"><i
+                class="layui-icon layui-icon-return"></i>
+                <span style="font-size: 17px">返回</span></a>
+        <div class="layui-inline">
+          <span >起始日期</span>
+          <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="startTime" id="startTime" autocomplete="off" placeholder="yyyy-MM-dd">
+          </div>
+          <span>结束日期</span>
+          <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="endTime" id="endTime" autocomplete="off" placeholder="yyyy-MM-dd">
+          </div>
+        </div>
+        <button class="layui-btn" data-type="taskLogSearch">日期搜索</button>
+    </div>
+
+    <!--表格展示-->
+    <table id="task-detail-table" lay-filter="data-table"></table>
+
+    <!--工具栏(每行)-->
+    <script type="text/html" id="bartaskdetail">
+        <a class="layui-btn layui-btn-primary  layui-btn-xs" lay-event="detail">报告详情</a>
+    </script>
+
+    <script type="text/html" id="tasklogstatus">
+        <span class="layui-badge {% verbatim %}{{ d.task_result==1?'layui-bg-blue':d.task_result==2?
+        'layui-bg-red':'layui-bg-green' }}{% endverbatim %}" style="align-self: center">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% verbatim  %}{{ d.task_result==1?'  成功  ':d.task_result==2?'  失败  ':'  执行中  ' }}{% endverbatim %}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </script>
+
+    <script>
+    layui.use(['element','table', 'form', 'jquery', 'laydate','laytpl','layer'], function () {
+        var element = layui.element;
+        var table = layui.table;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var laydate = layui.laydate;
+
+        var reg = /task_detail\/(\d+)\/(\d+)/;
+        var r = window.location.pathname.match(reg);
+        var pid = 0;
+        var tid = 0
+        if (r != null) {
+            pid = r[1];
+            tid = r[2];
+        }
+        var table = layui.table,
+            layer = layui.layer,
+            form = layui.form,
+            $ = layui.jquery;
+        var laytpl = layui.laytpl;
+        var myInit = {
+            getCookie: function (name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie
+                                .substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            },
+        };
+        var csrftoken = myInit.getCookie('csrftoken');
+
+        $("#project" + pid).addClass("layui-nav-itemed");
+        $("#project" + pid + " .task").addClass("layui-this");
+        var content = '<i class="layui-icon">&#xe602;</i> 自动化测试' +
+        '<i class="layui-icon">&#xe602;</i> 任务报告列表';
+        $("#switchNav").append(content);
+
+        laydate.render({
+            elem: '#startTime'
+            });
+
+        laydate.render({
+            elem: '#endTime'
+            });
+
+        var taskDetailTable = table.render({//渲染table
+            method: 'get',//数据传输方式为post
+            height: '472',//高度
+            cellMinWidth: 80,//单元格最小宽度为80
+            page: true,//开启分页
+            limit: 10,//分页默认为30
+            where: {
+                'pid': pid,
+                'task_id': tid,
+                'csrfmiddlewaretoken': csrftoken
+            },
+            elem: '#task-detail-table',//设置容器
+            url: '/get_task_logs',//数据获取url
+            id: 'taskDetailTable',
+            cols: [[//设置列标签、标题、宽度、是否排序等
+                {type: 'numbers'},
+                {#            {type: 'checkbox'},#}
+                {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+                {field: 'task_no',title: '执行Num',width: 120,sort: true,align:'center'},
+                {field: 'task_result', title: '执行结果', width: 300,templet:'#tasklogstatus',align:'center'},
+                {field: 'duration', title: '执行时长',width:300,templet:function (d) {
+                    return formatSeconds(d.duration)
+                },align:'center'},
+                {field: 'create_time', title: '执行时间',align:'center'},
+                {fixed: 'right', title: '操作', width: 150, toolbar: '#bartaskdetail',align:'center'},//设置每行的工具栏以及其容器
+            ]],
+        });
+
+        function formatSeconds(value) {
+        if (value == null){
+            return '';
+        }
+        var secondTime = parseInt(value);// 秒
+        var minuteTime = 0;// 分
+        var hourTime = 0;// 小时
+        if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+            //获取分钟，除以60取整数，得到整数分钟
+            minuteTime = parseInt(secondTime / 60);
+            //获取秒数，秒数取佘，得到整数秒数
+            secondTime = parseInt(secondTime % 60);
+            //如果分钟大于60，将分钟转换成小时
+            if(minuteTime > 60) {
+                //获取小时，获取分钟除以60，得到整数小时
+                hourTime = parseInt(minuteTime / 60);
+                //获取小时后取佘的分，获取分钟除以60取佘的分
+                minuteTime = parseInt(minuteTime % 60);
+            }
+        }
+        var result = "" + parseInt(secondTime) + "秒";
+
+        if(minuteTime > 0) {
+            result = "" + parseInt(minuteTime) + "分" + result;
+        }
+        if(hourTime > 0) {
+            result = "" + parseInt(hourTime) + "小时" + result;
+        }
+        return result;
+        }
+
+        table.on('tool(data-table)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                layer.confirm('确认删除吗？', function (index) {
+                    obj.del();
+                    $.post(
+                        '/del_task_case',
+                        {
+                            id: data.id,
+                            csrfmiddlewaretoken: csrftoken
+                        },
+                        function (data) {//删除成功后需要关闭弹窗并且重载表格
+                            layer.close(index)
+                            layer.msg('删除成功！', {icon: 1})
+                            caseTable.reload()
+                        }
+                    )
+                });
+            }else if(obj.event === 'detail'){
+                var task_log_id = data.id;
+                window.location.href = '/task_report_detail/'+pid+'/'+tid+'/'+task_log_id;
+            }
+        })
+        var active ={
+            taskLogSearch: function () {
+                var startTime = $('#startTime').val();//获取输入框的值
+                var endTime = $('#endTime').val();
+                  //执行重载
+                table.reload('taskDetailTable',
+                    {
+                        page:
+                            {
+                                curr: 1 //重新从第 1 页开始
+                            }
+                    , where:{
+                            'task_id': tid,
+                            'pid':pid,
+                            'start_time':startTime,
+                            'end_time':endTime,
+                            'csrfmiddlewaretoken':csrftoken
+                          }//这里传参  向后台
+                    , url: '/search_task_logs'//后台做模糊搜索接口路径
+                    , method: 'get'
+                    });
+            }
+        };
+        $('.taskDetailTools .layui-btn').on('click', function ()
+            {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+    })
+</script>
+{% endblock %}

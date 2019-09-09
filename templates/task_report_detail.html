@@ -1,0 +1,402 @@
+{% extends 'index.html' %}
+{% block head %}
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+
+    <style type="text/css" media="screen">
+        body {
+            margin: 0;
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            line-height: 1.5;
+            color: #333333;
+        }
+
+        .table {
+            margin-bottom: 1px;
+            width: 100%;
+        }
+
+        .hiddenRow {
+            display: none;
+        }
+
+        .container-fluid {
+            padding-right: 120px;
+            padding-left: 10px;
+        }
+
+        .nav-tabs li {
+            width: 186px;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <script language="javascript" type="text/javascript">
+    function showClassDetail(detail_id, hiddenRow_id, class_type) {
+        console.log(document.getElementById(hiddenRow_id).className)
+
+        if ('详细' ==  document.getElementById(detail_id).innerText) {
+            if ('all' == class_type) {
+                document.getElementById(hiddenRow_id).className = 'all';
+            }
+            else if ('success' == class_type) {
+                document.getElementById(hiddenRow_id).className = 'success';
+            }
+            else if ('error' == class_type) {
+                document.getElementById(hiddenRow_id).className = 'error';
+            }
+            else{
+                document.getElementById(hiddenRow_id).className = 'untreaded';
+            }
+            document.getElementById(detail_id).innerText = "收起"
+        }
+        else {
+            document.getElementById(detail_id).innerText = "详细"
+            document.getElementById(hiddenRow_id).className = 'hiddenRow';
+        }
+    }
+    </script>
+
+    <!--工具栏(全局)-->
+     <div class="taskDetailTools">
+        <a href="/task_detail/{{ pid }}/{{ tid }}" class="layui-btn layui-btn-primary"><i
+                class="layui-icon layui-icon-return"></i>
+                <span style="font-size: 17px">返回</span></a>
+        <span class="layui-btn" disabled="disabled" data-type="taskReportDetail">报告详情</span>
+    </div>
+
+    <!--报告表头-->
+    <div class="layui-row">
+    <h3  align="center">任务报告：{{ task_name }}</h3>
+    <div class="layui-col-xs6">
+            <div style="Background-Color:#F5F5F5; height:295px">
+                <table class="table table-hover table-bordered" style="width:100%;height:5px">
+                    <tbody>
+                        <tr class="info">
+                            <td class="text-center">开始时间</td>
+                            <td class="text-center">{{ s_time }}</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">结束时间</td>
+                            <td class="text-center">{{ e_time }}</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">测试用时</td>
+                            <td class="text-center">{{ duration }}</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center">用例总数</td>
+                            <td class="text-center">{{ case_count }}</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center" style="color: #1E9FFF">成功用例数</td>
+                            <td class="text-center" style="color: #1E9FFF">{{ success_count }}</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center" style="color: #FF5722">失败用例数</td>
+                            <td class="text-center" style="color: #FF5722">{{ fail_count }}</td>
+                        </tr>
+                        <tr class="info">
+                            <td class="text-center" style="color: #FFB800">跳过用例数</td>
+                            <td class="text-center" style="color: #FFB800">{{ error_count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div class="layui-col-xs6">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="main" style="height:295px;"></div>
+            <script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('main'));
+                var option = {
+                backgroundColor: '#F5F5F5', //背景色
+
+                title: {
+                    text: '测试统计数据',
+                    x: 'center'
+                },
+
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: ['成功', '失败', '跳过']
+                },
+
+                color: ['#1E9FFF', '#FF5722', '#FFB800'],
+
+                calculable: true,
+
+                series: [{
+                    name: '测试结果',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    startAngle: 135,
+                    data: [{
+                        value: {{ success_count }},
+                        name: '成功',
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    formatter: '{b} : {c} ({d}%)',
+                                    textStyle: {
+                                        align: 'left',
+                                        fontSize: 15,
+                                    }
+                                },
+                                labelLine: {
+                                     length: 40,
+                                }
+                             }
+                        }
+                    }, {
+                        value: {{ fail_count }},
+                        name: '失败',
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    formatter: '{b} : {c} ({d}%)',
+                                    textStyle: {
+                                        align: 'right',
+                                        fontSize: 15,
+                                    }
+                                },
+                                labelLine: {
+                                    length: 40,
+                                    }
+                                }
+                            }
+                        }, {
+                        value: {{ error_count }},
+                        name: '跳过',
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    formatter: '{b} : {c} ({d}%)',
+                                    textStyle: {
+                                        align: 'right',
+                                        fontSize: 15,
+                                    }
+                               },
+                                labelLine: {
+                                    length: 40,
+                                    }
+                               }
+                           }
+                       }],
+                    }]
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+                </script>
+        </div>
+    </div>
+
+
+
+    <!--表格展示-->
+    <table id="task-report-detail-table" lay-filter="data-table"></table>
+
+    <!--工具栏(每行)-->
+    <script type="text/html" id="bartaskdetail">
+        <a class="layui-btn layui-btn-primary  layui-btn-xs" lay-event="detail">展开详情</a>
+    </script>
+
+    <script type="text/html" id="taskreportlogstatus">
+        <span class="layui-badge {% verbatim %}{{ d.status==1?'layui-bg-blue':d.status==2?
+        'layui-bg-red':'layui-bg-orange' }}{% endverbatim %}" style="align-self: center">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% verbatim  %}{{ d.status==1?'  成功  ':d.status==2?'  失败  ':'  跳过  ' }}{% endverbatim %}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </script>
+
+    <script>
+    layui.use(['element','table', 'form', 'jquery', 'laydate','laytpl','layer'], function () {
+        var element = layui.element;
+        var table = layui.table;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var laydate = layui.laydate;
+
+        var reg = /task_report_detail\/(\d+)\/(\d+)\/(\d+)/;
+        var r = window.location.pathname.match(reg);
+        var pid = 0;
+        var tid = 0;
+        var tlid= 0;
+        if (r != null) {
+            pid = r[1];
+            tid = r[2];
+            tlid = r[3];
+        }
+        var table = layui.table,
+            layer = layui.layer,
+            form = layui.form,
+            $ = layui.jquery;
+        var laytpl = layui.laytpl;
+        var myInit = {
+            getCookie: function (name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie
+                                .substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            },
+        };
+        var csrftoken = myInit.getCookie('csrftoken');
+
+        $("#project" + pid).addClass("layui-nav-itemed");
+        $("#project" + pid + " .task").addClass("layui-this");
+        var content = '<i class="layui-icon">&#xe602;</i> 自动化测试' +
+        '<i class="layui-icon">&#xe602;</i> 任务报告列表'+
+        '<i class="layui-icon">&#xe602;</i> 报告详情';
+        $("#switchNav").append(content);
+
+
+        var taskDetailTable = table.render({//渲染table
+            method: 'get',//数据传输方式为post
+            height: '472',//高度
+            cellMinWidth: 80,//单元格最小宽度为80
+            page: true,//开启分页
+            limit: 10,//分页默认为30
+            where: {
+                'pid': pid,
+                'task_id': tid,
+                'tlid' :tlid,
+                'csrfmiddlewaretoken': csrftoken
+            },
+            elem: '#task-report-detail-table',//设置容器
+            url: '/get_task_report_logs',//数据获取url
+            id: 'taskReportDetailTable',
+            cols: [[//设置列标签、标题、宽度、是否排序等
+                {type: 'numbers'},
+                {#            {type: 'checkbox'},#}
+                {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+                {field: 'project_name',title: '项目名',width: 300,align:'center'},
+                {field: 'case_id', title: '用例ID', width: 120,sort: true,align:'center'},
+                {field: 'case_name', title: '用例名',width:500,align:'center'},
+                {field: 'duration', title: '执行时长',width:250,templet:function (d) {
+                    return formatSeconds(d.duration)
+                },align:'center'},
+                {field: 'status', title: '状态',width:150,templet:'#taskreportlogstatus',align:'center'},
+                {field: 'right', title: '操作', toolbar: '#bartaskdetail',align:'center'},//设置每行的工具栏以及其容器
+            ]],
+        });
+
+        function formatSeconds(value) {
+        if (value == null){
+            return '';
+        }
+        var secondTime = parseInt(value);// 秒
+        var minuteTime = 0;// 分
+        var hourTime = 0;// 小时
+        if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+            //获取分钟，除以60取整数，得到整数分钟
+            minuteTime = parseInt(secondTime / 60);
+            //获取秒数，秒数取佘，得到整数秒数
+            secondTime = parseInt(secondTime % 60);
+            //如果分钟大于60，将分钟转换成小时
+            if(minuteTime > 60) {
+                //获取小时，获取分钟除以60，得到整数小时
+                hourTime = parseInt(minuteTime / 60);
+                //获取小时后取佘的分，获取分钟除以60取佘的分
+                minuteTime = parseInt(minuteTime % 60);
+            }
+        }
+        var result = "" + parseInt(secondTime) + "秒";
+
+        if(minuteTime > 0) {
+            result = "" + parseInt(minuteTime) + "分" + result;
+        }
+        if(hourTime > 0) {
+            result = "" + parseInt(hourTime) + "小时" + result;
+        }
+        return result;
+        }
+
+        table.on('tool(data-table)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                layer.confirm('确认删除吗？', function (index) {
+                    obj.del();
+                    $.post(
+                        '/del_task_case',
+                        {
+                            id: data.id,
+                            csrfmiddlewaretoken: csrftoken
+                        },
+                        function (data) {//删除成功后需要关闭弹窗并且重载表格
+                            layer.close(index)
+                            layer.msg('删除成功！', {icon: 1})
+                            caseTable.reload()
+                        }
+                    )
+                });
+            }else if(obj.event === 'detail') {//如果event是detail,这里的event名称需要在容器中设置lay-event
+                    $.get(//向服务器发送问题id，获取选中问题行的数据
+                        '/get_task_report_log_detail',
+                        {id: data.id,
+                        csrfmiddlewaretoken:csrftoken},
+                        function (data) {
+                            var data= data.data;//获取数据后开启弹窗
+                            layer.open({
+                                title: '用例执行详情',
+                                area: ['960px', '600px'],
+                                content: '<form id="task-report-log-detail" class="layui-form" action="" style="width: 100%;height: 80%">'+
+                                '<div class="layui-form-item">'+
+                                '<label class="layui-form-label">请求信息</label>'+
+                                '<div class="layui-input-block">'+
+                                '<textarea  type="text" id="task-report-log-detail-request" name="request"'+
+                                'lay-verify="request"'+
+                                'class="layui-input" style="width: 90%;min-height: 150px"></textarea>'+
+                                '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                '<label class="layui-form-label">断言内容</label>'+
+                                '<div class="layui-input-block">'+
+                                '<input type="text" id="task-report-log-detail-assertion" name="assertion"'+
+                                'lay-verify="assertion"'+
+                                'class="layui-input" style="width: 90%">'+
+                                '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item layui-form-text">'+
+                                '<label class="layui-form-label">响应信息</label>'+
+                                '<div class="layui-input-block">'+
+                                '<textarea  type="text" id="task-report-log-detail-response"'+
+                                'name="response" lay-verify="response"'+
+                                'class="layui-input" style="width: 90%;min-height: 150px"></textarea>'+
+                                '</div>'+
+                                '</div>'+
+                                '</form>',//设置弹窗的容器
+                                btn: ['确定'],//点击确定的时候，会关闭弹窗
+                                yes: function (index, layero) {
+                                    layer.close(index)
+                                }
+                            });
+                            //设置容器中各个值
+                            $('#task-report-log-detail-request').val(data.request);
+                            $('#task-report-log-detail-assertion').val(data.assertion);
+                            $('#task-report-log-detail-response').val(data.response);
+                        }
+                    )
+                }
+        })
+    })
+</script>
+{% endblock %}

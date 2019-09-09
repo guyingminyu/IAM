@@ -16,7 +16,7 @@ from django.db import transaction
 
 from api.models import *
 from tools.aps import APS
-from tools import log
+from tools import log,task_run
 
 try:
     log.setup_logging()
@@ -591,9 +591,13 @@ def get_project_cases(request):
     page = request.GET.get('page', '1')
     rows = request.GET.get('limit', '10')
     pid = request.GET.get('pid', 0)
+    status = request.GET.get('status',0)
     i = (int(page) - 1) * int(rows)
     j = (int(page) - 1) * int(rows) + int(rows)
-    cases = Case.objects.filter(project_id=pid)
+    if int(status)==0:
+        cases = Case.objects.filter(project_id=pid)
+    else:
+        cases = Case.objects.filter(project_id=pid,case_status=status)
     total = cases.count()
     cases = cases[i:j]
     resultdict = {}
@@ -972,6 +976,11 @@ def get_case_api_detail(request):
 @login_required
 @require_http_methods(['POST'])
 def edit_case_api(request):
+    '''
+    step_sort: 1=pre_sqlenv,100=post_reg,101=assertion
+    :param request: 
+    :return: 
+    '''
     caid = request.POST.get('case_api_id', 0)
     pdata = request.POST.get('pdata','')
     d_api_data = eval(pdata)
@@ -1052,9 +1061,9 @@ def get_project_tasks(request):
         de['task_status'] = task.get('task_status')
         last_task_log = TaskLog.objects.filter(task_id=task.get('id')).order_by('-id').first()
         if last_task_log:
-            de['last_task_time'] = last_task_log.get('create_time')
-            de['last_task_result'] = last_task_log.get('task_result')
-            de['last_duration'] = last_task_log.get('duration')
+            de['last_task_time'] = last_task_log.create_time.strftime("%Y-%m-%d %H:%M:%S")
+            de['last_task_result'] = last_task_log.task_result
+            de['last_duration'] = last_task_log.duration
         data.append(de)
     resultdict['code'] = 0
     resultdict['count'] = total
@@ -1081,9 +1090,9 @@ def search_project_tasks(request):
         de['id'] = task.get('id')
         de['task_name'] = task.get('task_name')
         de['task_status'] = task.get('task_status')
-        last_task_log = TaskLog.objects.filter(task_id=task.get('id')).order_by('-id').first()
+        last_task_log = TaskLog.objects.filter(task_id=task.get('id')).values().order_by('-id').first()
         if last_task_log:
-            de['last_task_time'] = last_task_log.get('create_time')
+            de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
             de['last_task_result'] = last_task_log.get('task_result')
             de['last_duration'] = last_task_log.get('duration')
         data.append(de)
@@ -1093,3 +1102,370 @@ def search_project_tasks(request):
     resultdict['data'] = data
     return JsonResponse(resultdict, safe=False)
 
+@login_required
+@require_http_methods(['POST'])
+def add_project_task(request):
+    task_data = eval(request.POST.get('pdata'))
+    task_name = task_data.get("project-task-add-name", "")
+    task_type = task_data.get("type", "")
+    task_desc = task_data.get("project-task-add-desc", "")
+    project_id = request.POST.get("project_id", 0)
+    task = Task.objects.create(task_name=task_name,task_desc=task_desc,task_timer=task_type, project_id=project_id)
+    task.save()
+    resultdict = {
+        'code': 0,
+        'msg': 'success',
+        'data': {'task_id': task.id}
+    }
+    return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def set_task_status(request):
+    try:
+        task_ids = eval(request.POST.get('id'))
+        task_status = request.POST.get('task_status')
+        Task.objects.filter(id__in=task_ids).update(task_status=task_status)
+        resultdict = {
+            'code': 100,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def edit_project_task(request):
+    try:
+        tid = request.POST.get("task_id",0)
+        data = eval(request.POST.get("d"))
+        name = data.get("name")
+        desc = data.get("desc")
+        type = data.get("type")
+        Task.objects.filter(id=tid).update(task_name=name,task_desc=desc,task_timer=type)
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        print(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def del_project_task(request):
+    try:
+        tid = request.POST.get("id",0)
+        Task.objects.get(id=tid).delete()
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        print(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['GET'])
+def add_task_page(request,pid,tid):
+    username = request.session.get('user', '')
+    projects = Project.objects.filter(type=1)
+    project_name = Project.objects.filter(id=pid).values('name').first()
+    task = Task.objects.filter(id=tid).first()
+    task_name = task.task_name
+    task_desc = task.task_desc
+    task_type = task.task_timer
+    data = {
+        'user': username,
+        'projects': projects,
+        'pid': pid,
+        'tid': tid,
+        'task_name' : task_name,
+        'task_desc' : task_desc,
+        'task_type' : task_type,
+        'title': project_name['name']
+    }
+    return render(request, 'task_add.html', data)
+
+@login_required
+@require_http_methods(['GET'])
+def get_task_cases(request):
+    page = request.GET.get('page', '1')
+    rows = request.GET.get('limit', '10')
+    pid = request.GET.get('pid', 0)
+    taskid = request.GET.get('task_id',0)
+    i = (int(page) - 1) * int(rows)
+    j = (int(page) - 1) * int(rows) + int(rows)
+    task_cases = TaskCase.objects.filter(task_id=taskid).values()
+    total = task_cases.count()
+    task_cases = task_cases[i:j]
+    print(task_cases)
+    resultdict = {}
+    data = []
+    for task_case in task_cases:
+        de = {}
+        de['id'] = task_case['id']
+        case = Case.objects.filter(id=task_case['case_id']).values().first()
+        de['case_id'] = case['id']
+        de['case_name'] = case['case_name']
+        case_api_id = Case.objects.filter(id=task_case['case_id']).values_list("api_id",flat=True).first()
+        de['api_path'] = Api.objects.filter(id=case_api_id).values_list("api_path",flat=True).first()
+        de['case_desc'] = case['case_desc']
+        de['case_status'] = case['case_status']
+        de['case_update_time'] = case['case_update_time']
+        data.append(de)
+    resultdict['code'] = 0
+    resultdict['count'] = total
+    resultdict['msg'] = 'success'
+    resultdict['data'] = data
+    return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def add_task_cases(request):
+    try:
+        case_ids = eval(request.POST.get('ids'))
+        task_id = request.POST.get('task_id')
+        new_task_cases = []
+        old_task_cases = TaskCase.objects.filter(task_id=task_id).values_list('case_id',flat=True)
+        for case_id in case_ids:
+            if case_id not in old_task_cases:
+                new_task_cases.append(TaskCase(task_id=task_id,case_id=case_id))
+        TaskCase.objects.bulk_create(new_task_cases)
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def del_task_case(request):
+    try:
+        task_case_id = request.POST.get('id',0)
+        TaskCase.objects.get(id=task_case_id).delete()
+        resultdict = {
+            'code': 0,
+            'msg': 'success',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+    except Exception as e:
+        logger.error(e)
+        resultdict = {
+            'code': 2,
+            'msg': 'error',
+            'data': []
+        }
+        return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['POST'])
+def run_task(request):
+    '''
+    多线程异步调用任务
+    :param request: 
+    :return: 
+    '''
+    task_id = request.POST.get('id',0)
+    rt = task_run.RunTaskThread(task_id)
+    rt.start()
+    resultdict = {
+        'code': 0,
+        'msg': 'start!',
+        'data': []
+    }
+    return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['GET'])
+def task_detail_page(request,pid,tid):
+    username = request.session.get('user', '')
+    projects = Project.objects.filter(type=1)
+    project_name = Project.objects.filter(id=pid).values('name').first()
+    data = {
+        'user': username,
+        'projects': projects,
+        'pid': pid,
+        'tid': tid,
+        'title': project_name['name']
+    }
+    return render(request, 'task_detail.html', data)
+
+@login_required
+@require_http_methods(['GET'])
+def get_task_logs(request):
+    page = request.GET.get('page', '1')
+    rows = request.GET.get('limit', '10')
+    pid = request.GET.get('pid', 0)
+    taskid = request.GET.get('task_id', 0)
+    i = (int(page) - 1) * int(rows)
+    j = (int(page) - 1) * int(rows) + int(rows)
+    task_logs = TaskLog.objects.filter(task_id=taskid).values().order_by('-id')
+    total = task_logs.count()
+    task_logs = task_logs[i:j]
+    resultdict = {}
+    data = []
+    for task_log in task_logs:
+        de = {}
+        de['id'] = task_log['id']
+        de['task_no'] = task_log['task_no']
+        de['task_result'] = task_log['task_result']
+        de['duration'] = task_log['duration']
+        de['create_time'] = task_log['create_time'].strftime('%Y-%m-%d %H:%M:%S')
+        data.append(de)
+    resultdict['code'] = 0
+    resultdict['count'] = total
+    resultdict['msg'] = 'success'
+    resultdict['data'] = data
+    return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['GET'])
+def search_task_logs(request):
+    page = request.GET.get('page', '1')
+    rows = request.GET.get('limit', '10')
+    pid = request.GET.get('pid', 0)
+    taskid = request.GET.get('task_id', 0)
+    start_time = request.GET.get('start_time','')
+    end_time = request.GET.get('end_time','')
+    if start_time and end_time:
+        task_logs = TaskLog.objects.filter(task_id=taskid,create_time__gt=start_time,create_time__lt=end_time)\
+            .values().order_by('-id')
+    elif start_time and end_time=='':
+        task_logs = TaskLog.objects.filter(task_id=taskid, create_time__gt=start_time).values().order_by('-id')
+    elif start_time=='' and end_time:
+        task_logs = TaskLog.objects.filter(task_id=taskid, create_time__lt=end_time).values().order_by('-id')
+    else:
+        task_logs = TaskLog.objects.filter(task_id=taskid).values().order_by('-id')
+    i = (int(page) - 1) * int(rows)
+    j = (int(page) - 1) * int(rows) + int(rows)
+    total = task_logs.count()
+    task_logs = task_logs[i:j]
+    resultdict = {}
+    data = []
+    for task_log in task_logs:
+        de = {}
+        de['id'] = task_log['id']
+        de['task_no'] = task_log['task_no']
+        de['task_result'] = task_log['task_result']
+        de['duration'] = task_log['duration']
+        de['create_time'] = task_log['create_time'].strftime('%Y-%m-%d %H:%M:%S')
+        data.append(de)
+    resultdict['code'] = 0
+    resultdict['count'] = total
+    resultdict['msg'] = 'success'
+    resultdict['data'] = data
+    return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['GET'])
+def task_report_detail_page(request,pid,tid,tlid):
+    username = request.session.get('user', '')
+    projects = Project.objects.filter(type=1)
+    project_name = Project.objects.filter(id=pid).values('name').first()
+    task = Task.objects.filter(id=tid).first()
+    task_name = task.task_name
+    task_log = TaskLog.objects.filter(id=tlid).first()
+    duration = task_log.duration
+    s_time = task_log.create_time.strftime('%Y-%m-%d %H:%M:%S')
+    s_timestamp = time.mktime(time.strptime(s_time, '%Y-%m-%d %H:%M:%S'))
+    e_timestamp = s_timestamp + duration
+    e_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(e_timestamp))
+    case_count = TaskReportLog.objects.filter(task_log=tlid).values().count()
+    success_count = TaskReportLog.objects.filter(task_log=tlid,status=1).values().count()
+    fail_count = TaskReportLog.objects.filter(task_log=tlid,status=2).values().count()
+    error_count = TaskReportLog.objects.filter(task_log=tlid,status__gt=2).values().count()
+    data = {
+        'user': username,
+        'projects': projects,
+        'pid': pid,
+        'tid': tid,
+        'tlid':tlid,
+        'task_name':task_name,
+        's_time':s_time,
+        'e_time':e_time,
+        'duration':duration,
+        'case_count':case_count,
+        'success_count':success_count,
+        'fail_count':fail_count,
+        'error_count':error_count,
+        'title': project_name['name']
+    }
+    return render(request, 'task_report_detail.html', data)
+
+@login_required
+@require_http_methods(['GET'])
+def get_task_report_logs(request):
+    page = request.GET.get('page', '1')
+    rows = request.GET.get('limit', '10')
+    pid = request.GET.get('pid', 0)
+    project = Project.objects.filter(id=pid).first()
+    project_name = project.name
+    taskid = request.GET.get('task_id', 0)
+    task_log_id = request.GET.get('tlid',0)
+    i = (int(page) - 1) * int(rows)
+    j = (int(page) - 1) * int(rows) + int(rows)
+    task_report_logs = TaskReportLog.objects.filter(task_log=task_log_id).values()
+    total = task_report_logs.count()
+    task_report_logs = task_report_logs[i:j]
+    resultdict = {}
+    data = []
+    for task_report in task_report_logs:
+        de = {}
+        de['id'] = task_report['id']
+        de['project_name'] = project_name
+        de['case_id'] = task_report['case']
+        case = Case.objects.filter(id=task_report['case']).first()
+        de['case_name'] = case.case_name
+        de['duration'] = task_report['duration']
+        de['status'] = task_report['status']
+        data.append(de)
+    resultdict['code'] = 0
+    resultdict['count'] = total
+    resultdict['msg'] = 'success'
+    resultdict['data'] = data
+    return JsonResponse(resultdict, safe=False)
+
+@login_required
+@require_http_methods(['GET'])
+def get_task_report_log_detail(request):
+    trlid = request.GET.get('id',0)
+    trl = TaskReportLog.objects.filter(id=trlid).values().first()
+    resultdict = {
+        'code': 0,
+        'msg': 'success',
+        'data': trl
+    }
+    return JsonResponse(resultdict, safe=False)

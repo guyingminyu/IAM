@@ -34,7 +34,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
 
     $("#project"+pid).addClass("layui-nav-itemed");
     $("#project"+pid+" .case").addClass("layui-this");
-
+    var content = '<i class="layui-icon">&#xe602;</i> 用例管理';
+    $("#switchNav").append(content);
     //渲染表格
     var caseTable = table.render({//渲染table
         method: 'get',//数据传输方式为post
@@ -52,13 +53,13 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
         cols: [[//设置列标签、标题、宽度、是否排序等
             {type:'numbers'},
             {type: 'checkbox'},
-            {field: 'id', title: 'ID', width: 100, sort: true},
-            {field: 'case_name', title: '用例名', width: 260,},
-            {field: 'api_path',title:'验证接口',width:300},
-            {field: 'case_desc', title: '用例描述',},
-            {field: 'case_status', title: '状态',width: 90, templet:'#switchstauts'},
-            {field: 'case_update_time', title: '更新日期',width: 200,},
-            {fixed: 'right', title:'操作', width: 200, toolbar: '#barcase'},//设置每行的工具栏以及其容器
+            {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+            {field: 'case_name', title: '用例名', width: 260,align:'center'},
+            {field: 'api_path',title:'验证接口',width:300,align:'center'},
+            {field: 'case_desc', title: '用例描述',align:'center'},
+            {field: 'case_status', title: '状态',width: 90, templet:'#switchstauts',align:'center'},
+            {field: 'case_update_time', title: '更新日期',width: 200,align:'center'},
+            {fixed: 'right', title:'操作', width: 200, toolbar: '#barcase',align:'center'},//设置每行的工具栏以及其容器
         ]],
     });
 

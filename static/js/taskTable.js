@@ -2,7 +2,7 @@
  * Created by HUB-211 on 2019/7/24.
  */
 
-layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
+layui.use(['table', 'jquery', 'layer', 'form','laytpl','util'], function () {
     var reg = /project_task\/(\d+)/;
     var r = window.location.pathname.match(reg);
     var pid = 0;
@@ -12,6 +12,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
     var table = layui.table,
         layer = layui.layer,
         form = layui.form,
+        util = layui.util,
         $ = layui.jquery;
     var laytpl = layui.laytpl;
     var myInit ={
@@ -36,6 +37,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
     $("#project"+pid).addClass("layui-nav-itemed");
     $("#project"+pid+" .task").addClass("layui-this");
 
+    var content = '<i class="layui-icon">&#xe602;</i> 自动化测试';
+    $("#switchNav").append(content);
     //渲染表格
     var taskTable = table.render({//渲染table
         method: 'get',//数据传输方式为post
@@ -53,22 +56,56 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
         cols: [[//设置列标签、标题、宽度、是否排序等
             {type:'numbers'},
             {type: 'checkbox'},
-            {field: 'id', title: 'ID', width: 100, sort: true},
-            {field: 'task_name', title: '任务名', width: 300},
-            {field: 'last_task_time', title: '最近一次执行时间',width: 240},
-            {field: 'last_task_result', title: '最近一次执行结果',width: 200},
-            {field: 'last_duration', title: '最近一次执行时长',width: 200},
-            {field: 'next_time', title: '下一次执行时间'},
-            {field: 'task_status', title: '状态',width: 100, templet:'#switchstauts'},
-            {fixed: 'right', title:'操作', width: 220, toolbar: '#bartask'},//设置每行的工具栏以及其容器
+            {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+            {field: 'task_name', title: '任务名', width: 300,align:'center'},
+            {field: 'last_task_time', title: '最近一次执行时间',width: 240,sort:true,align:'center'},
+            {field: 'last_task_result', title: '最近一次执行结果',width: 180,templet:'#lastresultstatus',align:'center'},
+            {field: 'last_duration', title: '最近一次执行时长',width: 180,
+                templet:function (d) {
+                    return formatSeconds(d.last_duration)
+                },align:'center'},
+            {field: 'next_time', title: '下一次执行时间',align:'center'},
+            {field: 'task_status', title: '状态',width: 100, templet:'#switchstauts',align:'center'},
+            {fixed: 'right', title:'操作', width: 250, toolbar: '#bartask',align:'center'},//设置每行的工具栏以及其容器
         ]],
     });
+
+    function formatSeconds(value) {
+        if (value == null){
+            return '';
+        }
+        var secondTime = parseInt(value);// 秒
+        var minuteTime = 0;// 分
+        var hourTime = 0;// 小时
+        if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
+            //获取分钟，除以60取整数，得到整数分钟
+            minuteTime = parseInt(secondTime / 60);
+            //获取秒数，秒数取佘，得到整数秒数
+            secondTime = parseInt(secondTime % 60);
+            //如果分钟大于60，将分钟转换成小时
+            if(minuteTime > 60) {
+                //获取小时，获取分钟除以60，得到整数小时
+                hourTime = parseInt(minuteTime / 60);
+                //获取小时后取佘的分，获取分钟除以60取佘的分
+                minuteTime = parseInt(minuteTime % 60);
+            }
+        }
+        var result = "" + parseInt(secondTime) + "秒";
+
+        if(minuteTime > 0) {
+            result = "" + parseInt(minuteTime) + "分" + result;
+        }
+        if(hourTime > 0) {
+            result = "" + parseInt(hourTime) + "小时" + result;
+        }
+        return result;
+    }
 
     form.on('switch(on)', function(obj){
         var data = obj.elem.parentNode.parentNode.parentNode;
         var id = data.cells[2].firstChild.innerText;
         var ids = [id];
-        var status = obj.elem.checked?1:0;
+        var status = obj.elem.checked?1:2;
         $.post(
             '/set_task_status/',
             {id:JSON.stringify(ids),
@@ -97,85 +134,18 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                 )
             });
         } else if (obj.event === 'edit') {
-            var api_id = 0;
-            $.get(//根据id获取服务器中的数据
-                '/get_project_task',
-                {id: data.id,
+            var task_id = data.id;
+            window.location.href = '/task_add/'+pid+'/'+task_id+'/';
+        } else if  (obj.event === 'test') {
+            var task_id = data.id;
+            $.post(
+                '/run_task',
+                {id:task_id,
                 csrfmiddlewaretoken:csrftoken},
-                function (data1) {
-                    api_id = data1.data.api_id;
-                    layer.open({
-                        title: '编辑任务',
-                        area: ['700px', '450px'],
-                        content:'<form id="project-task-edit" class="layui-form" action="" style="width: 100%;height: 80%">'+
-                        '<div class="layui-form-item">'+
-                        '<label class="layui-form-label">任务名称</label>'+
-                        '<div class="layui-input-block">'+
-                        '<input id="project-task-add-name" name="project-task-add-name"'+
-                        'lay-verify="project-task-add-name" value="'+data1.data.task_name+'"'+
-                        'class="layui-input" style="width: 90%">'+
-                        '</div>'+
-                        '</div>'+
-                        '<div class="layui-form-item">'+
-                        '<label class="layui-form-label">关联接口</label>'+
-                        '<div class="layui-input-block" style="width: 75%;" >'+
-                        '<select name="task-api" id="api-list" lay-verify="required" lay-search="" >'+
-                        '<option value="">直接选择或搜索选择</option></select>'+
-                        '</div>'+
-                        '</div>'+
-                        '<div class="layui-form-item layui-form-text">'+
-                        '<label class="layui-form-label">任务描述</label>'+
-                        '<div class="layui-input-block">'+
-                        '<textarea  type="text" id="project-task-add-desc"'+
-                        'name="project-task-add-desc" lay-verify="project-task-add-desc"'+
-                        'class="layui-input" style="width: 90%;min-height: 200px">'+
-                        data1.data.task_desc+'</textarea>'+
-                        '</div>'+
-                        '</div>'+
-                        '</form>',
-                        btn: ['确定', '取消'],//一个是确定修改，一个是取消
-                        yes: function (index, layero) {
-                            var data = $("#project-task-edit").serializeArray(),
-                                values = {};
-                            $.each(data,function (k,v) {
-                                values[v.name] = v.value;
-                            });
-                            //确定修改的时候需要吧各个值传到服务器当中
-                            $.post(
-                                '/edit_project_task',
-                                {
-                                    pdata:JSON.stringify(values), //对象转字符串
-                                    task_id:obj.data.id,
-                                    csrfmiddlewaretoken:csrftoken,
-                                },
-                                function (data) {//修改成功后需要关闭弹窗并且重载表格
-                                    layer.close(index);
-                                    layer.msg('修改成功！', {icon: 1});
-                                    taskTable.reload()
-                                }
-                            )
-                        },
-                        btn2: function (index, layero) {
-                            layer.close(index)
-                        }
-                    });
-                    $.get('/get_task_api_list',
-                    {
-                    pid:pid,
-                    csrfmiddlewaretoken:csrftoken,
-                    },
-                    function(data2){
-                        if(data2.count>=1){
-                            $.each(data2.data,function(k,v){
-                            $("#api-list").append("<option value='" + v.id + "' style='font-weight: bold;'>" + v.api_path + "</option>");
-                            })
-                        }
-                        $("#api-list option[value='"+api_id+"']").prop("selected",true);
-                        form.render('select');
-                    return false;
-                    });
-                    form.render()
-                })
+                function (data) {
+                    layer.msg('开始执行任务！',{icon:1,time:5000})
+                }
+            );
         }
     });
 
@@ -230,19 +200,19 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                         'class="layui-input" style="width: 90%">'+
                         '</div>'+
                         '</div>'+
-                        '<div class="layui-form-item">'+
-                        '<label class="layui-form-label">关联接口</label>'+
-                        '<div class="layui-input-block" style="width: 75%;" >'+
-                        '<select name="task-api" id="api-list" lay-verify="required" lay-search="" >'+
-                        '<option value="">直接选择或搜索选择</option></select>'+
-                        '</div>'+
-                        '</div>'+
                         '<div class="layui-form-item layui-form-text">'+
                         '<label class="layui-form-label">任务描述</label>'+
                         '<div class="layui-input-block">'+
                         '<textarea  type="text" id="project-task-add-desc"'+
                         'name="project-task-add-desc" lay-verify="project-task-add-desc"'+
                         'class="layui-input" style="width: 90%;min-height: 200px"></textarea>'+
+                        '</div>'+
+                        '</div>'+
+                        '<div class="layui-form-item" pane="">'+
+                        '<label class="layui-form-label">任务类型</label>'+
+                        '<div class="layui-input-block">'+
+                        '<input type="radio" name="type" id="circulation" value="2" title="普通" checked="" lay-filter="aaa">'+
+                        // '<input type="radio" name="type" id="timing" value="1" title="定时"  lay-filter="aaa">'+
                         '</div>'+
                         '</div>'+
                         '</form>',
@@ -253,7 +223,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                         values = {};
                     $.each(data,function (k,v) {
                         values[v.name] = v.value;
-                    });
+                    })
                     //确定添加的时候需要吧各个值传到服务器当中
                     $.post(
                         '/add_project_task',
@@ -263,8 +233,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                             csrfmiddlewaretoken:csrftoken,
                         },
                         function (data) {//新增成功后需要关闭弹窗并且重载表格
-                            layer.close(index);
-                            layer.msg('新增成功！', {icon: 1});
+                            layer.close(index)
+                            layer.msg('新增成功！', {icon: 1})
                             taskTable.reload()
                         }
                     )
@@ -278,69 +248,10 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
                  mask.appendTo(layero.parent());
                  //其中：layero是弹层的DOM对象
                 }
-            });
-
-            $.get('/get_task_api_list',
-                {
-                    pid:pid,
-                    csrfmiddlewaretoken:csrftoken,
-                },function(data){
-                console.log("adddata"+data.count);
-                    if(data.count>=1){
-                        $.each(data.data,function(k,v){
-                            $("#api-list").append("<option value='" + v.id + "' style='font-weight: bold;'>" + v.api_path + "</option>");
-                        })
-                    }
-                    form.render('select');
-                    return false;
-                }
-            );
-
-            $('.add-field').click(function (event) {
-                var self = $(this);
-                var data = {
-                    "field": self.closest('blockquote').nextAll('table:visible').first().data('field'),
-                    "num": self.data('num')
-                };
-                laytpl($('#addfield').html()).render(data, function (html) {
-                    self.closest('blockquote').nextAll('table:visible').first().find('tbody').append(
-                        html);
-                    self.data('num', parseInt(data.num) + 1);
-                });
-                return false;
-            });
-            $('.add-param-field').click(function (event) {
-                var self = $(this);
-                var data = {
-                    "field": self.closest('blockquote').nextAll('table:visible').first().data('field'),
-                    "num": self.data('num')
-                };
-                laytpl($('#addparamfield').html()).render(data, function (html) {
-                    self.closest('blockquote').nextAll('table:visible').first().find('tbody').append(
-                        html);
-                    self.data('num', parseInt(data.num) + 1);
-                });
-                form.render();
-                return false;
-            });
-            $('.layui-table').on('click', '.delete', function (event) {
-                event.preventDefault();
-                $(this).closest('tr').remove();
-                return false;
-            });
-            form.on('radio(table-radio)', function (data) {
-                var obj = $(data.elem).closest('.layui-form-item');
-                $('.request-data').hide();
-                $('#' + data.value).show();
-                if (data.value == 'raw') {
-                    $('#model_header').show();
-                } else {
-                    $('#model_header').hide();
-                }
-            });
+            })
             form.render();
         }
-    };
+        };
     //搜索 ----------------------------------------------- Begin-----------------------------------------------------------
     var active ={
         taskSearch: function () {

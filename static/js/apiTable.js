@@ -37,6 +37,8 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
     $("#project"+pid).addClass("layui-nav-itemed");
     $("#project"+pid+" .api").addClass("layui-this");
 
+    var content = '<i class="layui-icon">&#xe602;</i> 接口管理';
+    $("#switchNav").append(content);
     //渲染表格
     var apiTable = table.render({//渲染table
         method: 'get',//数据传输方式为get
@@ -54,13 +56,13 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','element'], function () {
         cols: [[//设置列标签、标题、宽度、是否排序等
             {type:'numbers'},
             {type: 'checkbox'},
-            {field: 'id', title: 'ID', width: 100, sort: true},
-            {field: 'api_name', title: '接口名', width: 200,},
-            {field: 'api_method', title: '请求方式',width: 100,},
-            {field: 'api_path', title: '接口地址',},
-            {field: 'progress-bar',title:'用例覆盖率',width: 260,templet:'#progress-bar'},
-            {field: 'api_update_time', title: '更新日期',width: 200,},
-            {fixed: 'right', title:'操作', width: 220, toolbar: '#barapi'},//设置每行的工具栏以及其容器
+            {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+            {field: 'api_name', title: '接口名', width: 200,align:'center'},
+            {field: 'api_method', title: '请求方式',width: 100,align:'center'},
+            {field: 'api_path', title: '接口地址',align:'center'},
+            {field: 'progress-bar',title:'用例覆盖率',width: 260,templet:'#progress-bar',align:'center'},
+            {field: 'api_update_time', title: '更新日期',width: 200,align:'center'},
+            {fixed: 'right', title:'操作', width: 220, toolbar: '#barapi',align:'center'},//设置每行的工具栏以及其容器
         ]],
         done:function(){
             element.init();

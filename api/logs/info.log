@@ -1663,3 +1663,722 @@ Traceback (most recent call last):
   File "D:\Program Files\python\lib\site-packages\pymysql\connections.py", line 963, in connect
     raise exc
 django.db.utils.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+2019-09-05 13:22:24,264 - log - INFO - click ok
+2019-09-05 13:22:31,355 - log - ERROR - 获取园区和rs服务器数据时退出页面
+2019-09-05 16:55:17,946 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 17:16:26,974 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 17:17:28,589 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 17:18:45,597 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 17:23:31,254 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 17:24:57,265 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:13:46,227 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:13:48,530 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:13:51,949 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:26:50,610 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:46:22,345 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:46:36,921 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:46:57,376 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:46:58,885 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:48:49,786 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:51:05,867 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:54:13,122 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:54:59,415 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:55:04,938 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:56:33,023 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 18:59:06,586 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:22:32,422 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:22:32,437 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:39,964 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:39,990 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:49,892 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:49,906 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:50,597 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:50,610 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:51,307 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:51,317 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:51,983 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:51,994 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:52,629 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:52,642 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:53,224 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:53,233 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:53,863 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:53,876 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:54,392 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:54,401 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:55,023 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:55,035 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:55,810 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:55,819 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:56,332 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:56,342 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:56,990 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:57,015 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:57,766 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:57,776 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:58,557 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:58,571 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:23:59,247 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:23:59,258 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:24:00,020 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:24:00,031 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:24:00,626 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:24:00,634 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 19:25:51,985 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 19:25:51,996 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:01:42,974 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:01:42,990 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:01:50,877 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:01:50,891 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:01:52,879 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:01:52,897 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:03:12,792 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:03:12,796 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:05:29,762 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:05:29,778 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:05:37,352 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:05:37,364 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:06:50,592 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:06:50,610 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:07:23,780 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:07:23,794 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:07:41,567 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:07:41,579 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:08:39,868 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:08:39,884 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:08:53,662 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:08:53,682 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:09:09,545 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:09:09,561 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:09:48,931 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:09:48,949 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:10:20,588 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:10:20,606 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:10:56,144 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:10:56,159 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:10:56,921 - django.request - WARNING - Not Found: /project_task/
+2019-09-05 21:11:09,642 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:11:09,654 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:11:25,716 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:11:25,721 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:11:27,032 - django.request - WARNING - Not Found: /project_task//
+2019-09-05 21:12:38,046 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:12:38,065 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:12:38,514 - django.request - WARNING - Not Found: /project_task//
+2019-09-05 21:12:41,465 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:12:41,469 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:12:45,137 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:12:45,152 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:15:30,873 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:15:30,875 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:15:36,098 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:15:36,109 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:16:38,739 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:16:38,746 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:18:52,493 - django.request - WARNING - Not Found: /get_task_cases
+2019-09-05 21:18:52,617 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:29:08,707 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:30:29,628 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:30:31,301 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:30:31,909 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:30:32,290 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:30:32,491 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 21:30:32,658 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 22:31:29,421 - django.request - ERROR - Internal Server Error: /add_project_task
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1100, in add_project_task
+    task_name = task_data.get("project-task-add-name", "")
+AttributeError: 'str' object has no attribute 'get'
+2019-09-05 22:41:06,136 - tools.log - ERROR - (1048, "Column 'task_status' cannot be null")
+2019-09-05 22:41:13,724 - tools.log - ERROR - (1048, "Column 'task_status' cannot be null")
+2019-09-05 22:42:45,870 - django.request - WARNING - Not Found: /set_task_status/
+2019-09-05 22:43:37,338 - django.request - WARNING - Not Found: /set_task_status/
+2019-09-05 22:43:40,387 - django.request - WARNING - Not Found: /set_task_status/
+2019-09-05 22:45:04,366 - django.request - WARNING - Not Found: /set_task_status/
+2019-09-05 23:01:50,421 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 23:01:59,840 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 23:02:54,032 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 23:08:39,516 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 23:08:54,432 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 23:11:39,232 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-05 23:11:43,279 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:47:28,258 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:47:42,084 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:47:44,990 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:47:45,862 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:47:52,367 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:51:25,536 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:51:26,547 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:51:27,425 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:51:28,064 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:52:04,726 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 12:53:33,236 - django.request - WARNING - Not Found: /caseTaskPost/
+2019-09-06 13:46:20,523 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 13:47:53,952 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 13:56:06,716 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 13:57:10,022 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:12:37,800 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:12:57,821 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:13:11,341 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:13:12,888 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:13:13,936 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:13:28,769 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:14:54,654 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:56:42,879 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 14:56:46,915 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
+2019-09-06 14:56:48,381 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:05:22,630 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:06:30,620 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:11:18,270 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
+2019-09-06 15:11:18,787 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:11:22,599 - tools.log - ERROR - the JSON object must be str, bytes or bytearray, not 'NoneType'
+2019-09-06 15:11:23,983 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:12:41,039 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:13:56,809 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:13:56,878 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1199, in get_task_cases
+    de['case_name'] = task_cases.case_name
+AttributeError: 'QuerySet' object has no attribute 'case_name'
+2019-09-06 15:14:59,080 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:14:59,123 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1198, in get_task_cases
+    de['id'] = task_case.id
+AttributeError: 'dict' object has no attribute 'id'
+2019-09-06 15:15:21,655 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:15:21,691 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1198, in get_task_cases
+    de['id'] = task_case.id
+AttributeError: 'dict' object has no attribute 'id'
+2019-09-06 15:15:42,991 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:15:43,009 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1198, in get_task_cases
+    de['id'] = task_case.id
+AttributeError: 'dict' object has no attribute 'id'
+2019-09-06 15:19:19,529 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:19:19,548 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1198, in get_task_cases
+    de['id'] = task_case['id']
+TypeError: 'TaskCase' object is not subscriptable
+2019-09-06 15:20:35,147 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:20:35,168 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1198, in get_task_cases
+    de['id'] = task_case['case_id']
+TypeError: 'TaskCase' object is not subscriptable
+2019-09-06 15:21:10,597 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:21:10,654 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1202, in get_task_cases
+    de['api_path'] = Api.objects.filter(id=case_api_id).values_list("api_path").first()
+  File "D:\Program Files\python\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 841, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 859, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Program Files\python\lib\site-packages\django\db\models\lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\fields\__init__.py", line 965, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'tuple'
+2019-09-06 15:22:27,441 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:22:27,487 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1203, in get_task_cases
+    de['api_path'] = Api.objects.filter(id=case_api_id).values_list("api_path").first()
+  File "D:\Program Files\python\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 841, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 859, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Program Files\python\lib\site-packages\django\db\models\lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\fields\__init__.py", line 965, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'tuple'
+2019-09-06 15:23:08,345 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:23:08,407 - django.request - ERROR - Internal Server Error: /get_task_cases
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1204, in get_task_cases
+    de['api_path'] = Api.objects.filter(id=case_api_id).values_list("api_path").first()
+  File "D:\Program Files\python\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 841, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\query.py", line 859, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\sql\query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "D:\Program Files\python\lib\site-packages\django\db\models\lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "D:\Program Files\python\lib\site-packages\django\db\models\fields\__init__.py", line 965, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'tuple'
+2019-09-06 15:24:42,333 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:25:25,497 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:25:44,541 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:26:13,662 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:27:45,544 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:27:59,974 - django.request - WARNING - Not Found: /selectApiEnvName/
+2019-09-06 15:40:59,449 - django.request - WARNING - Not Found: /caseTaskPost/
+2019-09-06 15:57:40,872 - django.request - WARNING - Not Found: /task_detail/1/1
+2019-09-08 14:58:59,362 - django.request - WARNING - Not Found: /task_detail/1/5
+2019-09-08 15:16:58,287 - django.security.csrf - WARNING - Forbidden (CSRF token missing or incorrect.): /run_task
+2019-09-08 15:17:09,004 - django.security.csrf - WARNING - Forbidden (CSRF token missing or incorrect.): /run_task
+2019-09-08 15:18:38,705 - tools.log - ERROR - Thread.__init__() not called
+2019-09-08 15:18:38,751 - django.request - ERROR - Internal Server Error: /run_task
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1273, in run_task
+    rt.run()
+  File "D:\Program Files\IAM\tools\task_run.py", line 87, in run
+    self.logger.info("end_test:thread=%s,task=%s" % (self.getName(), self.task_id))
+  File "D:\Program Files\python\lib\threading.py", line 1151, in getName
+    return self.name
+  File "D:\Program Files\python\lib\threading.py", line 1084, in name
+    assert self._initialized, "Thread.__init__() not called"
+AssertionError: Thread.__init__() not called
+2019-09-08 15:22:06,216 - tools.log - INFO - start_test:thread=Thread-8,task=5
+2019-09-08 15:22:06,328 - tools.log - ERROR - 'Case' object does not support item assignment
+2019-09-08 15:22:06,329 - tools.log - INFO - end_test:thread=Thread-8,task=5
+2019-09-08 15:22:15,279 - django.request - ERROR - Internal Server Error: /get_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1064, in get_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time')
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 16:11:41,424 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:11:41,620 - tools.log - ERROR - eval() arg 1 must be a string, bytes or code object
+2019-09-08 16:11:41,620 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:13:53,926 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:13:54,046 - tools.log - ERROR - too many values to unpack (expected 2)
+2019-09-08 16:13:54,046 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:18:32,654 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:18:32,843 - tools.log - ERROR - too many values to unpack (expected 2)
+2019-09-08 16:18:32,843 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:19:45,462 - tools.log - INFO - start_test:thread=Thread-22,task=5
+2019-09-08 16:19:45,661 - tools.log - ERROR - too many values to unpack (expected 2)
+2019-09-08 16:19:45,661 - tools.log - INFO - end_test:thread=Thread-22,task=5
+2019-09-08 16:21:07,610 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:21:07,809 - tools.log - ERROR - too many values to unpack (expected 2)
+2019-09-08 16:21:07,810 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:21:50,590 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:21:50,723 - tools.log - ERROR - too many values to unpack (expected 2)
+2019-09-08 16:21:50,723 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:23:10,723 - tools.log - INFO - start_test:thread=Thread-8,task=5
+2019-09-08 16:23:10,889 - tools.log - ERROR - too many values to unpack (expected 2)
+2019-09-08 16:23:10,889 - tools.log - INFO - end_test:thread=Thread-8,task=5
+2019-09-08 16:29:04,133 - tools.log - INFO - start_test:thread=Thread-22,task=5
+2019-09-08 16:29:07,024 - tools.log - ERROR - HTTPConnectionPool(host='api', port=80): Max retries exceeded with url: /user/mobileLogin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04B16AF0>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed',))
+2019-09-08 16:29:07,024 - tools.log - INFO - end_test:thread=Thread-22,task=5
+2019-09-08 16:32:22,592 - tools.log - INFO - start_test:thread=Thread-22,task=5
+2019-09-08 16:32:22,723 - tools.log - ERROR - HTTPConnectionPool(host='qampxq.xiaohulu.comapi', port=80): Max retries exceeded with url: /user/mobileLogin (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04D742F0>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed',))
+2019-09-08 16:32:22,723 - tools.log - INFO - end_test:thread=Thread-22,task=5
+2019-09-08 16:34:53,970 - tools.log - INFO - start_test:thread=Thread-22,task=5
+2019-09-08 16:34:54,275 - tools.log - ERROR - local variable 'acstatus' referenced before assignment
+2019-09-08 16:34:54,275 - tools.log - INFO - end_test:thread=Thread-22,task=5
+2019-09-08 16:36:35,057 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:36:35,248 - tools.log - ERROR - (1048, "Column 'case' cannot be null")
+2019-09-08 16:36:35,248 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:41:11,016 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:41:11,301 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:42:56,565 - tools.log - INFO - start_test:thread=Thread-7,task=5
+2019-09-08 16:43:01,894 - tools.log - INFO - end_test:thread=Thread-7,task=5
+2019-09-08 16:43:18,898 - tools.log - INFO - start_test:thread=Thread-9,task=5
+2019-09-08 16:43:24,112 - tools.log - INFO - end_test:thread=Thread-9,task=5
+2019-09-08 16:50:33,934 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 16:50:39,337 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 16:50:44,521 - tools.log - INFO - start_test:thread=Thread-5,task=5
+2019-09-08 16:50:46,833 - tools.log - INFO - start_test:thread=Thread-7,task=5
+2019-09-08 16:50:47,608 - tools.log - INFO - start_test:thread=Thread-9,task=5
+2019-09-08 16:50:48,156 - tools.log - INFO - start_test:thread=Thread-11,task=5
+2019-09-08 16:50:49,930 - tools.log - INFO - end_test:thread=Thread-5,task=5
+2019-09-08 16:50:52,128 - tools.log - INFO - end_test:thread=Thread-7,task=5
+2019-09-08 16:50:52,880 - tools.log - INFO - end_test:thread=Thread-9,task=5
+2019-09-08 16:50:53,372 - tools.log - INFO - end_test:thread=Thread-11,task=5
+2019-09-08 17:06:57,064 - django.request - WARNING - Not Found: /task_detail/1/5
+2019-09-08 17:09:16,075 - tools.log - INFO - start_test:thread=Thread-37,task=5
+2019-09-08 17:09:26,747 - tools.log - INFO - end_test:thread=Thread-37,task=5
+2019-09-08 17:12:32,147 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 17:12:32,261 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-08 17:12:33,480 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-08 17:12:34,687 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 17:19:47,528 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 17:19:47,663 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-08 17:19:48,906 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-08 17:19:50,173 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 17:32:08,885 - tools.log - INFO - start_test:thread=Thread-8,task=5
+2019-09-08 17:32:09,022 - tools.log - INFO - ==================== thread=Thread-8,task=5,case=test1 ====================
+2019-09-08 17:32:10,281 - tools.log - INFO - ==================== thread=Thread-8,task=5,case=登陆失败 ====================
+2019-09-08 17:32:11,502 - tools.log - INFO - end_test:thread=Thread-8,task=5
+2019-09-08 17:34:27,151 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 17:34:27,566 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-08 17:34:28,829 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-08 17:34:30,029 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 17:35:35,754 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 17:35:35,872 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-08 17:35:37,073 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-08 17:35:38,302 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 17:36:28,975 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-08 17:36:29,133 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-08 17:36:30,558 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-08 17:36:31,789 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-08 18:23:43,379 - django.request - WARNING - Not Found: /task_add/1/
+2019-09-08 19:15:57,337 - django.request - WARNING - Not Found: /caseTaskPost/
+2019-09-08 19:16:50,716 - django.request - WARNING - Not Found: /caseTaskPost/
+2019-09-08 19:17:00,962 - django.request - WARNING - Not Found: /edit_project_task/
+2019-09-08 19:17:10,504 - django.request - WARNING - Not Found: /edit_project_task/
+2019-09-08 19:17:45,857 - django.security.csrf - WARNING - Forbidden (CSRF token missing or incorrect.): /edit_project_task/
+2019-09-08 19:21:52,602 - django.request - WARNING - Not Found: /task_index/
+2019-09-08 19:32:22,755 - django.request - WARNING - Not Found: /task_detail/1/5
+2019-09-08 19:32:34,852 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:37,182 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:38,041 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:38,609 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:39,253 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:39,502 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:39,677 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:39,868 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:40,060 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:40,258 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:40,490 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 19:32:40,673 - django.request - ERROR - Internal Server Error: /search_project_tasks
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Program Files\python\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\Program Files\python\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "D:\Program Files\IAM\api\views.py", line 1095, in search_project_tasks
+    de['last_task_time'] = last_task_log.get('create_time').strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: 'TaskLog' object has no attribute 'get'
+2019-09-08 20:05:59,621 - django.request - WARNING - Not Found: /task_detail/1/5
+2019-09-08 20:18:19,914 - django.request - WARNING - Not Found: /get_task_logs
+2019-09-08 20:19:34,395 - django.request - WARNING - Not Found: /get_task_logs
+2019-09-08 20:21:22,314 - django.request - WARNING - Not Found: /get_task_logs
+2019-09-08 20:22:53,930 - django.request - WARNING - Not Found: /get_task_logs
+2019-09-08 20:24:38,481 - django.request - WARNING - Not Found: /get_task_logs
+2019-09-09 00:34:00,371 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 00:34:01,602 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 00:34:02,186 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 00:34:02,381 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 00:34:02,937 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 00:34:03,126 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 00:34:10,530 - django.request - WARNING - Not Found: /get_task_report_log_detail
+2019-09-09 10:02:39,103 - tools.log - INFO - start_test:thread=Thread-18,task=5
+2019-09-09 10:02:39,333 - tools.log - INFO - ==================== thread=Thread-18,task=5,case=test1 ====================
+2019-09-09 10:02:40,901 - tools.log - INFO - case_status:1
+2019-09-09 10:02:40,902 - tools.log - INFO - ==================== thread=Thread-18,task=5,case=登陆失败 ====================
+2019-09-09 10:02:42,115 - tools.log - INFO - case_status:2
+2019-09-09 10:02:42,116 - tools.log - INFO - end_test:thread=Thread-18,task=5

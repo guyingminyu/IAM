@@ -1,0 +1,310 @@
+{% extends 'index.html' %}
+{% block content %}
+    <!--工具栏(全局)-->
+     <form class="layui-form layui-form-pane">
+         <div class="layui-form-item">
+            <div class="layui-inline">
+                <a href="/project_task/{{ pid }}/" class="layui-btn layui-btn-primary"><i
+                    class="layui-icon layui-icon-return"></i>
+                <span style="font-size: 17px">返回</span></a>
+{#                <button type="reset" class="layui-btn layui-btn-primary">重置</button>#}
+                <button class="layui-btn" id="addcase" lay-filter="addcase">添加用例</button>
+                <button class="layui-btn" lay-submit lay-filter="add">提交</button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">任务名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" value="{{ task_name }}" autocomplete="off" class="layui-input" lay-verify="required" >
+                <input type="hidden" name="user" placeholder="请输入用户" autocomplete="off" class="layui-input" value="{{ user }}" >
+                <input type="hidden" name="cases" autocomplete="off" class="layui-input" value="{{ data }}" >
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">任务描述</label>
+            <div class="layui-input-block">
+                <input name="desc" value="{{ task_desc }}" autocomplete="off" class="layui-input"></input>
+            </div>
+        </div>
+{#        <div class="layui-form-item">#}
+{#            <label class="layui-form-label">环境</label>#}
+{#            <div class="layui-input-block">#}
+{#                 <select name="envid" id="envname" lay-verify="required">#}
+{#                    <option value="">请选择</option>#}
+{#                </select>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="layui-form-item" pane="">
+            <label class="layui-form-label">类型</label>
+            <div class="layui-input-block">
+                <input type="radio" name="type" id="circulation" value="2" title="普通" checked="" lay-filter='aaa'>
+{#                <input type="radio" name="type" id="timing" value="1" title="定时"  lay-filter='aaa'>#}
+            </div>
+        </div>
+{#        <div class="layui-form-item" id="timing2" style="display: none">#}
+{#            <label class="layui-form-label">开始时间</label>#}
+{#            <div class="layui-input-block">#}
+{#                <input type="text" name="startTime" id="date1" placeholder="请选择开始时间" autocomplete="off" class="layui-input" >#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="layui-form-item" id="timing1" style="display: none">#}
+{#            <label class="layui-form-label">定时任务</label>#}
+{#            <div class="layui-input-inline" style="width: 100px;">#}
+{#                <input type="text" name="min" placeholder="分钟（0-59)" autocomplete="off" class="layui-input">#}
+{#            </div>#}
+{#            <div class="layui-form-mid">-</div>#}
+{#            <div class="layui-input-inline" style="width: 100px;">#}
+{#                <input type="text" name="hour" placeholder="小时（0-23）" autocomplete="off" class="layui-input">#}
+{#            </div>#}
+{#            <div class="layui-form-mid">-</div>#}
+{#            <div class="layui-input-inline" style="width: 100px;">#}
+{#                <input type="text" name="day" placeholder="天（1-31）" autocomplete="off" class="layui-input">#}
+{#            </div>#}
+{#            <div class="layui-form-mid">-</div>#}
+{#            <div class="layui-input-inline" style="width: 100px;">#}
+{#                <input type="text" name="month" placeholder="月（1-12)" autocomplete="off" class="layui-input">#}
+{#            </div>#}
+{#            <div class="layui-form-mid">-</div>#}
+{#            <div class="layui-input-inline" style="width: 300px;">#}
+{#                <input type="text" name="week" placeholder=" 一星期内的天（0~6，0为星期天)" autocomplete="off" class="layui-input">#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="layui-form-item" id="endTime" style="display: none">#}
+{#            <label class="layui-form-label">结束时间</label>#}
+{#            <div class="layui-input-block">#}
+{#                <input type="text" name="endTime" id="date2" placeholder="请选择结束时间" autocomplete="off" class="layui-input" >#}
+{#            </div>#}
+{#        </div>#}
+
+
+        <table id="task-case-table" lay-filter="data-table"></table>
+    </form>
+
+    <!--工具栏(每行)-->
+    <script type="text/html" id="bartaskcase">
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script>
+    layui.use(['element','table', 'form', 'jquery', 'laydate','laytpl','layer'], function () {
+        var element = layui.element;
+        var table = layui.table;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var laydate = layui.laydate;
+
+        var reg = /task_add\/(\d+)\/(\d+)/;
+        var r = window.location.pathname.match(reg);
+        var pid = 0;
+        var tid = 0
+        if (r != null) {
+            pid = r[1];
+            tid = r[2];
+        }
+        var table = layui.table,
+            layer = layui.layer,
+            form = layui.form,
+            $ = layui.jquery;
+        var laytpl = layui.laytpl;
+        var myInit = {
+            getCookie: function (name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie
+                                .substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            },
+        };
+        var csrftoken = myInit.getCookie('csrftoken');
+
+        $("#project" + pid).addClass("layui-nav-itemed");
+        $("#project" + pid + " .task").addClass("layui-this");
+        var content = '<i class="layui-icon">&#xe602;</i> 自动化测试' +
+        '<i class="layui-icon">&#xe602;</i> 添加用例';
+        $("#switchNav").append(content);
+
+        var taskCaseTable = table.render({//渲染table
+            method: 'get',//数据传输方式为post
+            height: '472',//高度
+            cellMinWidth: 80,//单元格最小宽度为80
+            page: true,//开启分页
+            limit: 10,//分页默认为30
+            where: {
+                'pid': pid,
+                'task_id': tid,
+                'csrfmiddlewaretoken': csrftoken
+            },
+            elem: '#task-case-table',//设置容器
+            url: '/get_task_cases',//数据获取url
+            id: 'taskCaseTable',
+            cols: [[//设置列标签、标题、宽度、是否排序等
+                {type: 'numbers'},
+                {#            {type: 'checkbox'},#}
+                {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+                {field: 'case_id',title: '用例ID',width: 100,sort: true,align:'center'},
+                {field: 'case_name', title: '用例名', width: 260,align:'center'},
+                {field: 'api_path', title: '验证接口', width: 400,align:'center'},
+                {field: 'case_desc', title: '用例描述',align:'center'},
+                {fixed: 'right', title: '操作', width: 150, toolbar: '#bartaskcase',align:'center'},//设置每行的工具栏以及其容器
+            ]],
+        });
+        //下拉选择框
+        {#        $.ajax({#}
+        {#            url: '/selectApiEnvName/',#}
+        {#            dataType: 'json',#}
+        {#            type: 'get',#}
+        {#            success: function (data) {#}
+        {#                $.each(data, function (index, item) {#}
+        {#                    $('#envname').append(new Option(item.ename, item.eid));// 下拉菜单里添加元素#}
+        {#                });#}
+        {#                layui.form.render("select");#}
+        {#            }#}
+        {#        });#}
+
+        form.on('radio(aaa)', function (data) {
+            //判断单选框的选中值
+            abc = data.value;
+            if (abc == 1) {
+                $('#timing1').show();
+                $('#timing2').hide();
+                $('#endTime').hide();
+                form.render('radio')
+            } else {
+                $('#timing1').hide();
+                $('#timing2').show();
+                $('#endTime').show();
+                form.render('radio')
+            }
+            form.render();
+        });
+
+        laydate.render({
+            elem: '#date1',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#date2',
+            type: 'datetime'
+        });
+
+
+        $('#addcase').on('click', function (data) {
+            $.ajax({
+                url: '/get_project_cases/',
+                type: 'get',
+                data: {
+                    'pid': pid,
+                    'status': 1
+
+                },
+                success: function (data) {
+                    var case_list = data.data;
+                    layer.open({
+                        title: '选择用例',
+                        area: ['700px', '450px'],
+                        content: '<table class="cases_table" lay-filter="data-table"></table>',
+                        success: function (layero, index) {
+                            var colsList = [[
+                                {type: 'checkbox'},
+                                {field: 'id', title: 'ID'},
+                                {field: 'case_name', title: '用例名'}
+                            ]];
+                            table.render({
+                                elem: layero.find('.cases_table'),
+                                id: 'cases_table',
+                                data: case_list,
+                                cols: colsList,
+                                page: false,
+                            });
+                        },
+                        btn: ['确定', '取消'],
+                        yes: function (index, layero) {
+                            var checkStatus = table.checkStatus('cases_table')
+                                , data = checkStatus.data
+                                , ids = [];
+                            for (var i = 0; i < data.length; i++) {
+                                ids.push(data[i].id);
+                            }
+                            //确定修改的时候需要吧各个值传到服务器当中
+                            $.post(
+                                '/add_task_cases',
+                                {
+                                    ids: JSON.stringify(ids), //对象转字符串
+                                    task_id: tid,
+                                    csrfmiddlewaretoken: csrftoken,
+                                },
+                                function (data) {//修改成功后需要关闭弹窗并且重载表格
+                                    layer.close(index)
+                                    layer.msg('添加成功！', {icon: 1})
+                                    taskCaseTable.reload()
+                                }
+                            )
+                        },
+                        btn2: function (index, layero) {
+                            layer.close(index)
+                        }
+                    })
+                }
+            })
+            return false
+        })
+
+
+        form.on('submit(add)', function (data) {
+            var d = JSON.stringify(data.field);
+            $.ajax({
+                url: '/edit_project_task/',
+                type: 'post',
+                data:{
+                    d: d, //对象转字符串
+                    task_id: tid,
+                    csrfmiddlewaretoken: csrftoken,
+                },
+                success: function (data1) {
+                    if (data1.code == 0) {
+                        layer.msg('编辑成功', {
+                            offset: ['50%'],
+                            time: 2000}) //2秒关闭（如果不配置，默认是3秒）
+
+                    } else if (data1.code == 2) {
+                        layer.msg(data1.msg)
+                    }
+                    else {
+                        layer.msg('编辑失败！')
+                    }
+                }
+            });
+            return false;
+        })
+
+        table.on('tool(data-table)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                layer.confirm('确认删除吗？', function (index) {
+                    obj.del();
+                    $.post(
+                        '/del_task_case',
+                        {
+                            id: data.id,
+                            csrfmiddlewaretoken: csrftoken
+                        },
+                        function (data) {//删除成功后需要关闭弹窗并且重载表格
+                            layer.close(index)
+                            layer.msg('删除成功！', {icon: 1})
+                            taskCaseTable.reload()
+                        }
+                    )
+                });
+            }
+        })
+    })
+</script>
+{% endblock %}

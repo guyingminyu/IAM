@@ -53,7 +53,7 @@ class Case(models.Model):
 class Step(models.Model):
     CaseApi = models.ForeignKey('CaseApi',on_delete=models.CASCADE)
     step_type = models.CharField('类型',null=False,blank=False,max_length=100)
-    step_sort = models.IntegerField(null=False,blank=False,default=100)
+    step_sort = models.IntegerField('1=pre_sqlenv,100=post_reg,101=assertion',null=False,blank=False,default=100)
     step_content = models.CharField(null=False,blank=False,max_length=1000)
     step_create_time = models.DateTimeField(null=True, blank=True, default=timezone.now)
     step_update_time = models.DateTimeField(null=True, blank=True)

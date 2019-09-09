@@ -35,6 +35,8 @@
             $("#project"+pid).addClass("layui-nav-itemed");
             $("#project"+pid+" .env").addClass("layui-this");
 
+            var content = '<i class="layui-icon">&#xe602;</i> 环境变量';
+            $("#switchNav").append(content);
             //渲染表格
             var envTable = table.render({//渲染table
                 method: 'post',//数据传输方式为post
@@ -52,11 +54,11 @@
                 cols: [[//设置列标签、标题、宽度、是否排序等
                     {type:'numbers'},
                     {type: 'checkbox'},
-                    {field: 'id', title: 'ID', width: 100, sort: true},
-                    {field: 'env_name', title: '变量名', width: 120,},
-                    {field: 'env_value', title: '变量值',},
-                    {field: 'env_desc', title: '描述',},
-                    {fixed: 'right', title:'操作', width: 200, toolbar: '#barEnv'},//设置每行的工具栏以及其容器
+                    {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+                    {field: 'env_name', title: '变量名', width: 120,align:'center'},
+                    {field: 'env_value', title: '变量值',align:'center'},
+                    {field: 'env_desc', title: '描述',align:'center'},
+                    {fixed: 'right', title:'操作', width: 200, toolbar: '#barEnv',align:'center'},//设置每行的工具栏以及其容器
                 ]],
             });
 

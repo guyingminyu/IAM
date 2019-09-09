@@ -37,6 +37,9 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
     $("#project"+pid).addClass("layui-nav-itemed");
     $("#project"+pid+" .case").addClass("layui-this");
 
+    var content = '<i class="layui-icon">&#xe602;</i> 用例管理' +
+        '<i class="layui-icon">&#xe602;</i> 添加接口';
+    $("#switchNav").append(content);
     //渲染表格
     var caseDetailTable = table.render({//渲染table
         method: 'get',//数据传输方式为post
@@ -55,11 +58,11 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl'], function () {
         cols: [[//设置列标签、标题、宽度、是否排序等
             {field: 'sort', title: '执行顺序',width:100,sort: true},
             {type: 'checkbox'},
-            {field: 'id', title: 'ID', width: 100, sort: true},
-            {field: 'api_name', title: '接口名称', width: 260,},
-            {field: 'api_path',title:'接口url',},
-            {field: 'case_api_update_time', title: '更新日期',width: 200,},
-            {fixed: 'right', title:'操作', width: 250, toolbar: '#barcaseDetail'},//设置每行的工具栏以及其容器
+            {field: 'id', title: 'ID', width: 100, sort: true,align:'center'},
+            {field: 'api_name', title: '接口名称', width: 260,align:'center'},
+            {field: 'api_path',title:'接口url',align:'center'},
+            {field: 'case_api_update_time', title: '更新日期',width: 200,align:'center'},
+            {fixed: 'right', title:'操作', width: 250, toolbar: '#barcaseDetail',align:'center'},//设置每行的工具栏以及其容器
         ]],
     });
     //监听工具条，全局
