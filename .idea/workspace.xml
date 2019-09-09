@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f665255-ab5c-4400-9bc2-34b8b9fcf5d2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/auto_login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/report-Detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/tResult.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/Public.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/reportView.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/taskView.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/task_run.py" afterPath="$PROJECT_DIR$/tools/task_run.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1508,7 +1501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567995005346</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="201909091009">
+      <created>1567995551285</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1567995551285</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
