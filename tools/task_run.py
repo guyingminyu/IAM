@@ -87,7 +87,7 @@ class RunTaskThread(threading.Thread):
                                                          status=acstatus,duration=duration,
                                                          create_time=time.strftime('%Y-%m-%d %H:%M:%S'),
                                                          task_log_id=task_log.id)
-                    self.logger.info("case_status:%s"%acstatus)
+                    self.logger.info("case_status:%s"%str(acresult))
                 except Exception as e:
                     # print(e)
                     TaskReportLog.objects.create(case=tc.get('id'),

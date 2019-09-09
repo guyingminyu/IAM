@@ -36,8 +36,9 @@
 {#        </p>#}
 {#    </div>#}
     <span class="layui-badge {% verbatim %}{{ d.last_task_result==1?'layui-bg-blue':d.last_task_result==2?'layui-bg-red':'layui-bg-gray' }}{% endverbatim %}"
-    style="align-self: center">
+    style="align-self: center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {% verbatim  %}{{ d.last_task_result==1?'成功':d.last_task_result==2?'失败':'未执行' }}{% endverbatim %}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </span>
     </script>
 

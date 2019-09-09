@@ -75,14 +75,14 @@ def testhtml(request,data):
     print(data)
     return render(request,'testf.html')
 
-def page_not_found(request):
-    return render(request, '404.html')
+def page_not_found(request, exception, template_name='404.html'):
+    return render(request, template_name)
 
-def page_error(request):
-    return render(request, '500.html')
+def page_error(request,template_name='500.html'):
+    return render(request, template_name)
 
-def permission_denied(request):
-    return render(request, '403.html')
+def permission_denied(request, exception, template_name='403.html'):
+    return render(request, template_name)
 
 def login(request):
     return render(request, "login.html")
