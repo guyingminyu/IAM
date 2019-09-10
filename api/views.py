@@ -1299,7 +1299,8 @@ def run_task(request):
     :return: 
     '''
     task_id = request.POST.get('id',0)
-    rt = task_run.RunTaskThread(task_id)
+    project_id = request.POST.get('project_id',0)
+    rt = task_run.RunTaskThread(task_id,project_id)
     rt.start()
     resultdict = {
         'code': 0,

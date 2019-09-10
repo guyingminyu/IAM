@@ -141,6 +141,7 @@ layui.use(['table', 'jquery', 'layer', 'form','laytpl','util'], function () {
             $.post(
                 '/run_task',
                 {id:task_id,
+                project_id:pid,
                 csrfmiddlewaretoken:csrftoken},
                 function (data) {
                     layer.msg('开始执行任务！',{icon:1,time:5000})

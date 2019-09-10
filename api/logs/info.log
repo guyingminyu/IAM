@@ -2382,3 +2382,57 @@ AttributeError: 'TaskLog' object has no attribute 'get'
 2019-09-09 10:02:40,902 - tools.log - INFO - ==================== thread=Thread-18,task=5,case=登陆失败 ====================
 2019-09-09 10:02:42,115 - tools.log - INFO - case_status:2
 2019-09-09 10:02:42,116 - tools.log - INFO - end_test:thread=Thread-18,task=5
+2019-09-10 11:15:31,751 - tools.log - INFO - start_test:thread=Thread-44,task=5
+2019-09-10 11:15:31,947 - tools.log - INFO - ==================== thread=Thread-44,task=5,case=test1 ====================
+2019-09-10 11:15:33,036 - tools.log - ERROR - 'str' object has no attribute 'items'
+2019-09-10 11:15:33,036 - tools.log - INFO - ==================== thread=Thread-44,task=5,case=登陆失败 ====================
+2019-09-10 11:15:34,060 - tools.log - ERROR - name 'qaxqhost' is not defined
+2019-09-10 11:15:34,061 - tools.log - INFO - end_test:thread=Thread-44,task=5
+2019-09-10 11:25:34,023 - tools.log - INFO - start_test:thread=Thread-7,task=5
+2019-09-10 11:25:34,158 - tools.log - INFO - ==================== thread=Thread-7,task=5,case=test1 ====================
+2019-09-10 11:25:35,185 - tools.log - ERROR - 'str' object has no attribute 'items'
+2019-09-10 11:25:35,186 - tools.log - INFO - ==================== thread=Thread-7,task=5,case=登陆失败 ====================
+2019-09-10 11:25:36,212 - tools.log - ERROR - name 'qaxqhost' is not defined
+2019-09-10 11:25:36,213 - tools.log - INFO - end_test:thread=Thread-7,task=5
+2019-09-10 11:27:19,505 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-10 11:27:19,611 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-10 11:27:20,732 - tools.log - ERROR - 'str' object has no attribute 'items'
+2019-09-10 11:27:20,733 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-10 11:27:21,774 - tools.log - ERROR - name 'qaxqhost' is not defined
+2019-09-10 11:27:21,774 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-10 11:28:19,653 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-10 11:28:19,783 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-10 11:28:20,827 - tools.log - ERROR - 'str' object has no attribute 'items'
+2019-09-10 11:28:20,827 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-10 11:28:21,887 - tools.log - ERROR - name 'qaxqhost' is not defined
+2019-09-10 11:28:21,887 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-10 11:29:34,275 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-10 11:29:34,404 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-10 11:29:35,446 - tools.log - ERROR - invalid syntax (<string>, line 1)
+2019-09-10 11:29:35,446 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-10 11:29:36,501 - tools.log - ERROR - name 'qaxqhost' is not defined
+2019-09-10 11:29:36,501 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-10 11:33:20,090 - tools.log - INFO - start_test:thread=Thread-16,task=5
+2019-09-10 11:33:20,294 - tools.log - INFO - ==================== thread=Thread-16,task=5,case=test1 ====================
+2019-09-10 11:33:21,955 - tools.log - INFO - case_status:{'code': 0, 'msg': 'success!'}
+2019-09-10 11:33:21,955 - tools.log - INFO - ==================== thread=Thread-16,task=5,case=登陆失败 ====================
+2019-09-10 11:33:23,281 - tools.log - INFO - case_status:{'code': 201, 'msg': '断言失败，"{"code":10011,"msg":"账号不存在","data":null}"不包含"access_token"！'}
+2019-09-10 11:33:23,281 - tools.log - INFO - end_test:thread=Thread-16,task=5
+2019-09-10 11:37:30,660 - tools.log - INFO - start_test:thread=Thread-5,task=5
+2019-09-10 11:37:30,794 - tools.log - INFO - ==================== thread=Thread-5,task=5,case=test1 ====================
+2019-09-10 11:37:32,154 - tools.log - INFO - case_status:{'code': 0, 'msg': 'success!'}
+2019-09-10 11:37:32,154 - tools.log - INFO - ==================== thread=Thread-5,task=5,case=登陆失败 ====================
+2019-09-10 11:37:33,434 - tools.log - INFO - case_status:{'code': 201, 'msg': '断言失败，"{"code":10011,"msg":"账号不存在","data":null}"不包含"access_token"！'}
+2019-09-10 11:37:33,434 - tools.log - INFO - end_test:thread=Thread-5,task=5
+2019-09-10 11:39:41,272 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-10 11:39:41,549 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-10 11:39:42,983 - tools.log - INFO - case_status:{'code': 0, 'msg': 'success!'}
+2019-09-10 11:39:42,983 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-10 11:39:44,218 - tools.log - INFO - case_status:{'code': 201, 'msg': '断言失败，"{"code":10011,"msg":"账号不存在","data":null}"不包含"access_token"！'}
+2019-09-10 11:39:44,219 - tools.log - INFO - end_test:thread=Thread-3,task=5
+2019-09-10 11:42:18,290 - tools.log - INFO - start_test:thread=Thread-3,task=5
+2019-09-10 11:42:18,439 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=test1 ====================
+2019-09-10 11:42:19,831 - tools.log - INFO - case_status:{'code': 0, 'msg': 'success!'}
+2019-09-10 11:42:19,831 - tools.log - INFO - ==================== thread=Thread-3,task=5,case=登陆失败 ====================
+2019-09-10 11:42:21,061 - tools.log - INFO - case_status:{'code': 0, 'msg': 'success!'}
+2019-09-10 11:42:21,061 - tools.log - INFO - end_test:thread=Thread-3,task=5

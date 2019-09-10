@@ -15,9 +15,10 @@ from tools.aps import APS
 from tools import log
 
 class RunTaskThread(threading.Thread):
-    def __init__(self,task_id):
+    def __init__(self,task_id,project_id):
         threading.Thread.__init__(self)
         self.task_id = task_id
+        self.pid = project_id
         log.setup_logging()
         self.logger = log.get_logger()
 
@@ -44,15 +45,17 @@ class RunTaskThread(threading.Thread):
                     al = tc.get('case_apis_list')
                     for a in al:
                         time.sleep(1)
+                        # print(a)
                         if len(a.get('pre_steps'))>0:
                             for prs in a.get('pre_steps'):
                                 print(prs)
-                        url = a['case_api_info']['api_protocol'].lower() +'://'+a['case_api_info']['host']+'/'+\
-                              re.sub('^/+','',a['case_api_info']['api_path'])
-                        headers = a['case_api_info']['api_headers']
-                        params = a['case_api_info']['api_params']
-                        method = a['case_api_info']['api_method']
-                        # print(params)
+                        url = self.eval_variable(a['case_api_info']['api_protocol'].lower() +'://'+
+                                                 a['case_api_info']['host']+'/'+
+                                                 re.sub('^/+','',a['case_api_info']['api_path']))
+                        headers = self.eval_variable(a['case_api_info']['api_headers'])
+                        params = self.eval_variable(a['case_api_info']['api_params'])
+                        method = self.eval_variable(a['case_api_info']['api_method'])
+                        # print(type(params))
                         result = self.execute_api(url=url,heads=headers,params=params,method=method)
                         response_data = result.text
                         # print(response_data)
@@ -89,18 +92,18 @@ class RunTaskThread(threading.Thread):
                                                          task_log_id=task_log.id)
                     self.logger.info("case_status:%s"%str(acresult))
                 except Exception as e:
-                    # print(e)
-                    TaskReportLog.objects.create(case=tc.get('id'),
-                                                 response=str(e),
-                                                 status=3,
-                                                 create_time=time.strftime('%Y-%m-%d %H:%M:%S'),
-                                                 task_log_id=task_log.id)
+                    if tc.get('id'):
+                        TaskReportLog.objects.create(case=tc.get('id'),
+                                                     response=str(e),
+                                                     status=3,
+                                                     create_time=time.strftime('%Y-%m-%d %H:%M:%S'),
+                                                     task_log_id=task_log.id)
                     self.logger.error(e)
-                    continue
+                    # continue for循环里的try-except就不需要continue
             task_log_status = 1
         except Exception as e:
             self.logger.error(e)
-            task_log_status =2
+            task_log_status = 2
         finally:
             self.logger.info("end_test:thread=%s,task=%s" % (self.getName(), self.task_id))
             tend_time = int(time.time())
@@ -110,10 +113,12 @@ class RunTaskThread(threading.Thread):
 
     def execute_api(self,url, heads, params, method='POST', cookies=None, files=None):
         r = ''
+        heads = eval(heads)
+        params = eval(params)
         if method.upper() == 'POST':
             r = requests.request('post', url=url, headers=heads, data=params, cookies=cookies, files=files,timeout=30,verify=False)
         elif method.upper() == 'GET':
-            r = requests.request('get', url=url, headers=heads, data=params,timeout=30,verify=False)
+            r = requests.request('get', url=url, headers=heads, params=params,timeout=30,verify=False)
         return r
 
     def task_case_list(self):
@@ -126,9 +131,9 @@ class RunTaskThread(threading.Thread):
             for case_api in case_apis:
                 api_info = Api.objects.filter(id=case_api['api_id']).values('api_name', 'api_path', 'api_protocol',
                                                                             'api_method').first()
-                pre_steps = Step.objects.filter(CaseApi_id=case_api['api_id'], step_type='SQL').order_by('step_sort').values()
-                post_steps = Step.objects.filter(CaseApi_id=case_api['api_id'], step_type='REGEXP').order_by('step_sort').values()
-                assertion = Step.objects.filter(CaseApi_id=case_api['api_id'], step_type='Assertion').values().first()
+                pre_steps = Step.objects.filter(CaseApi_id=case_api['id'], step_type='SQL').order_by('step_sort').values()
+                post_steps = Step.objects.filter(CaseApi_id=case_api['id'], step_type='REGEXP').order_by('step_sort').values()
+                assertion = Step.objects.filter(CaseApi_id=case_api['id'], step_type='Assertion').values().first()
                 data = {}
                 case_api_info = api_info
                 case_api_info['api_headers'] = eval(case_api['api_headers'])
@@ -151,7 +156,22 @@ class RunTaskThread(threading.Thread):
         return task_case_list
 
     def eval_variable(self,key):
-        pass
+        '''
+        变量转换：环境变量及提取变量等
+        :param key: 
+        :return: 
+        '''
+        key = str(key)
+        results = re.findall(r'\$\{([A-Za-z0-9_\.]+?)\}',key)
+        if len(results)>0:
+            for i in results:
+                if i.startswith('env.'):
+                    en = i.replace('env.','')
+                    e = Env.objects.filter(project_id=self.pid,env_name=en).values('env_value').first()
+                    key = key.replace('${%s}'%i,str(e['env_value']))
+                else:
+                    key = key.replace('${%s}'%i,str(eval(i)))
+        return key
 
     def assert_case(self,type=1,ao=1,**kwargs):
         '''
