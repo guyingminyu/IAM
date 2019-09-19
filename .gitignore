@@ -3,3 +3,6 @@ requirements.txt
 tools/logconfig.json
 IAM/uwsgi.ini
 IAM/settings.py
+api/logs/__init__.py
+api/logs/errors.log
+api/logs/info.log

@@ -111,7 +111,7 @@ class RunTaskThread(threading.Thread):
             TaskLog.objects.filter(id=task_log.id).update(duration=tduration,task_result= task_log_status)
 
 
-    def execute_api(self,url, heads, params, method='POST', cookies=None, files=None):
+    def execute_api(self,url, heads, params, method='GET', cookies=None, files=None):
         r = ''
         heads = eval(heads)
         params = eval(params)
@@ -120,6 +120,9 @@ class RunTaskThread(threading.Thread):
         elif method.upper() == 'GET':
             r = requests.request('get', url=url, headers=heads, params=params,timeout=30,verify=False)
         return r
+
+    def execute_pre(self,):
+        pass
 
     def task_case_list(self):
         task_cases = TaskCase.objects.filter(task_id=self.task_id).values_list('case_id',flat=True)
@@ -179,7 +182,7 @@ class RunTaskThread(threading.Thread):
         :rtype: object
         :param type: 1=包含,2=相等,3=不包含,4=不相等
         :param ao: 1=响应数据,2=响应头,3=变量
-        :param kwargs: 
+        :param kwargs: response_data,response_headers,variable,assertion
         :return: 
         '''
         ao = int(ao)

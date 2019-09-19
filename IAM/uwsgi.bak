@@ -1,0 +1,28 @@
+[uwsgi]
+# Django-related settings
+socket = 127.0.0.1:9002
+# 项目绝对路径
+chdir          = /home/linux/TestDjangoProject
+# Django的wsgi文件相对路径
+wsgi-file      = TestDjangoProject/wsgi.py
+# process-related settings
+# master
+master          = True
+# 最大进程数，一般为cpu的个数
+processes      = 4
+# 线程数
+threads        = 2
+#设置此参数，有一个主进程
+master=True
+#守护进程的方式运行，log日志存在此log文件里
+daemonize=/var/log/uwsgi/TestDjangoProject.log
+#主进程id写入文件里
+pidfile= /var/log/nginx/uwsgi.pid
+# ... with appropriate permissions - may be needed
+# chmod-socket    = 664
+#退出时，清理环境
+vacuum          = True
+reload-mercy    = 10
+max-requests    = 5000
+limit-as        = 512
+buffer-size    = 30000
