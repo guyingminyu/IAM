@@ -44,3 +44,5 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver 0.0.0.0:8000
 ```
+### 9.linux上部署方法<br>
+https://www.jianshu.com/p/623a5793eb0a
