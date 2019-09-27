@@ -12,17 +12,15 @@
 ### 2.下载代码到本地并解压<br>
 ### 3.cmd到根目录下安装相关依赖包<br>
 ```bash
-pip install -r requirements.txt<br>
+pip install -r requirements.txt
 pip install https://github.com/darklow/django-suit/tarball/v2
 ```
 ### 4.安装mysql数据库，配置数据库连接，进入api_automation_test/settings.py<br>
 ```python
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE':'django.db.backends.mysql',     # 数据库类型，mysql
-        'NAME':'api_test',            #  database名
+        'NAME':'iam',            #  database名
         'USER':'root',               # 登录用户
         'PASSWORD':'123456',        #  登录用户名
         'HOST':'127.0.0.1',        # 数据库地址
