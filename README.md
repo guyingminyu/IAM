@@ -15,7 +15,7 @@
 pip install -r requirements.txt
 pip install https://github.com/darklow/django-suit/tarball/v2
 ```
-### 4.安装mysql数据库，配置数据库连接，进入api_automation_test/settings.py<br>
+### 4.安装mysql数据库，配置数据库连接，进入IAM/settings.py<br>
 ```python
 DATABASES = {
     'default': {
