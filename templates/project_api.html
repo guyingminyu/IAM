@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% block content %}
+    <!--工具栏(全局)-->
+    <div class="apiTools">
+        搜索：
+        <div class="layui-inline">
+        <input class="layui-input" name="id" id="apiSearch" placeholder="接口名" autocomplete="off">
+        </div>
+        <button class="layui-btn" data-type="apiSearch">搜索</button>
+        <div id="project-api-tool" class="layui-btn-group">
+        <button class="layui-btn" data-type="apiAdd">新增接口</button>
+        </div>
+    </div>
+
+    <!--表格展示-->
+    <table id="project-api-table" lay-filter="data-table"></table>
+
+    <!--工具栏(每行)-->
+    <script type="text/html" id="barapi">
+        <a class="layui-btn layui-btn-primary layui-btn-xs"  lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="test">测试</a>
+    </script>
+    <script type="text/html" id="progress-bar">
+        <div class="layui-progress layui-progress-big" style="top:17%" lay-showpercent="true">
+            <div class="layui-progress-bar {% verbatim %}{{ d.isAll==1?'layui-bg-blue':'layui-bg-red' }}{% endverbatim %}"  lay-percent="{% verbatim %}{{ d.ratio }}{% endverbatim %}"></div>
+        </div>
+    </script>
+
+    <script type="text/javascript" src="/static/js/apiTable.js"></script>
+    <script id="addfield" type="text/html">
+        <tr>
+            <td>
+                <input type="text" name="header_key" placeholder="Key" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="header_value" placeholder="Value" class="layui-input">
+            </td>
+            <td>
+                <a href="javascript:;" class="delete">
+                    <i class="layui-icon">&#x1006;</i>
+                </a>
+            </td>
+        </tr>
+    </script>
+    <script id="addparamfield" type="text/html">
+        <tr>
+            <td>
+                <input type="text" name="param_name" placeholder="Name" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="param_desc" placeholder="Desc" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="param_default" placeholder="Default" class="layui-input">
+            </td>
+            <td>
+                <select id="project-api-add-param_type" name="param_type" >
+                    <option value="string">string</option>
+                    <option value="int">int</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" name="param_must" title="" lay-skin="primary" checked>
+            </td>
+            <td>
+                <a href="javascript:;" class="delete">
+                <i class="layui-icon">&#x1006;</i>
+                </a>
+            </td>
+        </tr>
+    </script>
+
+{% endblock %}

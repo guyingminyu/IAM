@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% block content %}
+    <!--工具栏(全局)-->
+    <div class="taskTools">
+        搜索：
+        <div class="layui-inline">
+        <input class="layui-input" name="id" id="taskSearch" placeholder="任务名" autocomplete="off">
+        </div>
+        <button class="layui-btn" data-type="taskSearch">搜索</button>
+        <div id="project-task-tool" class="layui-btn-group">
+        <button class="layui-btn" data-type="taskAdd">新增任务</button>
+        </div>
+    </div>
+
+    <!--表格展示-->
+    <table id="project-task-table" lay-filter="data-table"></table>
+
+    <!--工具栏(每行)-->
+    <script type="text/html" id="bartask">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" title="查看任务执行记录表" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" title="添加用例" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-normal layui-btn-xs" title="立即执行任务"
+           lay-event="test" {% verbatim %}{{d.task_status==1?"":"style='display:none'"}}{% endverbatim %}>执行</a>
+    </script>
+
+    <script type="text/html" id="switchstauts">
+        <input type="checkbox" name="on" lay-skin="switch" lay-event="status" value="{% verbatim  %}{{d.task_status}}{% endverbatim %}" lay-text="启用|停用" lay-filter="on" {% verbatim %}{{d.task_status==1?"checked":""}}{% endverbatim %}>
+    </script>
+
+    <script type="text/html" id="lastresultstatus">
+{#    <div class="layui-progress layui-progress-big" style="top:17%" lay-showpercent="true">#}
+{#        <p class="layui-progress-bar {% verbatim %}{{ d.last_task_result==1?'layui-bg-blue':'layui-bg-red' }}{% endverbatim %}"#}
+{#             lay-event="lastresultstatus" >#}
+{#            {% verbatim  %}{{ d.last_task_result==1?'成功':'失败' }}{% endverbatim %}#}
+{#        </p>#}
+{#    </div>#}
+    <span class="layui-badge {% verbatim %}{{ d.last_task_result==1?'layui-bg-blue':d.last_task_result==2?'layui-bg-red':'layui-bg-gray' }}{% endverbatim %}"
+    style="align-self: center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% verbatim  %}{{ d.last_task_result==1?'成功':d.last_task_result==2?'失败':'未执行' }}{% endverbatim %}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+    </script>
+
+    <script type="text/javascript" src="/static/js/taskTable.js"></script>
+    <script id="addfield" type="text/html">
+        <tr>
+            <td>
+                <input type="text" name="header_key" placeholder="Key" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="header_value" placeholder="Value" class="layui-input">
+            </td>
+            <td>
+                <a href="javascript:;" class="delete">
+                    <i class="layui-icon">&#x1006;</i>
+                </a>
+            </td>
+        </tr>
+    </script>
+    <script id="addparamfield" type="text/html">
+        <tr>
+            <td>
+                <input type="text" name="param_name" placeholder="Name" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="param_desc" placeholder="Desc" class="layui-input">
+            </td>
+            <td>
+                <input type="text" name="param_default" placeholder="Default" class="layui-input">
+            </td>
+            <td>
+                <select id="project-task-add-param_type" name="param_type" >
+                    <option value="string">string</option>
+                    <option value="int">int</option>
+                </select>
+            </td>
+            <td>
+                <input type="checkbox" name="param_must" title="" lay-skin="primary" checked>
+            </td>
+            <td>
+                <a href="javascript:;" class="delete">
+                <i class="layui-icon">&#x1006;</i>
+                </a>
+            </td>
+        </tr>
+    </script>
+
+{% endblock %}
